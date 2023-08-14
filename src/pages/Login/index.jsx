@@ -1,7 +1,7 @@
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useState } from 'react';
-import { Container, Content, Label } from './style';
+import { Container, Content, Label } from './styles';
 
 const Login = () => {
 
