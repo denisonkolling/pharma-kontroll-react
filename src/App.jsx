@@ -1,9 +1,13 @@
-import React from 'react'
+import GlobalStyle from './styles/global';
+import Login from './pages/Login';
 
 const App = () => {
-  return (
-    <h1>App</h1>
-  )
-}
+	return (
+		<>
+			<GlobalStyle />
+			<Login />
+		</>
+	);
+};
 
-export default App
+export default App;
