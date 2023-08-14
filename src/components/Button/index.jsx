@@ -1,4 +1,4 @@
-import { ButtonStyled } from './style';
+import { ButtonStyled } from './styles';
 
 const Button = ({ Text, onClick, Type = 'button' }) => {
 	return (

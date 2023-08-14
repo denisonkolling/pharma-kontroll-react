@@ -6,4 +6,4 @@ const Stores = () => {
   )
 }
 
-export default StoreRegister
+export default Stores
