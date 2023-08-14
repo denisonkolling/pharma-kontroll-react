@@ -10,6 +10,8 @@ import Stores from './pages/Stores';
 import Navbar from './components/Navbar';
 
 const App = () => {
+
+ 
 	return (
 		<>
 			<GlobalStyle />

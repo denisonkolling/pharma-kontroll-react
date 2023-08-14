@@ -1,9 +1,13 @@
 import Button from '../../components/Button';
 import { Input } from './styles';
 import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { StoreContext } from '../../context/StoreContext';
 
 const Stores = () => {
+
+	const { AddStore } = useContext(StoreContext)
+
 	const [store, setStore] = useState({
 		cnpj: '',
 		razaoSocial: '',
@@ -29,7 +33,26 @@ const Stores = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(store);
+		AddStore(
+			store.cnpj,
+			store.razaoSocial,
+			store.nomeFantasia,
+			store.email,
+			store.telefone,
+			store.celular,
+			store.cep,
+			store.endereco,
+			store.numero,
+			store.bairro,
+			store.cidade,
+			store.estado,
+			store.complemento,
+			store.latitude,
+			store.longitude
+		);
+
+		localStorage.setItem(store, JSON.stringify(store));
+		//  setStore({name: '', laboratory: '', price: '',	});
 	};
 
 	return (
