@@ -1,9 +1,11 @@
-import React from 'react'
+import { Wrapper, Title } from './styles';
 
 const Maps = () => {
-  return (
-    <div>Mapas</div>
-  )
-}
+	return (
+		<Wrapper>
+			<Title>Mapas</Title>
+		</Wrapper>
+	);
+};
 
-export default Maps
+export default Maps;

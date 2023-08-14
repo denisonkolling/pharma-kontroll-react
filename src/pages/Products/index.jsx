@@ -1,9 +1,11 @@
-import React from 'react'
+import { Title, Wrapper } from "./styles";
 
 const Products = () => {
-  return (
-    <div>Products</div>
-  )
-}
+	return (
+		<Wrapper>
+			<Title>Products</Title>
+		</Wrapper>
+	);
+};
 
-export default Products
+export default Products;

@@ -1,13 +1,12 @@
 import React from 'react';
-import { Title } from './styles';
+import { Title, Wrapper } from './styles';
 import Navbar from '../../components/Navbar';
 
 const Home = () => {
 	return (
-		<>
+		<Wrapper>
 			<Title>Home Page</Title>
-			<a href="#">Login</a>
-		</>
+		</Wrapper>
 	);
 };
 
