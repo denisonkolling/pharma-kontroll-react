@@ -1,5 +1,6 @@
 import React from 'react';
 import { Title } from './styles';
+import Navbar from '../../components/Navbar';
 
 const Home = () => {
 	return (
