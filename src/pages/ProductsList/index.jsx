@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
-import ProductCard from '../../components/Card';
+import ProductCard from '../../components/ProductCard';
 import { Title, Wrapper } from './styles';
 
 const ProductsList = () => {
