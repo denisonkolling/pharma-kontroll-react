@@ -2,10 +2,10 @@ import Button from '../../components/Button';
 import { Input } from './styles';
 import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
 import { useState, useContext } from 'react';
-// import { ProductContext } from '../../context/ProductContext';
+import { ProductContext } from '../../context/ProductContext';
 
 const Products = () => {
-	// const { AddProduct } = useContext(ProductContext);
+	const { AddProduct } = useContext(ProductContext);
 
 	const [product, setProduct] = useState({
 		nome: '',
@@ -24,17 +24,26 @@ const Products = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		// AddProduct(
-		// 	product.nome.
-		// 	product.laboratorio,
-		// 	product.dosagem,
-		// 	product.descricao,
-		// 	product.preco,
-		// 	product.tipo,
-		// );
+		if (
+			product.nome.length == '' ||
+			product.laboratorio.length == '' ||
+			product.dosagem == '' ||
+			product.tipo === 'selecione' ||
+			product.tipo == ''
+		) {
+			alert('Preencha todas as informações para cadastrar corretamente');
+			return;
+		}
+		AddProduct(
+			product.nome,
+			product.laboratorio,
+			product.dosagem,
+			product.descricao,
+			product.preco,
+			product.tipo
+		);
 
-		// localStorage.setItem(product, JSON.stringify(product));
-		// cleanForm();
+		cleanForm();
 	};
 
 	function cleanForm() {
@@ -57,7 +66,6 @@ const Products = () => {
 						<Label>Nome</Label>
 						<Input
 							required
-							minLength={14}
 							type="text"
 							onChange={handleChange}
 							name="nome"
@@ -83,7 +91,6 @@ const Products = () => {
 					<Row>
 						<Label>Descrição</Label>
 						<Input
-							required
 							type="text"
 							onChange={handleChange}
 							name="descricao"
@@ -91,19 +98,18 @@ const Products = () => {
 						/>
 						<Label>Preço</Label>
 						<Input
+							required
 							type="number"
 							onChange={handleChange}
 							name="preco"
 							value={product.preco}
 						/>
-						<Label>Tipo</Label>
-						<Input
-							required
-							type="text"
-							onChange={handleChange}
-							name="tipo"
-							value={product.tipo}
-						/>
+						<Label htmlFor="tipo">Tipo</Label>
+						<select name="tipo" onChange={handleChange}>
+							<option value="selecione"> -- Selecione -- </option>
+							<option value="controlado">Controlado</option>
+							<option value="comum">Comum</option>
+						</select>
 					</Row>
 					<Buttons>
 						<Button Text="Salvar" Type="Submit"></Button>
