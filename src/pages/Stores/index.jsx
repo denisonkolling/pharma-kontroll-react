@@ -52,7 +52,7 @@ const Stores = () => {
 		);
 
 		localStorage.setItem(store, JSON.stringify(store));
-		// cleanForm();
+		cleanForm();
 	};
 
 	async function findAddress(e) {
