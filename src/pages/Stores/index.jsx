@@ -3,10 +3,10 @@ import { Input } from './styles';
 import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
 import { useState, useContext } from 'react';
 import { StoreContext } from '../../context/StoreContext';
+import { api } from '../../services/api';
 
 const Stores = () => {
-
-	const { AddStore } = useContext(StoreContext)
+	const { AddStore } = useContext(StoreContext);
 
 	const [store, setStore] = useState({
 		cnpj: '',
@@ -20,7 +20,7 @@ const Stores = () => {
 		numero: '',
 		bairro: '',
 		cidade: '',
-		estado: '',
+		uf: '',
 		complemento: '',
 		latitude: '',
 		longitude: '',
@@ -45,15 +45,56 @@ const Stores = () => {
 			store.numero,
 			store.bairro,
 			store.cidade,
-			store.estado,
+			store.uf,
 			store.complemento,
 			store.latitude,
 			store.longitude
 		);
 
 		localStorage.setItem(store, JSON.stringify(store));
-		//  setStore({name: '', laboratory: '', price: '',	});
+		// cleanForm();
 	};
+
+	async function findAddress(e) {
+		try {
+			const cep = e.target.value.replace(/\D/g, '');
+
+			const { data } = await api.get(`/${cep}/json/`);
+
+			setStore((store) => ({
+				...store,
+				endereco: data.logradouro,
+				bairro: data.bairro,
+				cidade: data.localidade,
+				uf: data.uf,
+			}));
+
+			if (data.erro) alert('CEP não encontrado! Tente novamente!');
+		} catch (error) {
+			alert('Estamos com problemas! Tente novamente!' + error);
+		}
+		return;
+	}
+
+	function cleanForm() {
+		setStore({
+			cnpj: '',
+			razaoSocial: '',
+			nomeFantasia: '',
+			email: '',
+			telefone: '',
+			celular: '',
+			cep: '',
+			endereco: '',
+			numero: '',
+			bairro: '',
+			cidade: '',
+			uf: '',
+			complemento: '',
+			latitude: '',
+			longitude: '',
+		});
+	}
 
 	return (
 		<Wrapper>
@@ -63,13 +104,16 @@ const Stores = () => {
 					<Row>
 						<Label>CNPJ</Label>
 						<Input
-							type="number"
+							required
+							minLength={14}
+							type="text"
 							onChange={handleChange}
 							name="cnpj"
 							value={store.cnpj}
 						/>
 						<Label>Razão Social</Label>
 						<Input
+							required
 							type="text"
 							onChange={handleChange}
 							name="razaoSocial"
@@ -77,6 +121,7 @@ const Stores = () => {
 						/>
 						<Label>Nome Fantasia</Label>
 						<Input
+							required
 							type="text"
 							onChange={handleChange}
 							name="nomeFantasia"
@@ -86,6 +131,7 @@ const Stores = () => {
 					<Row>
 						<Label>E-mail</Label>
 						<Input
+							required
 							type="email"
 							onChange={handleChange}
 							name="email"
@@ -100,6 +146,7 @@ const Stores = () => {
 						/>
 						<Label>Celular</Label>
 						<Input
+							required
 							type="number"
 							onChange={handleChange}
 							name="celular"
@@ -110,13 +157,16 @@ const Stores = () => {
 					<Row>
 						<Label>CEP</Label>
 						<Input
-							type="number"
+							required
+							type="text"
 							onChange={handleChange}
 							name="cep"
 							value={store.cep}
+							onBlur={findAddress}
 						/>
 						<Label>Endereço</Label>
 						<Input
+							required
 							type="text"
 							onChange={handleChange}
 							name="endereco"
@@ -124,6 +174,7 @@ const Stores = () => {
 						/>
 						<Label>Número</Label>
 						<Input
+							required
 							type="number"
 							onChange={handleChange}
 							name="numero"
@@ -133,6 +184,7 @@ const Stores = () => {
 					<Row>
 						<Label>Bairro</Label>
 						<Input
+							required
 							type="text"
 							onChange={handleChange}
 							name="bairro"
@@ -140,6 +192,7 @@ const Stores = () => {
 						/>
 						<Label>Cidade</Label>
 						<Input
+							required
 							type="text"
 							onChange={handleChange}
 							name="cidade"
@@ -147,10 +200,11 @@ const Stores = () => {
 						/>
 						<Label>Estado</Label>
 						<Input
+							required
 							type="text"
 							onChange={handleChange}
-							name="estado"
-							value={store.estado}
+							name="uf"
+							value={store.uf}
 						/>
 					</Row>
 					<Row>
@@ -163,6 +217,7 @@ const Stores = () => {
 						/>
 						<Label>Latitude</Label>
 						<Input
+							required
 							type="text"
 							onChange={handleChange}
 							name="latitude"
@@ -170,6 +225,7 @@ const Stores = () => {
 						/>
 						<Label>Longitude</Label>
 						<Input
+							required
 							type="text"
 							onChange={handleChange}
 							name="longitude"

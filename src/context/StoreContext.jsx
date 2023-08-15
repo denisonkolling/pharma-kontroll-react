@@ -3,8 +3,9 @@ import { createContext, useState } from 'react';
 export const StoreContext = createContext();
 
 export const StoreContextProvider = ({ children }) => {
+  
 	const [listStore, setListStore] = useState(
-		JSON.parse(localStorage.getItem('listMedicine')) || []
+		JSON.parse(localStorage.getItem('stores_db')) || []
 	);
 
 	const AddStore = (
@@ -19,7 +20,7 @@ export const StoreContextProvider = ({ children }) => {
 		numero,
 		bairro,
 		cidade,
-		estado,
+		uf,
 		complemento,
 		latitude,
 		longitude,
@@ -42,13 +43,13 @@ export const StoreContextProvider = ({ children }) => {
 			numero,
 			bairro,
 			cidade,
-			estado,
+			uf,
 			complemento,
 			latitude,
 			longitude,
 		};
 		const newListStore = [...listStore, newStore];
-		localStorage.setItem('listStore', JSON.stringify(newListStore));
+		localStorage.setItem('stores_db', JSON.stringify(newListStore));
 		setListStore(newListStore);
 		console.log(newListStore);
 		alert('Farmácia adicionada com sucesso!');
