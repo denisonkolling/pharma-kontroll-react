@@ -1,5 +1,5 @@
 import Button from '../../components/Button';
-import { Input } from './styles';
+import { Input, TextArea } from './styles';
 import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
 import { useState, useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
@@ -60,7 +60,7 @@ const Products = () => {
 	return (
 		<Wrapper>
 			<Content>
-				<Title>Cadastro de Produtos</Title>
+				<Title>Cadastro de Medicamento</Title>
 				<Form onSubmit={(e) => handleSubmit(e)}>
 					<Row>
 						<Label>Nome</Label>
@@ -89,13 +89,6 @@ const Products = () => {
 						/>
 					</Row>
 					<Row>
-						<Label>Descrição</Label>
-						<Input
-							type="text"
-							onChange={handleChange}
-							name="descricao"
-							value={product.descricao}
-						/>
 						<Label>Preço</Label>
 						<Input
 							required
@@ -111,6 +104,16 @@ const Products = () => {
 							<option value="comum">Comum</option>
 						</select>
 					</Row>
+					<Row>
+						<Label>Descrição</Label>
+						<TextArea
+							type="text"
+							onChange={handleChange}
+							name="descricao"
+							value={product.descricao}
+						/>
+						</Row>
+						
 					<Buttons>
 						<Button Text="Salvar" Type="Submit"></Button>
 					</Buttons>

@@ -74,3 +74,12 @@ export const Input = styled.input`
   background-color: #f0f2f5;
   border: none;
 `;
+
+export const TextArea = styled.textarea`
+width: 100%;
+height: 200px;
+padding: 10px;
+margin-top: 25px;
+font-size: 16px;
+
+`
