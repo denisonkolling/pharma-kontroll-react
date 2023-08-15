@@ -7,10 +7,11 @@ import Modal from '../../components/Modal';
 const ProductsList = () => {
 	const { listProducts } = useContext(ProductContext);
 	const [modalOpened, setModalOpened] = useState(false);
-	const [productId, setProductId] = useState(null);
+	const [productId, setProductId] = useState('');
 
 	function handleOpenModal(id) {
-		setProductId(id);
+		const productSelected = listProducts.filter((item) => item.id === id);
+		setProductId(productSelected);
 		setModalOpened(true);
 	}
 
@@ -24,15 +25,16 @@ const ProductsList = () => {
 				/>
 			))}
 
-			<Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
-				<>
-					<h5>{listProducts[0].nome}</h5>
-					<p>{listProducts[0].laboratorio}</p>
-					<p>{listProducts[0].dosagem}</p>
-					<p>{listProducts[0].descricao}</p>
-					<p>{listProducts[0].preco}</p>
-					<p>{listProducts[0].tipo}</p>
-				</>
+			<Modal
+				open={modalOpened}
+				onClose={() => setModalOpened(!modalOpened)}
+				product={productId}>
+				<h3>{productId[0]?.nome}</h3>
+				<h5>{productId[0]?.laboratorio}</h5>
+				<p>{productId[0]?.descricao}</p>
+				<span>{productId[0]?.dosagem}</span>
+				<span>R$ {productId[0]?.preco}</span>
+				<span>{productId[0]?.tipo}</span>
 			</Modal>
 		</Wrapper>
 	);
