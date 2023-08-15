@@ -1,14 +1,15 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
-	width: 100%;
-	height: 90%;
 	display: flex;
-  align-items: center;
-  justify-content: center;
-`
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	margin: 50px 0;
+`;
 
 export const Title = styled.h1`
-  color: black;
-  margin: 15px;;
-`
+	color: black;
+	margin: 15px;
+`;

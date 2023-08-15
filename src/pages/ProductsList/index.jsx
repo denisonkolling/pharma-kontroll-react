@@ -1,9 +1,16 @@
+import { useContext } from 'react';
+import { ProductContext } from '../../context/ProductContext';
+import ProductCard from '../../components/ProductCard';
 import { Title, Wrapper } from './styles';
 
 const ProductsList = () => {
+	const { listProducts } = useContext(ProductContext);
+
 	return (
 		<Wrapper>
-			<Title>ProductsList</Title>
+			{listProducts.map((product, index) => (
+				<ProductCard key={index} product={product} />
+			))}
 		</Wrapper>
 	);
 };
