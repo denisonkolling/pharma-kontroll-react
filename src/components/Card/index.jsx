@@ -1,26 +1,25 @@
-import { Wrapper, CardTitle, Gallery, Content, Img, CardText, CardPrice, CardButton } from "./styles";
+import {
+	CardTitle,
+	Content,
+	Img,
+	CardText,
+	CardPrice,
+	CardButton,
+} from './styles';
+import image from '../../assets/product.png';
 
-const Card = () => {
+const ProductCard = ({ product }) => {
 	return (
 		<>
-			<Wrapper>
-				<Gallery>
-					<Content>
-						<Img src="./assets/xbox.jpg" alt="" />
-						<CardTitle>Video Game</CardTitle>
-						<CardText>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-							expedita obcaecati error sint dignissimos possimus distinctio fuga
-							quia molestias!
-						</CardText>
-						<CardPrice>R$ 1.399.99</CardPrice>
-
-						<CardButton>Compre agora!</CardButton>
-					</Content>
-				</Gallery>
-			</Wrapper>
+		
+				<Content>
+					<Img src={image} alt="" />
+					<CardTitle>{product.nome}</CardTitle>
+					<CardText>{product.laboratorio}</CardText>
+				</Content>
+			
 		</>
 	);
 };
 
-export default Card;
+export default ProductCard;
