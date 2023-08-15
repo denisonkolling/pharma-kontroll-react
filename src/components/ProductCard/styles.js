@@ -6,7 +6,7 @@ export const CardTitle = styled.h3`
 	padding-top: 10px;
 `;
 
-export const Content = styled.div`
+export const Product = styled.div`
 	width: 215px;
 	margin: 15px;
 	box-sizing: border-box;

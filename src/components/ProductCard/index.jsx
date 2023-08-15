@@ -1,21 +1,19 @@
 import {
 	CardTitle,
-	Content,
+	Product,
 	Img,
 	CardText,
-	CardPrice,
-	CardButton,
 } from './styles';
 import image from '../../assets/product.png';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onClick }) => {
 	return (
 		<>
-			<Content>
+			<Product onClick={onClick}>
 				<Img src={image} alt="" />
 				<CardTitle>{product.nome}</CardTitle>
 				<CardText>{product.laboratorio}</CardText>
-			</Content>
+			</Product>
 		</>
 	);
 };

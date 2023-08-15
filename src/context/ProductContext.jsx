@@ -7,15 +7,7 @@ export const ProductContextProvider = ({ children }) => {
 		JSON.parse(localStorage.getItem('products_db')) || []
 	);
 
-	const AddProduct = (
-		nome,
-		laboratorio,
-		dosagem,
-		descricao,
-		preco,
-		tipo
-	) => {
-		
+	const AddProduct = (nome, laboratorio, dosagem, descricao, preco, tipo) => {
 		const newProduct = {
 			id: listProducts.length + 1,
 			nome,
@@ -25,6 +17,7 @@ export const ProductContextProvider = ({ children }) => {
 			preco,
 			tipo,
 		};
+
 		const newListProducts = [...listProducts, newProduct];
 		localStorage.setItem('products_db', JSON.stringify(newListProducts));
 		setListProducts(newListProducts);

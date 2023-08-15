@@ -3,7 +3,6 @@ import { createContext, useState } from 'react';
 export const StoreContext = createContext();
 
 export const StoreContextProvider = ({ children }) => {
-  
 	const [listStore, setListStore] = useState(
 		JSON.parse(localStorage.getItem('stores_db')) || []
 	);
@@ -23,7 +22,7 @@ export const StoreContextProvider = ({ children }) => {
 		uf,
 		complemento,
 		latitude,
-		longitude,
+		longitude
 	) => {
 		if (cnpj.length == '' || razaoSocial.length == '' || email == '') {
 			alert('Preencha todas as informações para cadastrar corretamente');
@@ -56,8 +55,7 @@ export const StoreContextProvider = ({ children }) => {
 	};
 
 	return (
-		<StoreContext.Provider
-			value={{ listStore, AddStore}}>
+		<StoreContext.Provider value={{ listStore, AddStore }}>
 			{children}
 		</StoreContext.Provider>
 	);
