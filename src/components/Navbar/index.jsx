@@ -18,11 +18,12 @@ const Navbar = () => {
 					<NavbarLinkContainer>
 						<NavbarLink to="/home">Home</NavbarLink>
 						<NavbarLink to="/login">Login</NavbarLink>
-						<NavbarLink to="/mapa">Maps</NavbarLink>
-						<NavbarLink to="/produtos">Cadastro Produtos</NavbarLink>
-						<NavbarLink to="/listaDeProdutos">Lista de Produtos</NavbarLink>
-						<NavbarLink to="/detalhesDeProdutos">Detalhes de Produtos</NavbarLink>
 						<NavbarLink to="/farmacias">Cadastro de Farmácias</NavbarLink>
+						<NavbarLink to="/produtos">Cadastro Medicamentos</NavbarLink>
+						<NavbarLink to="/mapaFarmacias">Mapa de Farmácias</NavbarLink>
+						<NavbarLink to="/listaDeProdutos">Lista de Medicamentos</NavbarLink>
+						<NavbarLink to="/detalhesDeProdutos">Detalhes de Medicamentos</NavbarLink>
+						<NavbarLink to="/detalhesFarmacias">Detalhes de Farmácias</NavbarLink>
 					</NavbarLinkContainer>
 				</LeftContainer>
 				<RightContainer>
