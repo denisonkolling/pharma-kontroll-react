@@ -50,7 +50,7 @@ export const StoreContextProvider = ({ children }) => {
 		const newListStore = [...listStore, newStore];
 		localStorage.setItem('stores_db', JSON.stringify(newListStore));
 		setListStore(newListStore);
-		console.log(newListStore);
+		
 		alert('Farmácia adicionada com sucesso!');
 	};
 
