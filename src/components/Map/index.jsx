@@ -10,18 +10,18 @@ const Map = ({ positions, center }) => {
 					href="https://www.openstreetmap.org/copyright">&nbsp;OpenStreetMap&nbsp;</a> contributors'
 			/>
 
-			{positions.map(({ lat, lon, address }, index) => {
+			{positions.map(({ endereco, cidade, uf, numero, bairro, cep, latitude, longitude }, index) => {
 				return (
-					<MarkerStyled position={[lat, lon]} key={index}>
+					<MarkerStyled position={[latitude, longitude]} key={index}>
 						<PopupStyled>
 							<p>
-								{address.street}, {address.numberStreet}
+								{endereco}, {numero}
 								<br />
-								Bairro {address.district}
+								Bairro {bairro}
 								<br />
-								{address.city},&nbsp;{address.uf}
+								{cidade},&nbsp;{uf}
 								<br />
-								CEP {address.zip}
+								CEP {cep}
 							</p>
 						</PopupStyled>
 					</MarkerStyled>

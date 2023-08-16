@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { PageUsersMain } from './styles';
 import Map from '../../components/Map';
-import { storesDetails } from '../../constants';
+import { StoreContext } from '../../context/StoreContext';
 
 const StoresMap = () => {
+
+	const { listStore } = useContext(StoreContext);
 	
 	const [stores, setStores] = useState();
 	const [loading, setLoading] = useState(false);
@@ -11,7 +13,7 @@ const StoresMap = () => {
 	useEffect(() => {
 		const load = async () => {
 			setLoading(true);
-			setStores(storesDetails);
+			setStores(listStore);
 			setLoading(false);
 		};
 		load();
@@ -24,19 +26,19 @@ const StoresMap = () => {
 	return (
 		<>
 			<PageUsersMain>
-				{stores.map(({ name, id, address, lat, lon }) => {
+				{stores.map(({ nomeFantasia, id, endereco, cidade}) => {
 					return (
 						<div key={id}>
 							<p>Loja {id}</p>
-							<p>{name}</p>
-							<p>{address.street}</p>
-							<p>{address.city}</p>
+							<p>{nomeFantasia}</p>
+							<p>{endereco}</p>
+							<p>{cidade}</p>
 						</div>
 					);
 				})}
 			<Map
 				positions={stores}
-				center={[stores[0].lat, stores[0].lon]}
+				center={[stores[0].latitude, stores[0].longitude]}
 			/>
 			</PageUsersMain>
 		</>
