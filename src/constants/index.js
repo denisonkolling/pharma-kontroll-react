@@ -115,11 +115,11 @@ export const storesDetails = [
 	{
 		id: 1,
 		name: 'Farmácia Preço Popular',
-		lat: -27.583124063105338, 
-		lon: -48.58071379009154,
+		lat: -27.58487,
+		lon: -48.58066,
 		address: {
-			zip: '88075-301',
-			street: 'Cel. Pedro Demoro',
+			zip: '88.075-301',
+			street: 'Rua Cel. Pedro Demoro',
 			numberStreet: '1665',
 			district: 'Estreito',
 			city: 'Florianópolis',
@@ -129,10 +129,10 @@ export const storesDetails = [
 	{
 		id: 2,
 		name: 'Drogaria Catarinense',
-		lat: -27.588750441159736, 
-		lon: -48.54706817294557,
+		lat: -27.5955,
+		lon: -48.55747,
 		address: {
-			zip: '88010-090',
+			zip: '88.010-090',
 			street: 'Rua Padre Roma',
 			numberStreet: '83',
 			district: 'Centro',
