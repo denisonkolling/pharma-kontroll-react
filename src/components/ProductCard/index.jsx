@@ -11,7 +11,7 @@ const ProductCard = ({ product, onClick }) => {
 		<>
 			<Product onClick={onClick}>
 				<Img src={image} alt="" />
-				<CardTitle>{product.nome}</CardTitle>
+				<CardTitle>{product.nome} - {product.dosagem}</CardTitle>
 				<CardText>{product.laboratorio}</CardText>
 			</Product>
 		</>

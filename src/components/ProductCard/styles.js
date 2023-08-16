@@ -1,8 +1,7 @@
 import { styled } from 'styled-components';
 
-export const CardTitle = styled.h3`
+export const CardTitle = styled.h4`
 	text-align: center;
-	margin: 0;
 	padding-top: 10px;
 `;
 
