@@ -110,3 +110,34 @@ export const produtosCadastrados = [
 		tipo: 'comum',
 	},
 ];
+
+export const storesDetails = [
+	{
+		id: 1,
+		name: 'Farmácia Preço Popular',
+		lat: -27.583124063105338, 
+		lon: -48.58071379009154,
+		address: {
+			zip: '88075-301',
+			street: 'Cel. Pedro Demoro',
+			numberStreet: '1665',
+			district: 'Estreito',
+			city: 'Florianópolis',
+			uf: 'SC',
+		},
+	},
+	{
+		id: 2,
+		name: 'Drogaria Catarinense',
+		lat: -27.588750441159736, 
+		lon: -48.54706817294557,
+		address: {
+			zip: '88010-090',
+			street: 'Rua Padre Roma',
+			numberStreet: '83',
+			district: 'Centro',
+			city: 'Florianópolis',
+			uf: 'SC',
+		},
+	},
+];
