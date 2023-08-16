@@ -4,9 +4,8 @@ import Map from '../../components/Map';
 import { StoreContext } from '../../context/StoreContext';
 
 const StoresMap = () => {
-
 	const { listStore } = useContext(StoreContext);
-	
+
 	const [stores, setStores] = useState();
 	const [loading, setLoading] = useState(false);
 
@@ -26,7 +25,7 @@ const StoresMap = () => {
 	return (
 		<>
 			<PageUsersMain>
-				{stores.map(({ nomeFantasia, id, endereco, cidade}) => {
+				{stores.map(({ nomeFantasia, id, endereco, cidade }) => {
 					return (
 						<div key={id}>
 							<p>Loja {id}</p>
@@ -36,10 +35,13 @@ const StoresMap = () => {
 						</div>
 					);
 				})}
-			<Map
-				positions={stores}
-				center={[stores[0].latitude, stores[0].longitude]}
-			/>
+
+			
+					<Map
+						positions={stores}
+						center={stores[0] ? [stores[0].latitude, stores[0].longitude] : [-27.5961,-48.5651]}
+					/>
+				
 			</PageUsersMain>
 		</>
 	);
