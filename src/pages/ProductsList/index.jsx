@@ -41,7 +41,6 @@ const ProductsList = () => {
 					/>
 					<StyledFontAwesomeIcon icon={faMagnifyingGlass} />
 				</InputWrapper>
-				//TODO Desenvolver botao de filtro por valor e tipo
 				{/* <button onClick={priceSort}>Ordenar por preço</button> */}
 			</Header>
 			<Wrapper>

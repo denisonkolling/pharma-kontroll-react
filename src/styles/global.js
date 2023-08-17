@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 body {
   width: 100vw;
   height: 100vh;
-  background-color: #FFFFFF;
+  background-color: #E5E4E2;
   font-family: Arial, Helvetica, sans-serif;
 }
 
