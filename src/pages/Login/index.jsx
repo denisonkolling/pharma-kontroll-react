@@ -4,22 +4,53 @@ import { useState } from 'react';
 import { Container, Content, Label } from './styles';
 
 const Login = () => {
-
 	const [email, setEmail] = useState('');
-	const [senha, setSenha] = useState('');
-  
+	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
+
+	const checkEmail = (email) => {
+		const regex =
+			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return regex.test(email);
+	};
+
+	const checkPassword = (password) => {
+		const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8}$/;
+		return regex.test(password);
+	};
+
+	const handleLogin = () => {
+		if (!checkEmail(email)) {
+			setError('Preencha email corretamente');
+			return;
+		}
+		if (!checkPassword(password)) {
+			setError('Senha deve conter 8 números e letras');
+			return;
+		}
+		setError('Email e senha válidos!');
+		return;
+	};
+
 	return (
 		<Container>
 			<Label>Bem-vindo(a) ao Medication Management</Label>
+			<span>Faça o login para acessar sua conta</span>
 			<Content>
-				<Input type="email" value={email} placeholder="Entre com seu email..." onChange={(e)=>setEmail(e.target.value)} />
 				<Input
-					type="senha"
-					value={senha}
-					placeholder="Entre com sua senha..."
-          onChange={(e)=>setSenha(e.target.value)}
+					type="email"
+					value={email}
+					placeholder="Entre com seu email..."
+					onChange={(e) => [setEmail(e.target.value), setError('')]}
 				/>
-				<Button Text="Entrar"></Button>
+				<Input
+					type="password"
+					value={password}
+					placeholder="Entre com sua senha..."
+					onChange={(e) => [setPassword(e.target.value), setError('')]}
+				/>
+				<Button Text="Entrar" onClick={handleLogin}></Button>
+				<span>{error}</span>
 			</Content>
 		</Container>
 	);
