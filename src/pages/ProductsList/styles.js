@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Input from '../../components/Input';
 
 export const Wrapper = styled.div`
 	display: flex;
@@ -8,22 +9,6 @@ export const Wrapper = styled.div`
 	justify-content: center;
 	align-items: center;
 	margin: 50px 0;
-`;
-
-export const Title = styled.h1`
-	color: black;
-	margin: 15px;
-`;
-
-export const SearchInput = styled.input`
-	margin-top: 2rem;
-	padding: 1rem 1.6rem;
-	border-radius: 0.8rem;
-	background-color: #ccc;
-	border: 0;
-	width: 100%;
-	color: white;
-	font-size: 1.6rem;
 `;
 
 export const InputWrapper = styled.div`
@@ -39,12 +24,13 @@ export const Header = styled.header`
 `;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-	color: white;
-	font-size: 1.5rem;
+	color: #757575;
+	font-size: 2rem;
 	cursor: pointer;
 	position: absolute;
 	right: 1.2rem;
-	bottom: 1.2rem;
+	bottom: 0.65rem;
 `;
+
 
 

@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react';
 import { ProductContext } from '../../context/ProductContext';
 import ProductCard from '../../components/ProductCard';
-import { Header, InputWrapper, SearchInput, Title, Wrapper, StyledFontAwesomeIcon } from './styles';
+import { Header, InputWrapper, Wrapper, StyledFontAwesomeIcon } from './styles';
 import Modal from '../../components/Modal';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import Input from '../../components/Input';
 
 const ProductsList = () => {
 	const { listProducts } = useContext(ProductContext);
@@ -23,22 +23,26 @@ const ProductsList = () => {
 	);
 
 	function priceSort() {
-	const sortedProducts = filteredProducts.sort(function(a,b) { return a.preco - b.preco});
-	console.log(sortedProducts)
+		const sortedProducts = filteredProducts.sort(function (a, b) {
+			return a.preco - b.preco;
+		});
+		console.log(sortedProducts);
 	}
 
 	return (
 		<>
 			<Header>
 				<InputWrapper>
-					<SearchInput
+					<Input
 						type="text"
 						value={search}
+						placeholder="Encontre um medicamento..."
 						onChange={(e) => setSearch(e.target.value)}
 					/>
-					<StyledFontAwesomeIcon icon={faMagnifyingGlass}/>
+					<StyledFontAwesomeIcon icon={faMagnifyingGlass} />
 				</InputWrapper>
-				<button onClick={priceSort}>Ordenar por preço</button>
+				//TODO Desenvolver botao de filtro por valor e tipo
+				{/* <button onClick={priceSort}>Ordenar por preço</button> */}
 			</Header>
 			<Wrapper>
 				<>
