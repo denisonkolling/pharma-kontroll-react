@@ -1,8 +1,10 @@
 import { useContext, useState } from 'react';
 import { ProductContext } from '../../context/ProductContext';
 import ProductCard from '../../components/ProductCard';
-import { Header, InputWrapper, SearchInput, Title, Wrapper } from './styles';
+import { Header, InputWrapper, SearchInput, Title, Wrapper, StyledFontAwesomeIcon } from './styles';
 import Modal from '../../components/Modal';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ProductsList = () => {
 	const { listProducts } = useContext(ProductContext);
@@ -34,6 +36,7 @@ const ProductsList = () => {
 						value={search}
 						onChange={(e) => setSearch(e.target.value)}
 					/>
+					<StyledFontAwesomeIcon icon={faMagnifyingGlass}/>
 				</InputWrapper>
 				<button onClick={priceSort}>Ordenar por preço</button>
 			</Header>

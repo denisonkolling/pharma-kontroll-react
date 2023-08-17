@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Wrapper = styled.div`
 	display: flex;
@@ -36,3 +37,14 @@ export const Header = styled.header`
 	max-width: 46rem;
 	margin: auto;
 `;
+
+export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+	color: white;
+	font-size: 1.5rem;
+	cursor: pointer;
+	position: absolute;
+	right: 1.2rem;
+	bottom: 1.2rem;
+`;
+
+
