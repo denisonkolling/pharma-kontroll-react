@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 	const { value, setValue } = useLocalStorage('user', {});
-	const [user, setUser] = useState({});
+	const [user, setUser] = useState(null);
 
 	useEffect(() => {
 		if (value) {
@@ -14,7 +14,8 @@ export const AuthProvider = ({ children }) => {
 	}, [setUser, value]);
 
 	const logout = () => {
-		setValue({});
+		setValue(null);
+		localStorage.removeItem('user');
 	};
 
 	const login = (email, password) => {
@@ -22,6 +23,7 @@ export const AuthProvider = ({ children }) => {
 
 		if (usersStorage.email === email && usersStorage.password === password) {
 			alert('bem vindo novamente');
+			setValue({email, password})
 			return;
 		} else {
 			alert('email e senha incorretos');
@@ -30,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	return (
-		<AuthContext.Provider value={{ value, setValue, user, logout, login }}>
+		<AuthContext.Provider value={{ value, setValue, user, logout, login, signed: user }}>
 			{children}
 		</AuthContext.Provider>
 	);

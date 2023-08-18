@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { storesDetails } from '../../constants';
 import Navbar from '../../components/Navbar';
 
-function StoresDetails() {
+const StoresDetails = () => {
 	const [storages, setStorages] = useState([]);
 	const [loading, setLoading] = useState(false);
 
@@ -46,4 +46,4 @@ function StoresDetails() {
 		</>
 	);
 }
-export { StoresDetails };
+export default StoresDetails;

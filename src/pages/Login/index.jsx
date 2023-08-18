@@ -2,13 +2,14 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useState,useContext } from 'react';
 import { Container, Content, Label, LabelError, LabelSignup, Strong } from './styles';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const navigate = useNavigate();
 
 	const { login } = useContext(AuthContext)
 
@@ -33,7 +34,7 @@ const Login = () => {
 			return;
 		}
 		login(email, password)
-		return;
+		navigate('/home');
 	};
 
 	return (

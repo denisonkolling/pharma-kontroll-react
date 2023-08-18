@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
 	NavbarContainer,
 	LeftContainer,
@@ -12,10 +12,18 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 
+
 const Navbar = () => {
 
 
 	const { logout } = useContext(AuthContext)
+	const navigate = useNavigate();
+
+	const handleLogout = () => {
+		logout();
+		navigate('/login');
+
+	}
 
 	return (
 		<NavbarContainer>
@@ -32,7 +40,7 @@ const Navbar = () => {
 					</NavbarLinkContainer>
 				</LeftContainer>
 				<RightContainer>
-					<button onClick={logout}>Logout</button>
+					<button onClick={handleLogout}>Logout</button>
 				</RightContainer>
 			</NavbarInnerContainer>
 			<NavbarExtendedContainer></NavbarExtendedContainer>

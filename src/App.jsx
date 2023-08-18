@@ -1,17 +1,20 @@
-
 import { AuthProvider } from './context/AuthContext';
 import RoutesApp from './routes';
 import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from './styles/global';
+import { StoreContextProvider } from './context/StoreContext.jsx';
+import { ProductContextProvider } from './context/ProductContext.jsx';
 
 const App = () => {
 	return (
-		<BrowserRouter>
-			<AuthProvider>
-			<GlobalStyle />
-				<RoutesApp />
-			</AuthProvider>
-		</BrowserRouter>
+		<ProductContextProvider>
+			<StoreContextProvider>
+				<AuthProvider>
+					<GlobalStyle />
+					<RoutesApp />
+				</AuthProvider>
+			</StoreContextProvider>
+		</ProductContextProvider>
 	);
 };
 
