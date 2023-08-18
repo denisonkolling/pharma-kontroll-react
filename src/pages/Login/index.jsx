@@ -1,13 +1,16 @@
 import Button from '../../components/Button';
 import Input from '../../components/Input';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { Container, Content, Label, LabelError, LabelSignup, Strong } from './styles';
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+
+	const { login } = useContext(AuthContext)
 
 	const checkEmail = (email) => {
 		const regex =
@@ -29,7 +32,7 @@ const Login = () => {
 			setError('Senha deve conter 8 números e letras');
 			return;
 		}
-		setError('Email e senha válidos!');
+		login(email, password)
 		return;
 	};
 

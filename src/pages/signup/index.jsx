@@ -26,7 +26,7 @@ const Signup = () => {
     }
     setValue({email, senha});
     alert("Usuário cadatrado com sucesso!");
-    navigate("/login");
+    navigate("/home");
   };
   
   

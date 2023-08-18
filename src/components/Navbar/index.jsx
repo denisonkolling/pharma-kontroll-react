@@ -8,16 +8,21 @@ import {
 	NavbarLinkContainer,
   NavbarLink,
 } from './styles';
-import React from 'react';
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+
 
 const Navbar = () => {
+
+
+	const { logout } = useContext(AuthContext)
+
 	return (
 		<NavbarContainer>
 			<NavbarInnerContainer>
 				<LeftContainer>
 					<NavbarLinkContainer>
 						<NavbarLink to="/home">Home</NavbarLink>
-						<NavbarLink to="/login">Login</NavbarLink>
 						<NavbarLink to="/farmacias">Cadastro de Farmácias</NavbarLink>
 						<NavbarLink to="/produtos">Cadastro Medicamentos</NavbarLink>
 						<NavbarLink to="/mapaFarmacias">Mapa de Farmácias</NavbarLink>
@@ -27,7 +32,7 @@ const Navbar = () => {
 					</NavbarLinkContainer>
 				</LeftContainer>
 				<RightContainer>
-					<NavbarLink href="/login">SAIR</NavbarLink>
+					<button onClick={logout}>Logout</button>
 				</RightContainer>
 			</NavbarInnerContainer>
 			<NavbarExtendedContainer></NavbarExtendedContainer>
