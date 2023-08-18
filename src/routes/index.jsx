@@ -7,8 +7,7 @@ const RoutesApp = () => {
     const { user } = useAuth()
 
     if (user?.email) {
-      return <PrivateRoutes/>,
-      <PublicRoutes/>
+      return <PrivateRoutes/>
     }
     return (
         <PublicRoutes/>

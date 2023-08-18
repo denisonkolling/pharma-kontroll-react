@@ -13,7 +13,6 @@ import { ProductContextProvider } from '../context/ProductContext.jsx';
 const PrivateRoutes = () => {
 	return (
 		<>
-			<Navbar />
 			<ProductContextProvider>
 				<StoreContextProvider>
 					<Routes>

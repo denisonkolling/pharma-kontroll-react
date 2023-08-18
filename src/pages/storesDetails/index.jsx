@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { PageStorageMain } from './styles';
 import { Link } from 'react-router-dom';
 import { storesDetails } from '../../constants';
+import Navbar from '../../components/Navbar';
 
 function StoresDetails() {
 	const [storages, setStorages] = useState([]);
@@ -22,6 +23,7 @@ function StoresDetails() {
 
 	return (
 		<>
+		<Navbar />
 			<PageStorageMain>
 				{storages.length > 0 ? (
 					storages.map(({ name, id, lat, lon }) => {

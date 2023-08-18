@@ -4,9 +4,12 @@ import Navbar from '../../components/Navbar';
 
 const Home = () => {
 	return (
-		<Wrapper>
-			<Title>Home Page</Title>
-		</Wrapper>
+		<>
+			<Navbar />
+			<Wrapper>
+				<Title>Home Page</Title>
+			</Wrapper>
+		</>
 	);
 };
 

@@ -5,6 +5,7 @@ import { Header, InputWrapper, Wrapper, StyledFontAwesomeIcon } from './styles';
 import Modal from '../../components/Modal';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Input from '../../components/Input';
+import Navbar from '../../components/Navbar';
 
 const ProductsList = () => {
 	const { listProducts } = useContext(ProductContext);
@@ -31,6 +32,7 @@ const ProductsList = () => {
 
 	return (
 		<>
+			<Navbar />
 			<Header>
 				<InputWrapper>
 					<Input
