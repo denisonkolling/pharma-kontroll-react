@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { PageUsersMain,Wrapper } from './styles';
+import { MapContainer, PageUsersMain,Wrapper } from './styles';
 import Map from '../../components/Map';
 import { StoreContext } from '../../context/StoreContext';
 import Sidebar from '../../components/Sidebar';
@@ -26,7 +26,7 @@ const StoresMap = () => {
 	return (
 		<Wrapper>
 		<Sidebar />
-			<PageUsersMain>
+			<MapContainer>
 				{stores.map(({ nomeFantasia, id, endereco, cidade }) => {
 					return (
 						<div key={id}>
@@ -44,7 +44,7 @@ const StoresMap = () => {
 						center={stores[0] ? [stores[0].latitude, stores[0].longitude] : [-27.5961,-48.5651]}
 					/>
 				
-			</PageUsersMain>
+			</MapContainer>
 		</Wrapper>
 	);
 };

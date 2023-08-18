@@ -6,7 +6,7 @@ display: flex;
 `
 
 
-export const PageUsersMain = styled.main`
+export const MapContainer = styled.main`
 	display: flex;
 	align-items: center;
 	justify-content: center;
