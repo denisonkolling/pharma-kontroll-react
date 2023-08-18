@@ -51,7 +51,6 @@ const Stores = () => {
 			store.longitude
 		);
 
-		localStorage.setItem(store, JSON.stringify(store));
 		cleanForm();
 	};
 

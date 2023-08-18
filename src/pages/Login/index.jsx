@@ -1,7 +1,8 @@
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useState } from 'react';
-import { Container, Content, Label } from './styles';
+import { Container, Content, Label, LabelError, LabelSignup, Strong } from './styles';
+import { Link } from "react-router-dom";
 
 const Login = () => {
 	const [email, setEmail] = useState('');
@@ -49,8 +50,14 @@ const Login = () => {
 					placeholder="Entre com sua senha..."
 					onChange={(e) => [setPassword(e.target.value), setError('')]}
 				/>
+				<LabelError>{error}</LabelError>
 				<Button Text="Entrar" onClick={handleLogin}></Button>
-				<span>{error}</span>
+			<LabelSignup>
+					Não tem uma conta?
+					<Strong>
+						<Link to="/signup">&nbsp;Registre-se</Link>
+					</Strong>
+				</LabelSignup>
 			</Content>
 		</Container>
 	);

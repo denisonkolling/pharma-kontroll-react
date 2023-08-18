@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+
+
 const useLocalStorage = (key, initialValue) => {
 	const storedValue = localStorage.getItem(key);
 
@@ -12,7 +14,7 @@ const useLocalStorage = (key, initialValue) => {
     setValue(newValue)
 	};
 
-	return [value, setValue];
+	return {value, setValue: updateValue};
 }
 
 export default useLocalStorage;
