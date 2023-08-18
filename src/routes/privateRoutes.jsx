@@ -1,4 +1,4 @@
-import GlobalStyle from '../styles/global';
+
 import Home from '../pages/home';
 import { Route, Routes } from 'react-router-dom';
 import Maps from '../pages/storesMap';
@@ -14,7 +14,7 @@ import { ProductContextProvider } from '../context/ProductContext.jsx';
 const PrivateRoutes = () => {
 	return (
 		<Routes>
-			<GlobalStyle />
+			
 			<Navbar />
 			<ProductContextProvider>
 				<StoreContextProvider>
