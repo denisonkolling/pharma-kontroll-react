@@ -1,4 +1,4 @@
-import Login from './pages/login';
+import Login from '../pages/login';
 import { Route, Routes } from 'react-router-dom';
 
 const PublicRoutes = () => {

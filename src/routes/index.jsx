@@ -1,6 +1,6 @@
-import { PublicRoutes } from "./publicRoutes"
-import { PrivateRoutes } from "./privateRoutes"
-import { useAuth } from "../hooks/useAuth"
+import PublicRoutes from "./publicRoutes"
+import PrivateRoutes from "./privateRoutes"
+import useAuth from "../hooks/useAuth"
 
 
 const RoutesApp = () => {
