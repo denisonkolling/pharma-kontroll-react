@@ -11,9 +11,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from '../pages/login';
 import Signup from '../pages/signup';
 
-const Private = ({ Item }) => {
-    const { user } = useAuth()
-    return user?.email ? <Item /> : <Login />
+const Private = ({ Page }) => {
+    const { signed } = useAuth()
+    return !!signed ? <Page /> : <Login />
 }
 
 const RoutesApp = () => {
@@ -21,13 +21,13 @@ const RoutesApp = () => {
     <BrowserRouter>
       <Fragment>
         <Routes>
-          <Route exact path="/home" element={<Private Item={Home}/>} />
-						<Route exact path="/produtos" element={<Private Item={Products}/>} />
-						<Route exact path="/listaDeProdutos" element={<Private Item={ProductsList}/>} />
-						<Route exact path="/detalhesDeProdutos" element={<Private Item={ProductsDetails}/>} />
-						<Route exact path="/farmacias" element={<Private Item={Stores}/>} />
-						<Route exact path="/detalhesFarmacias" element={<Private Item={StoresDetails}/>} />
-						<Route exact path="/mapaFarmacias" element={<Private Item={Maps}/>} />
+          <Route exact path="/home" element={<Private Page={Home}/>} />
+						<Route exact path="/produtos" element={<Private Page={Products}/>} />
+						<Route exact path="/listaDeProdutos" element={<Private Page={ProductsList}/>} />
+						<Route exact path="/detalhesDeProdutos" element={<Private Page={ProductsDetails}/>} />
+						<Route exact path="/farmacias" element={<Private Page={Stores}/>} />
+						<Route exact path="/detalhesFarmacias" element={<Private Page={StoresDetails}/>} />
+						<Route exact path="/mapaFarmacias" element={<Private Page={Maps}/>} />
           <Route path="/" element={<Login />} />
           <Route exact path="signup" element={<Signup />} />
           <Route path="*" element={<Login />} />

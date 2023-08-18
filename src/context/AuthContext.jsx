@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
 	const { value, setValue } = useLocalStorage('user', {});
 	const [user, setUser] = useState(null);
+	const [signed, setSigned] = useState()
 
 	useEffect(() => {
 		if (value) {
@@ -14,16 +15,18 @@ export const AuthProvider = ({ children }) => {
 	}, [setUser, value]);
 
 	const logout = () => {
-		setValue(null);
-		localStorage.removeItem('user');
+		setSigned()
 	};
 
 	const login = (email, password) => {
 		const usersStorage = JSON.parse(localStorage.getItem('user'));
 
+		if(!usersStorage){
+			alert('Email não cadastrado!')
+		}
 		if (usersStorage.email === email && usersStorage.password === password) {
 			alert('bem vindo novamente');
-			setValue({email, password})
+			setSigned({email, password})
 			return;
 		} else {
 			alert('email e senha incorretos');
@@ -32,7 +35,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	return (
-		<AuthContext.Provider value={{ value, setValue, user, logout, login, signed: user }}>
+		<AuthContext.Provider value={{ value, setValue, user, logout, login, signed }}>
 			{children}
 		</AuthContext.Provider>
 	);

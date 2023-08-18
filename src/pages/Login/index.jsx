@@ -33,7 +33,14 @@ const Login = () => {
 			setError('Senha deve conter 8 números e letras');
 			return;
 		}
-		login(email, password)
+
+		const res = login(email, password);
+
+		if (res) {
+			setError(res);
+			return;
+		}
+		
 		navigate('/home');
 	};
 
