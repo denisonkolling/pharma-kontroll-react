@@ -1,4 +1,11 @@
 import styled from 'styled-components';
+
+
+export const Wrapper = styled.div`
+display: flex;
+`
+
+
 export const PageUsersMain = styled.main`
 	display: flex;
 	align-items: center;

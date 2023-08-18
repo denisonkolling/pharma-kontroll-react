@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
-import { PageUsersMain } from './styles';
+import { PageUsersMain,Wrapper } from './styles';
 import Map from '../../components/Map';
 import { StoreContext } from '../../context/StoreContext';
-import Navbar from '../../components/Navbar';
+import Sidebar from '../../components/Sidebar';
 
 const StoresMap = () => {
 	const { listStore } = useContext(StoreContext);
@@ -24,8 +24,8 @@ const StoresMap = () => {
 	}
 
 	return (
-		<>
-		<Navbar />
+		<Wrapper>
+		<Sidebar />
 			<PageUsersMain>
 				{stores.map(({ nomeFantasia, id, endereco, cidade }) => {
 					return (
@@ -45,7 +45,7 @@ const StoresMap = () => {
 					/>
 				
 			</PageUsersMain>
-		</>
+		</Wrapper>
 	);
 };
 

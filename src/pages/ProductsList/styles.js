@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from '../../components/Input';
 
 export const Wrapper = styled.div`
+display: flex;
+`
+export const Gallery = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
