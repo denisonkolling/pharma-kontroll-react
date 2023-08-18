@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { PageUsersMain } from './styles';
 import Map from '../../components/Map';
 import { StoreContext } from '../../context/StoreContext';
+import Navbar from '../../components/Navbar';
 
 const StoresMap = () => {
 	const { listStore } = useContext(StoreContext);
@@ -24,6 +25,7 @@ const StoresMap = () => {
 
 	return (
 		<>
+		<Navbar />
 			<PageUsersMain>
 				{stores.map(({ nomeFantasia, id, endereco, cidade }) => {
 					return (

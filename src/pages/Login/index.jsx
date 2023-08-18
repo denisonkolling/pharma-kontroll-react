@@ -1,12 +1,17 @@
 import Button from '../../components/Button';
 import Input from '../../components/Input';
-import { useState } from 'react';
-import { Container, Content, Label } from './styles';
+import { useState,useContext } from 'react';
+import { Container, Content, Label, LabelError, LabelSignup, Strong } from './styles';
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const navigate = useNavigate();
+
+	const { login } = useContext(AuthContext)
 
 	const checkEmail = (email) => {
 		const regex =
@@ -28,8 +33,15 @@ const Login = () => {
 			setError('Senha deve conter 8 números e letras');
 			return;
 		}
-		setError('Email e senha válidos!');
-		return;
+
+		const res = login(email, password);
+
+		if (res) {
+			setError(res);
+			return;
+		}
+		
+		navigate('/home');
 	};
 
 	return (
@@ -49,8 +61,14 @@ const Login = () => {
 					placeholder="Entre com sua senha..."
 					onChange={(e) => [setPassword(e.target.value), setError('')]}
 				/>
+				<LabelError>{error}</LabelError>
 				<Button Text="Entrar" onClick={handleLogin}></Button>
-				<span>{error}</span>
+			<LabelSignup>
+					Não tem uma conta?
+					<Strong>
+						<Link to="/signup">&nbsp;Registre-se</Link>
+					</Strong>
+				</LabelSignup>
 			</Content>
 		</Container>
 	);

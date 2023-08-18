@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-gap: 10px;
-height: 100vh;
-`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 100vh;
+`;
 
 export const Content = styled.div`
   gap: 15px;
@@ -29,16 +29,7 @@ export const Label = styled.label`
   color: #676767;
 `;
 
-export const Strong = styled.strong`
-  cursor: pointer;
-
-  a {
-    text-decoration: none;
-    color: #676767;
-  }
-`;
-
-export const LabelSignup = styled.label`
+export const LabelSignin = styled.label`
   font-size: 16px;
   color: #676767;
 `;
@@ -46,4 +37,13 @@ export const LabelSignup = styled.label`
 export const LabelError = styled.label`
   font-size: 14px;
   color: red;
+`;
+
+export const Strong = styled.strong`
+  cursor: pointer;
+
+  a {
+    text-decoration: none;
+    color: #676767;
+  }
 `;
