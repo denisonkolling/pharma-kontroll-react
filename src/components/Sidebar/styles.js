@@ -2,9 +2,6 @@ import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// --accent-color: #fff;
-// --gradient-color: #FBFBFB;
-
 export const Body = styled.body`
 	display: flex;
 	flex-direction: column;

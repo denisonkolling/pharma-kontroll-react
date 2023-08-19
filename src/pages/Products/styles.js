@@ -3,18 +3,6 @@ import { styled } from 'styled-components';
 export const Wrapper = styled.div`
 display: flex;
 `
-
-export const FormWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	gap: 10px;
-	height: 100vh;
-	color: white;
-	background-color: white;
-`;
-
 export const Title = styled.h1`
 	color: black;
 	margin: 15px;
@@ -26,7 +14,6 @@ export const Content = styled.div`
 	padding: 20px;
 `
 
-
 export const Label = styled.label`
 	line-height: 18px;
 	font-size: 18px;
@@ -37,8 +24,6 @@ export const Label = styled.label`
 `;
 
 export const Form = styled.form`
-	gap: 10px;
-  width: 100%;
 `;
 
 export const Row = styled.div`

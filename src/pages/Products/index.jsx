@@ -1,6 +1,15 @@
 import Button from '../../components/Button';
 import { Container, Input, TextArea } from './styles';
-import { Form, Title, Wrapper, Label, Content, Row, Buttons, FormWrapper } from './styles';
+import {
+	Form,
+	Title,
+	Wrapper,
+	Label,
+	Content,
+	Row,
+	Buttons,
+	FormWrapper,
+} from './styles';
 import { useState, useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
 import Sidebar from '../../components/Sidebar';
@@ -62,7 +71,6 @@ const Products = () => {
 		<Wrapper>
 			<Sidebar />
 			<Container>
-			<Form>
 				<Content>
 					<Title>Cadastro de Medicamento</Title>
 					<Form onSubmit={(e) => handleSubmit(e)}>
@@ -123,7 +131,6 @@ const Products = () => {
 						</Buttons>
 					</Form>
 				</Content>
-			</Form>
 			</Container>
 		</Wrapper>
 	);

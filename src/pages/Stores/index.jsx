@@ -1,6 +1,6 @@
 import Button from '../../components/Button';
-import { Input } from './styles';
-import { Form, Title, Wrapper, FormWrapper, Label, Content, Row, Buttons } from './styles';
+import { Container, Input } from './styles';
+import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
 import { useState, useContext } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 import { api } from '../../services/api';
@@ -100,7 +100,7 @@ const Stores = () => {
 	return (
 		<Wrapper>
 			<Sidebar />
-			<FormWrapper>
+			<Container>
 				<Content>
 					<Title>Cadastro de Farmácia</Title>
 					<Form onSubmit={(e) => handleSubmit(e)}>
@@ -156,7 +156,7 @@ const Stores = () => {
 								value={store.celular}
 							/>
 						</Row>
-						<hr />
+						
 						<Row>
 							<Label>CEP</Label>
 							<Input
@@ -240,7 +240,7 @@ const Stores = () => {
 						</Buttons>
 					</Form>
 				</Content>
-			</FormWrapper>
+			</Container>
 		</Wrapper>
 	);
 };
