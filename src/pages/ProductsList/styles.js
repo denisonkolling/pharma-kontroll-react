@@ -4,6 +4,18 @@ import Input from '../../components/Input';
 
 export const Wrapper = styled.div`
 	display: flex;
+`;
+
+export const Container = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+`;
+
+export const Gallery = styled.div`
+	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
 	justify-content: center;
@@ -19,8 +31,8 @@ export const Header = styled.header`
 	text-align: center;
 	color: white;
 	padding: 3.2rem;
-	max-width: 46rem;
-	margin: auto;
+	width: 60%;
+	/* margin: auto; */
 `;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
@@ -31,6 +43,3 @@ export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 	right: 1.2rem;
 	bottom: 0.65rem;
 `;
-
-
-

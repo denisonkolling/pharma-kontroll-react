@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
-import { PageUsersMain } from './styles';
+import { Container, Content, Title, Wrapper } from './styles';
 import Map from '../../components/Map';
 import { StoreContext } from '../../context/StoreContext';
-import Navbar from '../../components/Navbar';
+import Sidebar from '../../components/Sidebar';
 
 const StoresMap = () => {
 	const { listStore } = useContext(StoreContext);
@@ -24,28 +24,22 @@ const StoresMap = () => {
 	}
 
 	return (
-		<>
-		<Navbar />
-			<PageUsersMain>
-				{stores.map(({ nomeFantasia, id, endereco, cidade }) => {
-					return (
-						<div key={id}>
-							<p>Loja {id}</p>
-							<p>{nomeFantasia}</p>
-							<p>{endereco}</p>
-							<p>{cidade}</p>
-						</div>
-					);
-				})}
-
-			
+		<Wrapper>
+			<Sidebar />
+			<Container>
+				<Content>
+					<Title>Nossas Lojas</Title>
 					<Map
 						positions={stores}
-						center={stores[0] ? [stores[0].latitude, stores[0].longitude] : [-27.5961,-48.5651]}
+						center={
+							stores[0]
+								? [stores[0].latitude, stores[0].longitude]
+								: [-27.5961, -48.5651]
+						}
 					/>
-				
-			</PageUsersMain>
-		</>
+				</Content>
+			</Container>
+		</Wrapper>
 	);
 };
 

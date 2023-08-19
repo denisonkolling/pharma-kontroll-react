@@ -1,9 +1,17 @@
 import Button from '../../components/Button';
-import { Input, TextArea } from './styles';
-import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
+import { Container, Input, TextArea } from './styles';
+import {
+	Form,
+	Title,
+	Wrapper,
+	Label,
+	Content,
+	Row,
+	Buttons
+} from './styles';
 import { useState, useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
-import Navbar from '../../components/Navbar';
+import Sidebar from '../../components/Sidebar';
 
 const Products = () => {
 	const { AddProduct } = useContext(ProductContext);
@@ -59,9 +67,9 @@ const Products = () => {
 	}
 
 	return (
-		<>
-			<Navbar />
-			<Wrapper>
+		<Wrapper>
+			<Sidebar />
+			<Container>
 				<Content>
 					<Title>Cadastro de Medicamento</Title>
 					<Form onSubmit={(e) => handleSubmit(e)}>
@@ -122,8 +130,8 @@ const Products = () => {
 						</Buttons>
 					</Form>
 				</Content>
-			</Wrapper>
-		</>
+			</Container>
+		</Wrapper>
 	);
 };
 
