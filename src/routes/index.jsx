@@ -2,7 +2,7 @@ import { Home } from '../pages/home';
 import Maps from '../pages/storesMap';
 import Products from '../pages/products';
 import ProductsDetails from '../pages/ProductsDetails';
-import Stores from '../pages/stores';
+import { Stores } from '../pages/stores';
 import StoresDetails from '../pages/StoresDetails';
 import useAuth from '../hooks/useAuth';
 import { Fragment } from 'react';

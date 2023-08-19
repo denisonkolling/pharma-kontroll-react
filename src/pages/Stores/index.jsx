@@ -7,7 +7,7 @@ import { api } from '../../services/api';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
 
-const Stores = () => {
+function Stores() {
 	const { AddStore } = useContext(StoreContext);
 
 	const [store, setStore] = useState({
@@ -245,4 +245,4 @@ const Stores = () => {
 	);
 };
 
-export default Stores;
+export { Stores };
