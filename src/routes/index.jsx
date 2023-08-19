@@ -1,15 +1,15 @@
-import { Home } from '../pages/Home';
-import Maps from '../pages/storesMap';
-import Products from '../pages/products';
-import ProductsDetails from '../pages/productsDetails';
-import { Stores } from '../pages/stores';
-import StoresDetails from '../pages/storesDetails';
+import Home from '../pages/Home';
+import Maps from '../pages/StoresMap';
+import Products from '../pages/Products';
+import ProductsDetails from '../pages/ProductsDetails';
+import Stores from '../pages/Stores';
+import StoresDetails from '../pages/StoresDetails';
 import useAuth from '../hooks/useAuth';
 import { Fragment } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Login } from '../pages/login';
-import Signup from '../pages/signup';
-import ProductsList from '../pages/productsList';
+import Login from '../pages/Login';
+import Signup from '../pages/Signup';
+import ProductsList from '../pages/ProductsList';
 
 const Private = ({ Page }) => {
 	const { signed } = useAuth();
