@@ -1,4 +1,4 @@
-import Home from '../pages/home';
+import { Home } from '../pages/home';
 import Maps from '../pages/storesMap';
 import Products from '../pages/products';
 import ProductsDetails from '../pages/ProductsDetails';

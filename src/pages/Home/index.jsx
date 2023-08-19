@@ -3,7 +3,7 @@ import { Container, Title, Wrapper, Content } from './styles';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
 
-const Home = () => {
+function Home() {
 	return (
 		<Wrapper>
 			<Sidebar />
@@ -16,4 +16,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export { Home };
