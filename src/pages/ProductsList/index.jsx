@@ -52,7 +52,7 @@ const ProductsList = () => {
 						/>
 						<StyledFontAwesomeIcon icon={faMagnifyingGlass} />
 					</InputWrapper>
-					<button onClick={priceSort}>Ordenar por preço</button>
+					{/* <button onClick={priceSort}>Ordenar por preço</button> */}
 				</Header>
 
 				<Gallery>
