@@ -11,12 +11,14 @@ import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import ProductsList from '../pages/ProductsList';
 
+
 const Private = ({ Page }) => {
 	const { signed } = useAuth();
 	return !!signed ? <Page /> : <Login />;
 };
 
 const RoutesApp = () => {
+
 	return (
 		<BrowserRouter>
 			<Fragment>
@@ -51,6 +53,7 @@ const RoutesApp = () => {
 			</Fragment>
 		</BrowserRouter>
 	);
+
 };
 
 export default RoutesApp;
