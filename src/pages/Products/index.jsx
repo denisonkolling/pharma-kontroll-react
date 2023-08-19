@@ -7,8 +7,7 @@ import {
 	Label,
 	Content,
 	Row,
-	Buttons,
-	FormWrapper,
+	Buttons
 } from './styles';
 import { useState, useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
