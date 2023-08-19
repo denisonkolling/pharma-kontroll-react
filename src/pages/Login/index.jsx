@@ -5,7 +5,7 @@ import { Container, Content, Label, LabelError, LabelSignup, Strong } from './st
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-const Login = () => {
+function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
@@ -72,6 +72,6 @@ const Login = () => {
 			</Content>
 		</Container>
 	);
-};
+}
 
-export default Login;
+export { Login };
