@@ -1,10 +1,11 @@
 import Button from '../../components/Button';
-import { Input } from './styles';
+import { Container, Input } from './styles';
 import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
 import { useState, useContext } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 import { api } from '../../services/api';
 import Navbar from '../../components/Navbar';
+import Sidebar from '../../components/Sidebar';
 
 const Stores = () => {
 	const { AddStore } = useContext(StoreContext);
@@ -97,9 +98,9 @@ const Stores = () => {
 	}
 
 	return (
-		<>
-			<Navbar />
-			<Wrapper>
+		<Wrapper>
+			<Sidebar />
+			<Container>
 				<Content>
 					<Title>Cadastro de Farmácia</Title>
 					<Form onSubmit={(e) => handleSubmit(e)}>
@@ -155,7 +156,7 @@ const Stores = () => {
 								value={store.celular}
 							/>
 						</Row>
-						<hr />
+						
 						<Row>
 							<Label>CEP</Label>
 							<Input
@@ -239,8 +240,8 @@ const Stores = () => {
 						</Buttons>
 					</Form>
 				</Content>
-			</Wrapper>
-		</>
+			</Container>
+		</Wrapper>
 	);
 };
 
