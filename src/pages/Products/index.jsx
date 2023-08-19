@@ -1,5 +1,5 @@
 import Button from '../../components/Button';
-import { Input, TextArea } from './styles';
+import { Container, Input, TextArea } from './styles';
 import { Form, Title, Wrapper, Label, Content, Row, Buttons, FormWrapper } from './styles';
 import { useState, useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
@@ -61,6 +61,7 @@ const Products = () => {
 	return (
 		<Wrapper>
 			<Sidebar />
+			<Container>
 			<Form>
 				<Content>
 					<Title>Cadastro de Medicamento</Title>
@@ -123,6 +124,7 @@ const Products = () => {
 					</Form>
 				</Content>
 			</Form>
+			</Container>
 		</Wrapper>
 	);
 };
