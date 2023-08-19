@@ -1,9 +1,9 @@
 import { Home } from '../pages/home';
 import Maps from '../pages/storesMap';
 import Products from '../pages/products';
-import ProductsDetails from '../pages/ProductsDetails';
+import ProductsDetails from '../pages/productsDetails';
 import { Stores } from '../pages/stores';
-import StoresDetails from '../pages/StoresDetails';
+import StoresDetails from '../pages/storesDetails';
 import useAuth from '../hooks/useAuth';
 import { Fragment } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
