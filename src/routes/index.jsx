@@ -2,7 +2,6 @@ import Home from '../pages/home';
 import Maps from '../pages/storesMap';
 import Products from '../pages/products';
 import ProductsList from '../pages/productsList';
-import ProductsDetails from '../pages/productsDetails';
 import Stores from '../pages/Stores';
 import StoresDetails from '../pages/storesDetails';
 import useAuth from "../hooks/useAuth"
@@ -24,7 +23,6 @@ const RoutesApp = () => {
           <Route exact path="/home" element={<Private Page={Home}/>} />
 						<Route exact path="/produtos" element={<Private Page={Products}/>} />
 						<Route exact path="/listaDeProdutos" element={<Private Page={ProductsList}/>} />
-						<Route exact path="/detalhesDeProdutos" element={<Private Page={ProductsDetails}/>} />
 						<Route exact path="/farmacias" element={<Private Page={Stores}/>} />
 						<Route exact path="/detalhesFarmacias" element={<Private Page={StoresDetails}/>} />
 						<Route exact path="/mapaFarmacias" element={<Private Page={Maps}/>} />
