@@ -15,14 +15,15 @@ export const Body = styled.body`
 	background-image: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);
 `;
 
-
 export const Container = styled.aside`
 	background-color: #fff;
-	width: 380px;
+	width: 350px;
 	height: 100vh;
-
+	@media (max-width: 1160px) {
+		width: 12%;
+		width: 95px;
+	}
 `;
-
 
 export const SidebarComponent = styled.div`
 	position: fixed;
@@ -56,6 +57,10 @@ export const NavbarLink = styled(Link)`
 	transition: all 0.5s ease;
 	text-decoration: none;
 
+	@media (max-width: 1160px) {
+		font-size: 0;
+	}
+
 	&:hover {
 		border-left: 5px solid var(--accent-color);
 		color: #fff;
@@ -71,4 +76,7 @@ export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 export const Span = styled.span`
 	letter-spacing: 1px;
 	text-transform: uppercase;
+	@media (max-width: 1160px) {
+		display: none;
+	}
 `;

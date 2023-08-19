@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { MapContainer, PageUsersMain,Wrapper } from './styles';
+import { MapContainer, Wrapper } from './styles';
 import Map from '../../components/Map';
 import { StoreContext } from '../../context/StoreContext';
 import Sidebar from '../../components/Sidebar';
