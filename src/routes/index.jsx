@@ -1,7 +1,6 @@
 import Home from '../pages/home';
 import Maps from '../pages/storesMap';
 import Products from '../pages/products';
-import ProductsList from '../pages/productsList';
 import ProductsDetails from '../pages/ProductsDetails';
 import Stores from '../pages/Stores';
 import StoresDetails from '../pages/StoresDetails';
@@ -10,6 +9,7 @@ import { Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from '../pages/login';
 import Signup from '../pages/signup';
+import ProductsList from '../pages/productsList';
 
 const Private = ({ Page }) => {
     const { signed } = useAuth()
@@ -36,6 +36,8 @@ const RoutesApp = () => {
     </BrowserRouter>
   );
 };
+
+
 
 
 export default RoutesApp;
