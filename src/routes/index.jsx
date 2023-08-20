@@ -1,5 +1,5 @@
 import Home from '../pages/Home/Home';
-import Login from '../pages/Login/Login';
+import Login from '../pages/Login';
 import Maps from '../pages/StoresMap/StoreMap';
 import Products from '../pages/Products/Products';
 import ProductsList from '../pages/ProductsList/ProductList';

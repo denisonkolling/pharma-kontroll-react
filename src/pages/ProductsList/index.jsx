@@ -8,7 +8,7 @@ import {
 	StyledFontAwesomeIcon,
 	Gallery,
 	Container,
-} from './ProductListStyles';
+} from './styles';
 import Modal from '../../components/Modal';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Input from '../../components/Input';

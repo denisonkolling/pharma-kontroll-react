@@ -1,5 +1,5 @@
 import Button from '../../components/Button';
-import { Container, Input, TextArea } from './ProductsStyles';
+import { Container, Input, TextArea } from './styles';
 import {
 	Form,
 	Title,
@@ -8,7 +8,7 @@ import {
 	Content,
 	Row,
 	Buttons
-} from './ProductsStyles';
+} from './styles';
 import { useState, useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
 import Sidebar from '../../components/Sidebar';

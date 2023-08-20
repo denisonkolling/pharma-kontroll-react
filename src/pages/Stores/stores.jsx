@@ -1,6 +1,6 @@
 import Button from '../../components/Button';
-import { Container, Input } from './StoresStyles';
-import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './StoresStyles';
+import { Container, Input } from './styles';
+import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
 import { useState, useContext } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 import { api } from '../../services/api';
