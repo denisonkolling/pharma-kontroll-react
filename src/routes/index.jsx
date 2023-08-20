@@ -1,14 +1,14 @@
 import Home from '../pages/Home';
+import Login from '../pages/Login';
 import Maps from '../pages/StoresMap';
 import Products from '../pages/Products';
-import Stores from '../pages/Stores';
+import ProductsList from '../pages/ProductsList';
+import Signup from '../pages/Signup';
+import Stores from '../pages/Store';
 import StoresDetails from '../pages/StoresDetails';
 import useAuth from '../hooks/useAuth';
 import { Fragment } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from '../pages/Login';
-import Signup from '../pages/Signup';
-import ProductsList from '../pages/ProductsList';
 
 
 const Private = ({ Page }) => {
