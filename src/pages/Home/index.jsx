@@ -1,4 +1,4 @@
-import { Container, Title, Wrapper, Content } from './HomeStyles';
+import { Container, Title, Wrapper, Content } from './styles';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
 
