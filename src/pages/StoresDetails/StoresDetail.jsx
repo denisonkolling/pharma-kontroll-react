@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { PageStorageMain } from './styles';
+import { PageStorageMain } from './StoresDetailsStyle';
 import { Link } from 'react-router-dom';
 import { storesDetails } from '../../constants';
 import Navbar from '../../components/Navbar';

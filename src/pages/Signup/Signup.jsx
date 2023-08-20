@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import {Container, Label, LabelSignin, LabelError, Content, Strong} from './styles';
+import {Container, Label, LabelSignin, LabelError, Content, Strong} from './SignupStyles';
 import { AuthContext } from "../../context/AuthContext";
 
 
