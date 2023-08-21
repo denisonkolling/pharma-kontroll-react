@@ -24,7 +24,7 @@ export const Content = styled.div`
 	width: 100%;
 	height: 100vh;
 	padding: 20px;
-`
+`;
 
 export const Label = styled.label`
 	line-height: 18px;
