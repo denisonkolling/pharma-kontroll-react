@@ -4,6 +4,9 @@ import Input from '../../components/Input';
 
 export const Wrapper = styled.div`
 	display: flex;
+	@media (max-width: 480px) {
+		flex-direction: column;
+	}
 `;
 
 export const Container = styled.div`
