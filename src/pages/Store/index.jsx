@@ -6,6 +6,9 @@ import { StoreContext } from '../../context/StoreContext';
 import { api } from '../../services/api';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
+import { maskCNPJ } from '../../functions/maskCnpj';
+import { maskPhone } from '../../functions/maskPhone';
+import { maskCEP } from '../../functions/maskCEP';
 
 const Stores = () => {
 	const { AddStore } = useContext(StoreContext);
@@ -112,7 +115,7 @@ const Stores = () => {
 								type="text"
 								onChange={handleChange}
 								name="cnpj"
-								value={store.cnpj}
+								value={maskCNPJ(store.cnpj)}
 							/>
 							<Label>Razão Social</Label>
 							<Input
@@ -142,18 +145,22 @@ const Stores = () => {
 							/>
 							<Label>Telefone</Label>
 							<Input
-								type="number"
+								type="text"
 								onChange={handleChange}
 								name="telefone"
-								value={store.telefone}
+								minLength={14}
+								maxLength={14}
+								value={maskPhone(store.telefone)}
 							/>
 							<Label>Celular</Label>
 							<Input
 								required
-								type="number"
+								type="text"
 								onChange={handleChange}
 								name="celular"
-								value={store.celular}
+								minLength={15}
+								maxLength={15}
+								value={maskPhone(store.celular)}
 							/>
 						</Row>
 						
@@ -164,7 +171,7 @@ const Stores = () => {
 								type="text"
 								onChange={handleChange}
 								name="cep"
-								value={store.cep}
+								value={maskCEP(store.cep)}
 								onBlur={findAddress}
 							/>
 							<Label>Endereço</Label>
