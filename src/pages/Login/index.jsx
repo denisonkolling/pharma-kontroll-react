@@ -25,10 +25,11 @@ const Login = () => {
 			return;
 		}
 
-		const res = login(email, password);
+		const response = login(email, password);
 
-		if (res) {
-			setError(res);
+		if (response) {
+			setError(response);
+			console.log(error)
 			return;
 		}
 		

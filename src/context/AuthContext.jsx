@@ -4,9 +4,9 @@ import useLocalStorage from '../hooks/useLocalStorage';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-	const { value, setValue } = useLocalStorage('user', {});
+	const { value, setValue } = useLocalStorage('user_db', {});
 	const [user, setUser] = useState(null);
-	const [signed, setSigned] = useState()
+	const [signed, setSigned] = useState();
 
 	useEffect(() => {
 		if (value) {
@@ -15,27 +15,26 @@ export const AuthProvider = ({ children }) => {
 	}, [setUser, value]);
 
 	const logout = () => {
-		setSigned()
+		setSigned();
 	};
 
 	const login = (email, password) => {
-		const usersStorage = JSON.parse(localStorage.getItem('user'));
+		const usersStorage = JSON.parse(localStorage.getItem('user_db'));
 
-		if(!usersStorage){
-			alert('Email não cadastrado!')
+		if (!usersStorage) {
+			return 'Email não cadastrado!';
 		}
 		if (usersStorage.email === email && usersStorage.password === password) {
-			alert('bem vindo novamente');
-			setSigned({email, password})
+			setSigned({ email, password });
 			return;
 		} else {
-			alert('email e senha incorretos');
-			return;
+			return 'Email e senha incorretos';
 		}
 	};
 
 	return (
-		<AuthContext.Provider value={{ value, setValue, user, logout, login, signed }}>
+		<AuthContext.Provider
+			value={{ value, setValue, user, logout, login, signed }}>
 			{children}
 		</AuthContext.Provider>
 	);
