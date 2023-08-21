@@ -24,11 +24,6 @@ export const StoreContextProvider = ({ children }) => {
 		latitude,
 		longitude
 	) => {
-		if (cnpj.length == '' || razaoSocial.length == '' || email == '') {
-			alert('Preencha todas as informações para cadastrar corretamente');
-			return;
-		}
-
 		const newStore = {
 			id: listStore.length + 1,
 			cnpj,
@@ -50,8 +45,6 @@ export const StoreContextProvider = ({ children }) => {
 		const newListStore = [...listStore, newStore];
 		localStorage.setItem('stores_db', JSON.stringify(newListStore));
 		setListStore(newListStore);
-		
-		alert('Farmácia adicionada com sucesso!');
 	};
 
 	return (
