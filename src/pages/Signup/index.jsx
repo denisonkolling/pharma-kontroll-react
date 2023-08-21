@@ -5,20 +5,25 @@ import Button from '../../components/Button';
 import {
 	Container,
 	Label,
-	LabelSignin,
 	LabelError,
 	Content,
 	Strong,
+	LabelSignup,
 } from './styles';
 import { AuthContext } from '../../context/AuthContext';
 import { checkEmail } from '../../functions/email';
 import { checkPassword } from '../../functions/password';
+import Modal from '../../components/Modal';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Signup = () => {
 	const [email, setEmail] = useState('');
 	const [emailConf, setEmailConf] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const [success, setSuccess] = useState('');
+	const [modalOpened, setModalOpened] = useState(false);
 	const navigate = useNavigate();
 
 	const { setValue } = useContext(AuthContext);
@@ -38,40 +43,51 @@ const Signup = () => {
 			return;
 		}
 		setValue({ email, password });
-		alert('Usuário cadastrado com sucesso!');
-		navigate('/login');
+		setSuccess('Usuário cadastrado com sucesso!');
+		setModalOpened(true);
+		setEmail('');
+		setEmailConf('');
+		setPassword('');
+		// navigate('/login');
 	};
 
 	return (
 		<Container>
 			<Label>Registro de Usuário</Label>
+			<LabelSignup> Preencha seus dados para registrar-se</LabelSignup>
 			<Content>
 				<Input
 					type="email"
-					placeholder="Digite seu Email"
+					placeholder="Digite com seu email..."
 					value={email}
 					onChange={(e) => [setEmail(e.target.value), setError('')]}
 				/>
 				<Input
 					type="email"
-					placeholder="Digite seu Email"
+					placeholder="Confirme seu email..."
 					value={emailConf}
 					onChange={(e) => [setEmailConf(e.target.value), setError('')]}
 				/>
 				<Input
 					type="password"
-					placeholder="Digite sua Senha"
+					placeholder="Escolha sua senha..."
 					value={password}
 					onChange={(e) => [setPassword(e.target.value), setError('')]}
 				/>
 				<LabelError>{error}</LabelError>
 				<Button Text="Inscrever-se" onClick={handleSignup} />
-				<LabelSignin>
+				<LabelSignup>
 					Já tem uma conta?
 					<Strong>
 						<Link to="/login">&nbsp;Entre</Link>
 					</Strong>
-				</LabelSignin>
+				</LabelSignup>
+				<Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
+					<LabelSignup>
+						<FontAwesomeIcon icon={faCheck} />
+						&nbsp; {success} &nbsp;Seja bem vindo(a)!
+					</LabelSignup>
+				</Modal>
 			</Content>
 		</Container>
 	);

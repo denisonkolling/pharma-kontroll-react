@@ -9,10 +9,15 @@ import Sidebar from '../../components/Sidebar';
 import { maskCNPJ } from '../../functions/maskCnpj';
 import { maskPhone } from '../../functions/maskPhone';
 import { maskCEP } from '../../functions/maskCEP';
+import Modal from '../../components/Modal';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Stores = () => {
 	const { AddStore } = useContext(StoreContext);
 
+	const [modalOpened, setModalOpened] = useState(false);
+	const [message, setMessage] = useState('');
 	const [store, setStore] = useState({
 		cnpj: '',
 		razaoSocial: '',
@@ -57,6 +62,8 @@ const Stores = () => {
 		);
 
 		cleanForm();
+		setModalOpened(true);
+		setMessage('Farmácia adicionado com sucesso!');
 	};
 
 	async function findAddress(e) {
@@ -73,9 +80,13 @@ const Stores = () => {
 				uf: data.uf,
 			}));
 
-			if (data.erro) alert('CEP não encontrado! Tente novamente!');
+			if (data.erro) {
+				setModalOpened(true);
+				setMessage('CEP não encontrado! Tente novamente!');
+			}
 		} catch (error) {
-			alert('Estamos com problemas! Tente novamente!' + error);
+			setModalOpened(true);
+			setMessage('Estamos com problemas! Tente novamente!' + error);
 		}
 		return;
 	}
@@ -164,7 +175,7 @@ const Stores = () => {
 								value={maskPhone(store.celular)}
 							/>
 						</Row>
-						
+
 						<Row>
 							<Label>CEP</Label>
 							<Input
@@ -247,6 +258,14 @@ const Stores = () => {
 							<Button Text="Salvar" Type="Submit"></Button>
 						</Buttons>
 					</Form>
+					<Modal
+						open={modalOpened}
+						onClose={() => setModalOpened(!modalOpened)}>
+						<h4>
+							<FontAwesomeIcon icon={faCheck} />
+							&nbsp;&nbsp;&nbsp;&nbsp;{message}
+						</h4>
+					</Modal>
 				</Content>
 			</Container>
 		</Wrapper>
