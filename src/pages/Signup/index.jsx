@@ -58,7 +58,7 @@ const Signup = () => {
 			<Content>
 				<Input
 					type="email"
-					placeholder="Entre com seu email..."
+					placeholder="Digite com seu email..."
 					value={email}
 					onChange={(e) => [setEmail(e.target.value), setError('')]}
 				/>
@@ -70,7 +70,7 @@ const Signup = () => {
 				/>
 				<Input
 					type="password"
-					placeholder="Escolha sua Senha..."
+					placeholder="Escolha sua senha..."
 					value={password}
 					onChange={(e) => [setPassword(e.target.value), setError('')]}
 				/>

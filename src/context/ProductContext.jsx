@@ -22,7 +22,7 @@ export const ProductContextProvider = ({ children }) => {
 		localStorage.setItem('products_db', JSON.stringify(newListProducts));
 		setListProducts(newListProducts);
 
-		alert('Medicamento adicionado com sucesso!');
+		
 	};
 
 	return (
