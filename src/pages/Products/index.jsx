@@ -1,17 +1,10 @@
 import Button from '../../components/Button';
-import { Container, Input, TextArea } from './styles';
-import {
-	Form,
-	Title,
-	Wrapper,
-	Label,
-	Content,
-	Row,
-	Buttons
-} from './styles';
+import { Container, Input, Select, TextArea } from './styles';
+import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
 import { useState, useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
 import Sidebar from '../../components/Sidebar';
+import { maskPrice } from '../../functions/maskPrice';
 
 const Products = () => {
 	const { AddProduct } = useContext(ProductContext);
@@ -91,6 +84,8 @@ const Products = () => {
 								name="laboratorio"
 								value={product.laboratorio}
 							/>
+						</Row>
+						<Row>
 							<Label>Dosagem</Label>
 							<Input
 								required
@@ -99,25 +94,26 @@ const Products = () => {
 								name="dosagem"
 								value={product.dosagem}
 							/>
-						</Row>
-						<Row>
 							<Label>Preço</Label>
 							<Input
 								required
-								type="number"
+								type="text"
 								onChange={handleChange}
 								name="preco"
-								value={product.preco}
+								minLength={4}
+								value={maskPrice(product.preco)}
 							/>
+						</Row>
+						<Select>
 							<Label htmlFor="tipo">Tipo</Label>
 							<select name="tipo" onChange={handleChange}>
 								<option value="selecione"> -- Selecione -- </option>
 								<option value="controlado">Controlado</option>
 								<option value="comum">Comum</option>
 							</select>
-						</Row>
+						</Select>
+						<Label>Descrição</Label>
 						<Row>
-							<Label>Descrição</Label>
 							<TextArea
 								type="text"
 								onChange={handleChange}
