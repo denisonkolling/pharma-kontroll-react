@@ -2,6 +2,8 @@ import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
 	display: flex;
+	align-items: center;
+	justify-content: center;
 	@media (max-width: 480px) {
 		flex-direction: column;
 	}
@@ -31,6 +33,13 @@ export const Form = styled.form``;
 export const Row = styled.div`
 	display: flex;
 	margin-top: 10px;
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
+`;
+
+export const Select = styled.div`
+	margin: 25px 0px;
 `;
 
 export const Buttons = styled.div`
@@ -40,14 +49,13 @@ export const Buttons = styled.div`
 `;
 
 export const Input = styled.input`
-	outline: none;
 	padding: 16px 20px;
 	width: 100%;
 	border-radius: 5px;
 	font-size: 16px;
 
 	background-color: #f0f2f5;
-	border: none;
+	border: 1px solid darkgrey;
 `;
 
 export const TextArea = styled.textarea`

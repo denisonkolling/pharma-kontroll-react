@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-display: flex;
-@media (max-width: 480px) {
+	display: flex;
+	@media (max-width: 480px) {
 		flex-direction: column;
 	}
-`
+`;
 export const Container = styled.div`
 	display: flex;
 	align-items: center;
@@ -18,10 +18,9 @@ export const Content = styled.div`
 	width: 100%;
 	height: 100vh;
 	padding: 20px;
-`
+`;
 
 export const Title = styled.h1`
 	color: black;
 	margin: 15px;
 `;
-
