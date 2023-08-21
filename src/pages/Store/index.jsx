@@ -6,10 +6,18 @@ import { StoreContext } from '../../context/StoreContext';
 import { api } from '../../services/api';
 import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
+import { maskCNPJ } from '../../functions/maskCnpj';
+import { maskPhone } from '../../functions/maskPhone';
+import { maskCEP } from '../../functions/maskCEP';
+import Modal from '../../components/Modal';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Stores = () => {
 	const { AddStore } = useContext(StoreContext);
 
+	const [modalOpened, setModalOpened] = useState(false);
+	const [message, setMessage] = useState('');
 	const [store, setStore] = useState({
 		cnpj: '',
 		razaoSocial: '',
@@ -54,6 +62,8 @@ const Stores = () => {
 		);
 
 		cleanForm();
+		setModalOpened(true);
+		setMessage('Farmácia adicionado com sucesso!');
 	};
 
 	async function findAddress(e) {
@@ -70,9 +80,13 @@ const Stores = () => {
 				uf: data.uf,
 			}));
 
-			if (data.erro) alert('CEP não encontrado! Tente novamente!');
+			if (data.erro) {
+				setModalOpened(true);
+				setMessage('CEP não encontrado! Tente novamente!');
+			}
 		} catch (error) {
-			alert('Estamos com problemas! Tente novamente!' + error);
+			setModalOpened(true);
+			setMessage('Estamos com problemas! Tente novamente!' + error);
 		}
 		return;
 	}
@@ -103,6 +117,7 @@ const Stores = () => {
 			<Container>
 				<Content>
 					<Title>Cadastro de Farmácia</Title>
+					<hr />
 					<Form onSubmit={(e) => handleSubmit(e)}>
 						<Row>
 							<Label>CNPJ</Label>
@@ -112,7 +127,7 @@ const Stores = () => {
 								type="text"
 								onChange={handleChange}
 								name="cnpj"
-								value={store.cnpj}
+								value={maskCNPJ(store.cnpj)}
 							/>
 							<Label>Razão Social</Label>
 							<Input
@@ -142,21 +157,25 @@ const Stores = () => {
 							/>
 							<Label>Telefone</Label>
 							<Input
-								type="number"
+								type="text"
 								onChange={handleChange}
 								name="telefone"
-								value={store.telefone}
+								minLength={14}
+								maxLength={14}
+								value={maskPhone(store.telefone)}
 							/>
 							<Label>Celular</Label>
 							<Input
 								required
-								type="number"
+								type="text"
 								onChange={handleChange}
 								name="celular"
-								value={store.celular}
+								minLength={15}
+								maxLength={15}
+								value={maskPhone(store.celular)}
 							/>
 						</Row>
-						
+
 						<Row>
 							<Label>CEP</Label>
 							<Input
@@ -164,7 +183,7 @@ const Stores = () => {
 								type="text"
 								onChange={handleChange}
 								name="cep"
-								value={store.cep}
+								value={maskCEP(store.cep)}
 								onBlur={findAddress}
 							/>
 							<Label>Endereço</Label>
@@ -239,6 +258,14 @@ const Stores = () => {
 							<Button Text="Salvar" Type="Submit"></Button>
 						</Buttons>
 					</Form>
+					<Modal
+						open={modalOpened}
+						onClose={() => setModalOpened(!modalOpened)}>
+						<h4>
+							<FontAwesomeIcon icon={faCheck} />
+							&nbsp;&nbsp;&nbsp;&nbsp;{message}
+						</h4>
+					</Modal>
 				</Content>
 			</Container>
 		</Wrapper>

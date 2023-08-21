@@ -1,9 +1,11 @@
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useState,useContext } from 'react';
-import { Container, Content, Label, LabelError, LabelSignup, Strong } from './styles';
+import { Container, Content, Label, LabelError, LabelSignin, Strong } from './styles';
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { checkEmail } from '../../functions/email';
+import { checkPassword } from '../../functions/password';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
@@ -12,17 +14,6 @@ const Login = () => {
 	const navigate = useNavigate();
 
 	const { login } = useContext(AuthContext)
-
-	const checkEmail = (email) => {
-		const regex =
-			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return regex.test(email);
-	};
-
-	const checkPassword = (password) => {
-		const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8}$/;
-		return regex.test(password);
-	};
 
 	const handleLogin = () => {
 		if (!checkEmail(email)) {
@@ -34,10 +25,11 @@ const Login = () => {
 			return;
 		}
 
-		const res = login(email, password);
+		const response = login(email, password);
 
-		if (res) {
-			setError(res);
+		if (response) {
+			setError(response);
+			console.log(error)
 			return;
 		}
 		
@@ -46,29 +38,29 @@ const Login = () => {
 
 	return (
 		<Container>
-			<Label>Bem-vindo(a) ao Medication Management</Label>
-			<span>Faça o login para acessar sua conta</span>
+			<Label>Pharma Kontroll</Label>
+			<LabelSignin>Realize o login para acessar sua conta</LabelSignin>
 			<Content>
 				<Input
 					type="email"
 					value={email}
-					placeholder="Entre com seu email..."
+					placeholder="Email"
 					onChange={(e) => [setEmail(e.target.value), setError('')]}
 				/>
 				<Input
 					type="password"
 					value={password}
-					placeholder="Entre com sua senha..."
+					placeholder="Senha"
 					onChange={(e) => [setPassword(e.target.value), setError('')]}
 				/>
 				<LabelError>{error}</LabelError>
 				<Button Text="Entrar" onClick={handleLogin}></Button>
-			<LabelSignup>
+			<LabelSignin>
 					Não tem uma conta?
 					<Strong>
 						<Link to="/signup">&nbsp;Registre-se</Link>
 					</Strong>
-				</LabelSignup>
+				</LabelSignin>
 			</Content>
 		</Container>
 	);

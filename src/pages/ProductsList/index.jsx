@@ -8,6 +8,7 @@ import {
 	StyledFontAwesomeIcon,
 	Gallery,
 	Container,
+	Title
 } from './styles';
 import Modal from '../../components/Modal';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -42,6 +43,7 @@ const ProductsList = () => {
 		<Wrapper>
 			<Sidebar />
 			<Container>
+			<Title>Lista de Medicamentos</Title>
 				<Header>
 					<InputWrapper>
 						<Input

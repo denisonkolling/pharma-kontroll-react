@@ -1,21 +1,19 @@
 import Button from '../../components/Button';
-import { Container, Input, TextArea } from './styles';
-import {
-	Form,
-	Title,
-	Wrapper,
-	Label,
-	Content,
-	Row,
-	Buttons
-} from './styles';
+import { Container, Input, Select, TextArea } from './styles';
+import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
 import { useState, useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
 import Sidebar from '../../components/Sidebar';
+import { maskPrice } from '../../functions/maskPrice';
+import Modal from '../../components/Modal';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Products = () => {
 	const { AddProduct } = useContext(ProductContext);
 
+	const [modalOpened, setModalOpened] = useState(false);
+	const [message, setMessage] = useState('');
 	const [product, setProduct] = useState({
 		nome: '',
 		laboratorio: '',
@@ -40,7 +38,7 @@ const Products = () => {
 			product.tipo === 'selecione' ||
 			product.tipo == ''
 		) {
-			alert('Preencha todas as informações para cadastrar corretamente');
+			setMessage('Preencha todas as informações para cadastrar corretamente');
 			return;
 		}
 		AddProduct(
@@ -53,6 +51,8 @@ const Products = () => {
 		);
 
 		cleanForm();
+		setModalOpened(true);
+		setMessage('Medicamento adicionado com sucesso!');
 	};
 
 	function cleanForm() {
@@ -72,6 +72,7 @@ const Products = () => {
 			<Container>
 				<Content>
 					<Title>Cadastro de Medicamento</Title>
+					<hr />
 					<Form onSubmit={(e) => handleSubmit(e)}>
 						<Row>
 							<Label>Nome</Label>
@@ -90,6 +91,8 @@ const Products = () => {
 								name="laboratorio"
 								value={product.laboratorio}
 							/>
+						</Row>
+						<Row>
 							<Label>Dosagem</Label>
 							<Input
 								required
@@ -98,25 +101,26 @@ const Products = () => {
 								name="dosagem"
 								value={product.dosagem}
 							/>
-						</Row>
-						<Row>
 							<Label>Preço</Label>
 							<Input
 								required
-								type="number"
+								type="text"
 								onChange={handleChange}
 								name="preco"
-								value={product.preco}
+								minLength={4}
+								value={maskPrice(product.preco)}
 							/>
+						</Row>
+						<Select>
 							<Label htmlFor="tipo">Tipo</Label>
 							<select name="tipo" onChange={handleChange}>
 								<option value="selecione"> -- Selecione -- </option>
 								<option value="controlado">Controlado</option>
 								<option value="comum">Comum</option>
 							</select>
-						</Row>
+						</Select>
+						<Label>Descrição</Label>
 						<Row>
-							<Label>Descrição</Label>
 							<TextArea
 								type="text"
 								onChange={handleChange}
@@ -129,6 +133,14 @@ const Products = () => {
 							<Button Text="Salvar" Type="Submit"></Button>
 						</Buttons>
 					</Form>
+					<Modal
+						open={modalOpened}
+						onClose={() => setModalOpened(!modalOpened)}>
+						<h4>
+							<FontAwesomeIcon icon={faCheck} />
+							&nbsp;&nbsp;&nbsp;&nbsp;{message}
+						</h4>
+					</Modal>
 				</Content>
 			</Container>
 		</Wrapper>

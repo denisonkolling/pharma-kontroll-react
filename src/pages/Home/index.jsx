@@ -9,6 +9,7 @@ const Home = () => {
 			<Container>
 				<Content>
 					<Title>Bem vindo ao sistema!</Title>
+					<hr />
 				</Content>
 			</Container>
 		</Wrapper>

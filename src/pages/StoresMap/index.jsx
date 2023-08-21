@@ -27,8 +27,8 @@ const StoresMap = () => {
 		<Wrapper>
 			<Sidebar />
 			<Container>
-				<Content>
 					<Title>Nossas Lojas</Title>
+				<Content>
 					<Map
 						positions={stores}
 						center={
