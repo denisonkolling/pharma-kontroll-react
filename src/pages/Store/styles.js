@@ -43,6 +43,9 @@ export const Form = styled.form`
 export const Row = styled.div`
 	display: flex;
 	margin-top: 10px;
+	@media (max-width: 768px) {
+	flex-direction: column;
+	}
 `;
 
 export const Buttons = styled.div`
