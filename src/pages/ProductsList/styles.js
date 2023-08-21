@@ -26,6 +26,11 @@ export const Gallery = styled.div`
 	margin: 50px 0;
 `;
 
+export const Title = styled.h1`
+	color: black;
+	margin: 15px;
+`;
+
 export const InputWrapper = styled.div`
 	position: relative;
 `;
@@ -33,7 +38,7 @@ export const InputWrapper = styled.div`
 export const Header = styled.header`
 	text-align: center;
 	color: white;
-	padding: 3.2rem;
+	padding: 2rem;
 	width: 60%;
 	/* margin: auto; */
 `;

@@ -106,6 +106,7 @@ const Stores = () => {
 			<Container>
 				<Content>
 					<Title>Cadastro de Farmácia</Title>
+					<hr />
 					<Form onSubmit={(e) => handleSubmit(e)}>
 						<Row>
 							<Label>CNPJ</Label>

@@ -72,6 +72,7 @@ const Products = () => {
 			<Container>
 				<Content>
 					<Title>Cadastro de Medicamento</Title>
+					<hr />
 					<Form onSubmit={(e) => handleSubmit(e)}>
 						<Row>
 							<Label>Nome</Label>
