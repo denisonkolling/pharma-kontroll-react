@@ -16,9 +16,15 @@ export const Container = styled.aside`
 	background-color: #fff;
 	width: 350px;
 	height: 100vh;
-	@media (max-width: 1160px) {
+
+	@media (min-width: 480px) and (max-width: 1160px) {
 		width: 12%;
 		width: 95px;
+	}
+	@media (max-width: 480px) {
+		width: 100vw;
+		height: 50px;
+		display: flex;
 	}
 `;
 
@@ -29,6 +35,11 @@ export const SidebarComponent = styled.div`
 	height: 100%;
 	background-color: #fff;
 	transition: all 0.5s ease;
+	@media (max-width: 480px) {
+		width: 100vw;
+		height: 95px;
+		display: flex;
+	}
 `;
 
 export const SidebarHeader = styled.header`
@@ -39,6 +50,9 @@ export const SidebarHeader = styled.header`
 	background-color: #fff;
 	user-select: none;
 	font-family: 'Lato', sans-serif;
+	@media (max-width: 480px) {
+		display: none;
+	}
 `;
 
 export const NavbarLink = styled(Link)`
@@ -54,6 +68,9 @@ export const NavbarLink = styled(Link)`
 	transition: all 0.5s ease;
 	text-decoration: none;
 
+	@media (max-width: 480px) {
+		height: 50px;
+	}
 	@media (max-width: 1160px) {
 		font-size: 0;
 	}
