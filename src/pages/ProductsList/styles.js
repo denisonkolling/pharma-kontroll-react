@@ -15,6 +15,7 @@ export const Container = styled.div`
 	justify-content: center;
 	flex-direction: column;
 	width: 100%;
+	height: 100%;
 `;
 
 export const Gallery = styled.div`
@@ -39,8 +40,8 @@ export const Header = styled.header`
 	text-align: center;
 	color: white;
 	padding: 2rem;
-	width: 60%;
-	/* margin: auto; */
+	width: 100%;
+	max-width: 800px;
 `;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
