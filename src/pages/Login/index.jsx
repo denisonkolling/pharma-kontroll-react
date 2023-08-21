@@ -1,7 +1,7 @@
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useState,useContext } from 'react';
-import { Container, Content, Label, LabelError, LabelSignup, Strong } from './styles';
+import { Container, Content, Label, LabelError, LabelSignin, Strong } from './styles';
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { checkEmail } from '../../functions/email';
@@ -38,29 +38,29 @@ const Login = () => {
 
 	return (
 		<Container>
-			<Label>Bem-vindo(a) ao Medication Management</Label>
-			<span>Faça o login para acessar sua conta</span>
+			<Label>Pharma Kontroll</Label>
+			<LabelSignin>Realize o login para acessar sua conta</LabelSignin>
 			<Content>
 				<Input
 					type="email"
 					value={email}
-					placeholder="Entre com seu email..."
+					placeholder="Email"
 					onChange={(e) => [setEmail(e.target.value), setError('')]}
 				/>
 				<Input
 					type="password"
 					value={password}
-					placeholder="Entre com sua senha..."
+					placeholder="Senha"
 					onChange={(e) => [setPassword(e.target.value), setError('')]}
 				/>
 				<LabelError>{error}</LabelError>
 				<Button Text="Entrar" onClick={handleLogin}></Button>
-			<LabelSignup>
+			<LabelSignin>
 					Não tem uma conta?
 					<Strong>
 						<Link to="/signup">&nbsp;Registre-se</Link>
 					</Strong>
-				</LabelSignup>
+				</LabelSignin>
 			</Content>
 		</Container>
 	);
