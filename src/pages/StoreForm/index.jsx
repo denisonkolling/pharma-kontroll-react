@@ -1,13 +1,11 @@
-import Button from '../../components/Button';
 import { Column, Container, Input } from './styles';
-import { 	Form,	Title,	Wrapper,	Label,	Content,	Row,	Buttons,	ColumnSmall,} from './styles';
+import { 	Form,	Title,	Label,	Content,	Row,	Buttons,	ColumnSmall,} from './styles';
 import { useState } from 'react';
 import useStore from '../../hooks/useStore';
 import { api } from '../../services/api';
-import Sidebar from '../../components/Sidebar';
-import Modal from '../../components/Modal';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {	Wrapper,	Sidebar,	Modal,	Button,	LabelMessage,} from '../../components';
 
 const StoreForm = () => {
 	const { AddStore } = useStore();
@@ -82,7 +80,9 @@ const StoreForm = () => {
 			}
 		} catch (error) {
 			setModalOpened(true);
-			setMessage('Estamos com problemas! Tente novamente!' + error);
+			setMessage(
+				'Estamos com problemas na consulta de CEP! Tente novamente!' + error
+			);
 		}
 		return;
 	}
@@ -327,10 +327,14 @@ const StoreForm = () => {
 					<Modal
 						open={modalOpened}
 						onClose={() => setModalOpened(!modalOpened)}>
-						<h4>
-							<FontAwesomeIcon icon={faCheck} />
+						<LabelMessage>
+							{message.includes('CEP') ? (
+								<FontAwesomeIcon icon={faX} style={{color: "#c31d1d"}}/>
+							) : (
+								<FontAwesomeIcon icon={faCheck} style={{color: "#4daf23"}}/>
+							)}
 							&nbsp;&nbsp;&nbsp;&nbsp;{message}
-						</h4>
+						</LabelMessage>
 					</Modal>
 				</Content>
 			</Container>

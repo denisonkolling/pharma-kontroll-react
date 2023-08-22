@@ -1,12 +1,10 @@
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import { Link} from 'react-router-dom';
 import {	Container,	Label,	LabelError,	Content,	Strong,	LabelSignup,} from './styles';
 import { AuthContext } from '../../context/AuthContext';
-import Modal from '../../components/Modal';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button , Modal, Input} from '../../components';
 
 const Signup = () => {
 	const [email, setEmail] = useState('');

@@ -1,5 +1,4 @@
-import Button from '../../components/Button';
-import Input from '../../components/Input';
+import { Button, Input } from '../../components';
 import { useState } from 'react';
 import { Container, Content, Label, LabelError, LabelSignin, Strong } from './styles';
 import { Link, useNavigate } from "react-router-dom";

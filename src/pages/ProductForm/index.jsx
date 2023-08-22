@@ -1,12 +1,11 @@
-import Button from '../../components/Button';
+import { Wrapper, Sidebar, Button, Modal, LabelMessage } from '../../components';
 import { Column, Container, Input, Select, TextArea } from './styles';
-import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
-import { useState, useContext } from 'react';
+import { Form, Title, Label, Content, Row, Buttons } from './styles';
+import { useState } from 'react';
 import useProduct from '../../hooks/useProduct';
-import Sidebar from '../../components/Sidebar';
-import Modal from '../../components/Modal';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const ProductForm = () => {
 	const { AddProduct } = useProduct();
@@ -151,10 +150,10 @@ const ProductForm = () => {
 					<Modal
 						open={modalOpened}
 						onClose={() => setModalOpened(!modalOpened)}>
-						<h4>
-							<FontAwesomeIcon icon={faCheck} />
+						<LabelMessage>
+							<FontAwesomeIcon icon={faCheck} style={{color: "#4daf23"}}/>
 							&nbsp;&nbsp;&nbsp;&nbsp;{message}
-						</h4>
+						</LabelMessage>
 					</Modal>
 				</Content>
 			</Container>

@@ -1,17 +1,9 @@
 import { styled } from 'styled-components';
 
-export const Wrapper = styled.div`
-	display: flex;
-	@media (max-width: 480px) {
-		flex-direction: column;
-	}
-`;
-
 export const Title = styled.h1`
 	color: black;
 	margin: 15px;
 `;
-
 
 export const Content = styled.div`
 	width: 100%;
