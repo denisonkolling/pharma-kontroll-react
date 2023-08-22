@@ -1,13 +1,10 @@
 import Button from '../../components/Button';
 import { Column, Container, Input } from './styles';
-import { Form, Title, Wrapper, Label, Content, Row, Buttons, ColumnSmall} from './styles';
-import { useState, useContext } from 'react';
+import { 	Form,	Title,	Wrapper,	Label,	Content,	Row,	Buttons,	ColumnSmall,} from './styles';
+import { useState } from 'react';
 import useStore from '../../hooks/useStore';
 import { api } from '../../services/api';
 import Sidebar from '../../components/Sidebar';
-import { maskCNPJ } from '../../functions/maskCnpj';
-import { maskPhone } from '../../functions/maskPhone';
-import { maskCEP } from '../../functions/maskCEP';
 import Modal from '../../components/Modal';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -110,6 +107,31 @@ const StoreForm = () => {
 		});
 	}
 
+	const maskCNPJ = (cnpj) => {
+		return cnpj
+			.replace(/\D+/g, '')
+			.replace(/(\d{2})(\d)/, '$1.$2')
+			.replace(/(\d{3})(\d)/, '$1.$2')
+			.replace(/(\d{3})(\d)/, '$1/$2')
+			.replace(/(\d{4})(\d)/, '$1-$2')
+			.replace(/(-\d{2})\d+?$/, '$1');
+	};
+
+	const maskCEP = (cep) => {
+		return cep
+			.replace(/\D/g, '')
+			.replace(/(\d{2})(\d)/, '$1.$2')
+			.replace(/(\d{3})(\d)/, '$1-$2')
+			.replace(/(-\d{3})\d+?$/, '$1');
+	};
+
+	const maskPhone = (phone) => {
+		return phone
+			.replace(/\D/g, '')
+			.replace(/(\d{2})(\d)/, '($1) $2')
+			.replace(/(\d)(\d{4})$/, '$1-$2');
+	};
+
 	return (
 		<Wrapper>
 			<Sidebar />
@@ -127,7 +149,7 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="cnpj"
-									placeholder='00.000.000/0000-00'
+									placeholder="00.000.000/0000-00"
 									value={maskCNPJ(store.cnpj)}
 								/>
 							</Column>
@@ -138,7 +160,7 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="razaoSocial"
-									placeholder='Insira a razão social...'
+									placeholder="Insira a razão social..."
 									value={store.razaoSocial}
 								/>
 							</Column>
@@ -149,7 +171,7 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="nomeFantasia"
-									placeholder='Insira o nome fantasia...'
+									placeholder="Insira o nome fantasia..."
 									value={store.nomeFantasia}
 								/>
 							</Column>
@@ -162,7 +184,7 @@ const StoreForm = () => {
 									type="email"
 									onChange={handleChange}
 									name="email"
-									placeholder='E-mail de contato...'
+									placeholder="E-mail de contato..."
 									value={store.email}
 								/>
 							</Column>
@@ -174,9 +196,9 @@ const StoreForm = () => {
 									name="telefone"
 									minLength={14}
 									maxLength={14}
-									placeholder='(99) 9999-9999'
+									placeholder="(99) 9999-9999"
 									value={maskPhone(store.telefone)}
-									/>
+								/>
 							</ColumnSmall>
 							<ColumnSmall>
 								<Label>Celular</Label>
@@ -187,9 +209,9 @@ const StoreForm = () => {
 									name="celular"
 									minLength={15}
 									maxLength={15}
-									placeholder='(99) 99999-9999'
+									placeholder="(99) 99999-9999"
 									value={maskPhone(store.celular)}
-									/>
+								/>
 							</ColumnSmall>
 						</Row>
 
@@ -202,9 +224,9 @@ const StoreForm = () => {
 									onChange={handleChange}
 									name="cep"
 									value={maskCEP(store.cep)}
-									placeholder='88.888-888'
+									placeholder="88.888-888"
 									onBlur={findAddress}
-									/>
+								/>
 							</ColumnSmall>
 							<Column>
 								<Label>Endereço</Label>
@@ -213,9 +235,9 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="endereco"
-									placeholder='Busca automática pelo CEP...'
+									placeholder="Busca automática pelo CEP..."
 									value={store.endereco}
-									/>
+								/>
 							</Column>
 							<ColumnSmall>
 								<Label>Número</Label>
@@ -224,7 +246,7 @@ const StoreForm = () => {
 									type="number"
 									onChange={handleChange}
 									name="numero"
-									placeholder='Insira o número...'
+									placeholder="Insira o número..."
 									value={store.numero}
 								/>
 							</ColumnSmall>
@@ -237,9 +259,9 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="bairro"
-									placeholder='Insira o bairro...'
+									placeholder="Insira o bairro..."
 									value={store.bairro}
-									/>
+								/>
 							</Column>
 							<Column>
 								<Label>Cidade</Label>
@@ -248,9 +270,9 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="cidade"
-									placeholder='Insira a cidade...'
+									placeholder="Insira a cidade..."
 									value={store.cidade}
-									/>
+								/>
 							</Column>
 							<Column>
 								<Label>Estado</Label>
@@ -259,9 +281,9 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="uf"
-									placeholder='Insira o estado...'
+									placeholder="Insira o estado..."
 									value={store.uf}
-									/>
+								/>
 							</Column>
 						</Row>
 						<Row>
@@ -271,9 +293,9 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="complemento"
-									placeholder='Insira o complemento...'
+									placeholder="Insira o complemento..."
 									value={store.complemento}
-									/>
+								/>
 							</Column>
 							<ColumnSmall>
 								<Label>Latitude</Label>
@@ -282,9 +304,9 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="latitude"
-									placeholder='-99.9999'
+									placeholder="-99.9999"
 									value={store.latitude}
-									/>
+								/>
 							</ColumnSmall>
 							<ColumnSmall>
 								<Label>Longitude</Label>
@@ -293,7 +315,7 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="longitude"
-									placeholder='-99.9999'
+									placeholder="-99.9999"
 									value={store.longitude}
 								/>
 							</ColumnSmall>

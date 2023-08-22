@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { Container, Content, Label, LabelError, LabelSignin, Strong } from './styles';
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
-import { checkEmail } from '../../functions/email';
-import { checkPassword } from '../../functions/password';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
@@ -34,6 +32,17 @@ const Login = () => {
 		}
 		
 		navigate('/home');
+	};
+
+	const checkEmail = (email) => {
+		const regex =
+			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return regex.test(email);
+	};
+
+	const checkPassword = (password) => {
+		const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8}$/;
+		return regex.test(password);
 	};
 
 	return (

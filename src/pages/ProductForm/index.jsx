@@ -4,7 +4,6 @@ import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
 import { useState, useContext } from 'react';
 import useProduct from '../../hooks/useProduct';
 import Sidebar from '../../components/Sidebar';
-import { maskPrice } from '../../functions/maskPrice';
 import Modal from '../../components/Modal';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -45,16 +44,23 @@ const ProductForm = () => {
 		setMessage('Medicamento adicionado com sucesso!');
 	};
 
-	function cleanForm() {
+	const cleanForm = () => {
 		setProduct({
 			nome: '',
 			laboratorio: '',
 			dosagem: '',
 			descricao: '',
 			preco: '',
-			tipo: '',
+			tipo: 'Selecione',
 		});
-	}
+	};
+
+	const maskPrice = (price) => {
+		return price
+			.replace(/\D/g, '')
+			.replace(/(\d{1,2})$/, ',$1')
+			.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+	};
 
 	return (
 		<Wrapper>
