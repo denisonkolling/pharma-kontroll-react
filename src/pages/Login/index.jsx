@@ -1,11 +1,8 @@
-import Button from '../../components/Button';
-import Input from '../../components/Input';
-import { useState,useContext } from 'react';
+import { Button, Input } from '../../components';
+import { useState } from 'react';
 import { Container, Content, Label, LabelError, LabelSignin, Strong } from './styles';
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
-import { checkEmail } from '../../functions/email';
-import { checkPassword } from '../../functions/password';
+import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
@@ -13,7 +10,7 @@ const Login = () => {
 	const [error, setError] = useState('');
 	const navigate = useNavigate();
 
-	const { login } = useContext(AuthContext)
+	const { login } = useAuth()
 
 	const handleLogin = () => {
 		if (!checkEmail(email)) {
@@ -34,6 +31,17 @@ const Login = () => {
 		}
 		
 		navigate('/home');
+	};
+
+	const checkEmail = (email) => {
+		const regex =
+			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return regex.test(email);
+	};
+
+	const checkPassword = (password) => {
+		const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8}$/;
+		return regex.test(password);
 	};
 
 	return (

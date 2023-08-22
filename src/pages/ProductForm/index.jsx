@@ -1,16 +1,14 @@
-import Button from '../../components/Button';
+import { Wrapper, Sidebar, Button, Modal, LabelMessage } from '../../components';
 import { Column, Container, Input, Select, TextArea } from './styles';
-import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
-import { useState, useContext } from 'react';
-import { ProductContext } from '../../context/ProductContext';
-import Sidebar from '../../components/Sidebar';
-import { maskPrice } from '../../functions/maskPrice';
-import Modal from '../../components/Modal';
+import { Form, Title, Label, Content, Row, Buttons } from './styles';
+import { useState } from 'react';
+import useProduct from '../../hooks/useProduct';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Products = () => {
-	const { AddProduct } = useContext(ProductContext);
+
+const ProductForm = () => {
+	const { AddProduct } = useProduct();
 
 	const [modalOpened, setModalOpened] = useState(false);
 	const [message, setMessage] = useState('');
@@ -31,16 +29,6 @@ const Products = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		if (
-			product.nome.length == '' ||
-			product.laboratorio.length == '' ||
-			product.dosagem == '' ||
-			product.tipo === 'selecione' ||
-			product.tipo == ''
-		) {
-			setMessage('Preencha todas as informações para cadastrar corretamente');
-			return;
-		}
 		AddProduct(
 			product.nome,
 			product.laboratorio,
@@ -55,16 +43,23 @@ const Products = () => {
 		setMessage('Medicamento adicionado com sucesso!');
 	};
 
-	function cleanForm() {
+	const cleanForm = () => {
 		setProduct({
 			nome: '',
 			laboratorio: '',
 			dosagem: '',
 			descricao: '',
 			preco: '',
-			tipo: '',
+			tipo: 'Selecione',
 		});
-	}
+	};
+
+	const maskPrice = (price) => {
+		return price
+			.replace(/\D/g, '')
+			.replace(/(\d{1,2})$/, ',$1')
+			.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+	};
 
 	return (
 		<Wrapper>
@@ -82,7 +77,7 @@ const Products = () => {
 									type="text"
 									onChange={handleChange}
 									name="nome"
-									placeholder='Insira o nome do medicamento...'
+									placeholder="Insira o nome do medicamento..."
 									value={product.nome}
 								/>
 							</Column>
@@ -93,7 +88,7 @@ const Products = () => {
 									type="text"
 									onChange={handleChange}
 									name="laboratorio"
-									placeholder='Insira o laboratório fabricante...'
+									placeholder="Insira o laboratório fabricante..."
 									value={product.laboratorio}
 								/>
 							</Column>
@@ -106,11 +101,11 @@ const Products = () => {
 									type="text"
 									onChange={handleChange}
 									name="dosagem"
-									placeholder='125mg'
+									placeholder="125mg"
 									value={product.dosagem}
 								/>
 							</Column>
-							
+
 							<Column>
 								<Label>Preço</Label>
 								<Input
@@ -119,46 +114,46 @@ const Products = () => {
 									onChange={handleChange}
 									name="preco"
 									minLength={4}
-									placeholder='9,99'
+									placeholder="9,99"
 									value={maskPrice(product.preco)}
 								/>
 							</Column>
 						</Row>
 						<Column>
-						<Select>
-							<Label htmlFor="tipo">Tipo</Label>
-							<select name="tipo" onChange={handleChange}>
-								<option value="selecione"> -- Selecione -- </option>
-								<option value="controlado">Controlado</option>
-								<option value="comum">Comum</option>
-							</select>
-						</Select>
+							<Select>
+								<Label htmlFor="tipo">Tipo</Label>
+								<select name="tipo" onChange={handleChange}>
+									<option value="Selecione"> -- Selecione -- </option>
+									<option value="Controlado">Controlado</option>
+									<option value="Comum">Comum</option>
+								</select>
+							</Select>
 						</Column>
 						<hr />
 						<Column>
-						<Label>Descrição</Label>
-						<Row>
-							<TextArea
-								type="text"
-								onChange={handleChange}
-								name="descricao"
-								placeholder='Inclua informações sobre o medicamento...'
-								value={product.descricao}
-							/>
-						</Row>
+							<Label>Descrição</Label>
+							<Row>
+								<TextArea
+									type="text"
+									onChange={handleChange}
+									name="descricao"
+									placeholder="Inclua informações sobre o medicamento..."
+									value={product.descricao}
+								/>
+							</Row>
 
-						<Buttons>
-							<Button Text="Salvar" Type="Submit"></Button>
-						</Buttons>
+							<Buttons>
+								<Button Text="Salvar" Type="Submit"></Button>
+							</Buttons>
 						</Column>
 					</Form>
 					<Modal
 						open={modalOpened}
 						onClose={() => setModalOpened(!modalOpened)}>
-						<h4>
-							<FontAwesomeIcon icon={faCheck} />
+						<LabelMessage>
+							<FontAwesomeIcon icon={faCheck} style={{color: "#4daf23"}}/>
 							&nbsp;&nbsp;&nbsp;&nbsp;{message}
-						</h4>
+						</LabelMessage>
 					</Modal>
 				</Content>
 			</Container>
@@ -166,4 +161,4 @@ const Products = () => {
 	);
 };
 
-export default Products;
+export default ProductForm;

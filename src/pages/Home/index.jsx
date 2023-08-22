@@ -1,6 +1,5 @@
-import { Container, Title, Wrapper, Content } from './styles';
-import Navbar from '../../components/Navbar';
-import Sidebar from '../../components/Sidebar';
+import { Container, Title, Content } from './styles';
+import { Wrapper, Sidebar } from '../../components';
 
 const Home = () => {
 	return (

@@ -1,20 +1,14 @@
-import Button from '../../components/Button';
 import { Column, Container, Input } from './styles';
-import { Form, Title, Wrapper, Label, Content, Row, Buttons, ColumnSmall} from './styles';
-import { useState, useContext } from 'react';
-import { StoreContext } from '../../context/StoreContext';
+import { 	Form,	Title,	Label,	Content,	Row,	Buttons,	ColumnSmall,} from './styles';
+import { useState } from 'react';
+import useStore from '../../hooks/useStore';
 import { api } from '../../services/api';
-import Navbar from '../../components/Navbar';
-import Sidebar from '../../components/Sidebar';
-import { maskCNPJ } from '../../functions/maskCnpj';
-import { maskPhone } from '../../functions/maskPhone';
-import { maskCEP } from '../../functions/maskCEP';
-import Modal from '../../components/Modal';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {	Wrapper,	Sidebar,	Modal,	Button,	LabelMessage,} from '../../components';
 
-const Stores = () => {
-	const { AddStore } = useContext(StoreContext);
+const StoreForm = () => {
+	const { AddStore } = useStore();
 
 	const [modalOpened, setModalOpened] = useState(false);
 	const [message, setMessage] = useState('');
@@ -86,7 +80,9 @@ const Stores = () => {
 			}
 		} catch (error) {
 			setModalOpened(true);
-			setMessage('Estamos com problemas! Tente novamente!' + error);
+			setMessage(
+				'Estamos com problemas na consulta de CEP! Tente novamente!' + error
+			);
 		}
 		return;
 	}
@@ -111,6 +107,31 @@ const Stores = () => {
 		});
 	}
 
+	const maskCNPJ = (cnpj) => {
+		return cnpj
+			.replace(/\D+/g, '')
+			.replace(/(\d{2})(\d)/, '$1.$2')
+			.replace(/(\d{3})(\d)/, '$1.$2')
+			.replace(/(\d{3})(\d)/, '$1/$2')
+			.replace(/(\d{4})(\d)/, '$1-$2')
+			.replace(/(-\d{2})\d+?$/, '$1');
+	};
+
+	const maskCEP = (cep) => {
+		return cep
+			.replace(/\D/g, '')
+			.replace(/(\d{2})(\d)/, '$1.$2')
+			.replace(/(\d{3})(\d)/, '$1-$2')
+			.replace(/(-\d{3})\d+?$/, '$1');
+	};
+
+	const maskPhone = (phone) => {
+		return phone
+			.replace(/\D/g, '')
+			.replace(/(\d{2})(\d)/, '($1) $2')
+			.replace(/(\d)(\d{4})$/, '$1-$2');
+	};
+
 	return (
 		<Wrapper>
 			<Sidebar />
@@ -128,7 +149,7 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="cnpj"
-									placeholder='00.000.000/0000-00'
+									placeholder="00.000.000/0000-00"
 									value={maskCNPJ(store.cnpj)}
 								/>
 							</Column>
@@ -139,7 +160,7 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="razaoSocial"
-									placeholder='Insira a razão social...'
+									placeholder="Insira a razão social..."
 									value={store.razaoSocial}
 								/>
 							</Column>
@@ -150,7 +171,7 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="nomeFantasia"
-									placeholder='Insira o nome fantasia...'
+									placeholder="Insira o nome fantasia..."
 									value={store.nomeFantasia}
 								/>
 							</Column>
@@ -163,7 +184,7 @@ const Stores = () => {
 									type="email"
 									onChange={handleChange}
 									name="email"
-									placeholder='E-mail de contato...'
+									placeholder="E-mail de contato..."
 									value={store.email}
 								/>
 							</Column>
@@ -175,9 +196,9 @@ const Stores = () => {
 									name="telefone"
 									minLength={14}
 									maxLength={14}
-									placeholder='(99) 9999-9999'
+									placeholder="(99) 9999-9999"
 									value={maskPhone(store.telefone)}
-									/>
+								/>
 							</ColumnSmall>
 							<ColumnSmall>
 								<Label>Celular</Label>
@@ -188,9 +209,9 @@ const Stores = () => {
 									name="celular"
 									minLength={15}
 									maxLength={15}
-									placeholder='(99) 99999-9999'
+									placeholder="(99) 99999-9999"
 									value={maskPhone(store.celular)}
-									/>
+								/>
 							</ColumnSmall>
 						</Row>
 
@@ -203,9 +224,9 @@ const Stores = () => {
 									onChange={handleChange}
 									name="cep"
 									value={maskCEP(store.cep)}
-									placeholder='88.888-888'
+									placeholder="88.888-888"
 									onBlur={findAddress}
-									/>
+								/>
 							</ColumnSmall>
 							<Column>
 								<Label>Endereço</Label>
@@ -214,9 +235,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="endereco"
-									placeholder='Busca automática pelo CEP...'
+									placeholder="Busca automática pelo CEP..."
 									value={store.endereco}
-									/>
+								/>
 							</Column>
 							<ColumnSmall>
 								<Label>Número</Label>
@@ -225,7 +246,7 @@ const Stores = () => {
 									type="number"
 									onChange={handleChange}
 									name="numero"
-									placeholder='Insira o número...'
+									placeholder="Insira o número..."
 									value={store.numero}
 								/>
 							</ColumnSmall>
@@ -238,9 +259,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="bairro"
-									placeholder='Insira o bairro...'
+									placeholder="Insira o bairro..."
 									value={store.bairro}
-									/>
+								/>
 							</Column>
 							<Column>
 								<Label>Cidade</Label>
@@ -249,9 +270,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="cidade"
-									placeholder='Insira a cidade...'
+									placeholder="Insira a cidade..."
 									value={store.cidade}
-									/>
+								/>
 							</Column>
 							<Column>
 								<Label>Estado</Label>
@@ -260,9 +281,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="uf"
-									placeholder='Insira o estado...'
+									placeholder="Insira o estado..."
 									value={store.uf}
-									/>
+								/>
 							</Column>
 						</Row>
 						<Row>
@@ -272,9 +293,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="complemento"
-									placeholder='Insira o complemento...'
+									placeholder="Insira o complemento..."
 									value={store.complemento}
-									/>
+								/>
 							</Column>
 							<ColumnSmall>
 								<Label>Latitude</Label>
@@ -283,9 +304,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="latitude"
-									placeholder='-99.9999'
+									placeholder="-99.9999"
 									value={store.latitude}
-									/>
+								/>
 							</ColumnSmall>
 							<ColumnSmall>
 								<Label>Longitude</Label>
@@ -294,7 +315,7 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="longitude"
-									placeholder='-99.9999'
+									placeholder="-99.9999"
 									value={store.longitude}
 								/>
 							</ColumnSmall>
@@ -306,10 +327,14 @@ const Stores = () => {
 					<Modal
 						open={modalOpened}
 						onClose={() => setModalOpened(!modalOpened)}>
-						<h4>
-							<FontAwesomeIcon icon={faCheck} />
+						<LabelMessage>
+							{message.includes('CEP') ? (
+								<FontAwesomeIcon icon={faX} style={{color: "#c31d1d"}}/>
+							) : (
+								<FontAwesomeIcon icon={faCheck} style={{color: "#4daf23"}}/>
+							)}
 							&nbsp;&nbsp;&nbsp;&nbsp;{message}
-						</h4>
+						</LabelMessage>
 					</Modal>
 				</Content>
 			</Container>
@@ -317,4 +342,4 @@ const Stores = () => {
 	);
 };
 
-export default Stores;
+export default StoreForm;

@@ -1,24 +1,11 @@
-import { useContext, useState } from 'react';
-import { ProductContext } from '../../context/ProductContext';
-import ProductCard from '../../components/ProductCard';
-import {
-	Header,
-	InputWrapper,
-	Wrapper,
-	StyledFontAwesomeIcon,
-	Gallery,
-	Container,
-	Title,
-	ProductInfo
-} from './styles';
-import Modal from '../../components/Modal';
+import { useState } from 'react';
+import {	Header,	InputWrapper,	StyledFontAwesomeIcon,	Gallery,	Container,	Title,	ProductInfo} from './styles';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import Input from '../../components/Input';
-import Navbar from '../../components/Navbar';
-import Sidebar from '../../components/Sidebar';
+import useProduct from '../../hooks/useProduct';
+import { Wrapper, Sidebar, Modal, Input, ProductCard} from '../../components';
 
 const ProductsList = () => {
-	const { listProducts } = useContext(ProductContext);
+	const { listProducts } = useProduct();
 	const [modalOpened, setModalOpened] = useState(false);
 	const [productId, setProductId] = useState('');
 	const [search, setSearch] = useState('');

@@ -1,21 +1,10 @@
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
-import {
-	Container,
-	Label,
-	LabelError,
-	Content,
-	Strong,
-	LabelSignup,
-} from './styles';
+import { Link} from 'react-router-dom';
+import {	Container,	Label,	LabelError,	Content,	Strong,	LabelSignup,} from './styles';
 import { AuthContext } from '../../context/AuthContext';
-import { checkEmail } from '../../functions/email';
-import { checkPassword } from '../../functions/password';
-import Modal from '../../components/Modal';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button , Modal, Input} from '../../components';
 
 const Signup = () => {
 	const [email, setEmail] = useState('');
@@ -24,7 +13,7 @@ const Signup = () => {
 	const [error, setError] = useState('');
 	const [success, setSuccess] = useState('');
 	const [modalOpened, setModalOpened] = useState(false);
-	const navigate = useNavigate();
+
 
 	const { setValue } = useContext(AuthContext);
 
@@ -48,8 +37,20 @@ const Signup = () => {
 		setEmail('');
 		setEmailConf('');
 		setPassword('');
-		// navigate('/login');
+		
 	};
+
+	const checkEmail = (email) => {
+		const regex =
+			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return regex.test(email);
+	};
+
+	const checkPassword = (password) => {
+		const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8}$/;
+		return regex.test(password);
+	};
+
 
 	return (
 		<Container>
