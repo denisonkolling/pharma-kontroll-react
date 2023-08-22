@@ -7,14 +7,14 @@ export const ButtonStyled = styled.button`
   border-radius: 5px;
   width: 100%;
   cursor: pointer;
-  /* background-color: #046ee5; */
-  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #78e4ff, #32b08d);
+  background-color: #368BEA;
   color: white;
   font-weight: 600;
   font-size: 16px;
   max-width: 350px;
+  letter-spacing: 1px;
 
   &:hover{
-    opacity: 0.85;
+    opacity: 0.75;
   }
 `;
