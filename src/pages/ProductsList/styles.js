@@ -47,7 +47,6 @@ export const Header = styled.header`
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 	color: #757575;
 	font-size: 2rem;
-	cursor: pointer;
 	position: absolute;
 	right: 1.2rem;
 	bottom: 0.65rem;
