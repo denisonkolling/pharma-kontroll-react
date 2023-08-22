@@ -1,5 +1,5 @@
 import Button from '../../components/Button';
-import { Container, Input, Select, TextArea } from './styles';
+import { Column, Container, Input, Select, TextArea } from './styles';
 import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
 import { useState, useContext } from 'react';
 import { ProductContext } from '../../context/ProductContext';
@@ -75,42 +75,56 @@ const Products = () => {
 					<hr />
 					<Form onSubmit={(e) => handleSubmit(e)}>
 						<Row>
-							<Label>Nome</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="nome"
-								value={product.nome}
-							/>
-							<Label>Laboratório</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="laboratorio"
-								value={product.laboratorio}
-							/>
+							<Column>
+								<Label>Medicamento</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="nome"
+									placeholder='Insira o nome do medicamento...'
+									value={product.nome}
+								/>
+							</Column>
+							<Column>
+								<Label>Laboratório</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="laboratorio"
+									placeholder='Insira o laboratório fabricante...'
+									value={product.laboratorio}
+								/>
+							</Column>
 						</Row>
 						<Row>
-							<Label>Dosagem</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="dosagem"
-								value={product.dosagem}
-							/>
-							<Label>Preço</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="preco"
-								minLength={4}
-								value={maskPrice(product.preco)}
-							/>
+							<Column>
+								<Label>Dosagem</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="dosagem"
+									placeholder='125mg'
+									value={product.dosagem}
+								/>
+							</Column>
+							
+							<Column>
+								<Label>Preço</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="preco"
+									minLength={4}
+									placeholder='9,99'
+									value={maskPrice(product.preco)}
+								/>
+							</Column>
 						</Row>
+						<Column>
 						<Select>
 							<Label htmlFor="tipo">Tipo</Label>
 							<select name="tipo" onChange={handleChange}>
@@ -119,12 +133,16 @@ const Products = () => {
 								<option value="comum">Comum</option>
 							</select>
 						</Select>
+						</Column>
+						<hr />
+						<Column>
 						<Label>Descrição</Label>
 						<Row>
 							<TextArea
 								type="text"
 								onChange={handleChange}
 								name="descricao"
+								placeholder='Inclua informações sobre o medicamento...'
 								value={product.descricao}
 							/>
 						</Row>
@@ -132,6 +150,7 @@ const Products = () => {
 						<Buttons>
 							<Button Text="Salvar" Type="Submit"></Button>
 						</Buttons>
+						</Column>
 					</Form>
 					<Modal
 						open={modalOpened}

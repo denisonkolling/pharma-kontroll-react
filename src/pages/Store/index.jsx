@@ -1,6 +1,6 @@
 import Button from '../../components/Button';
-import { Container, Input } from './styles';
-import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
+import { Column, Container, Input } from './styles';
+import { Form, Title, Wrapper, Label, Content, Row, Buttons, ColumnSmall} from './styles';
 import { useState, useContext } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 import { api } from '../../services/api';
@@ -120,139 +120,184 @@ const Stores = () => {
 					<hr />
 					<Form onSubmit={(e) => handleSubmit(e)}>
 						<Row>
-							<Label>CNPJ</Label>
-							<Input
-								required
-								minLength={14}
-								type="text"
-								onChange={handleChange}
-								name="cnpj"
-								value={maskCNPJ(store.cnpj)}
-							/>
-							<Label>Razão Social</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="razaoSocial"
-								value={store.razaoSocial}
-							/>
-							<Label>Nome Fantasia</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="nomeFantasia"
-								value={store.nomeFantasia}
-							/>
+							<Column>
+								<Label>CNPJ</Label>
+								<Input
+									required
+									minLength={14}
+									type="text"
+									onChange={handleChange}
+									name="cnpj"
+									placeholder='00.000.000/0000-00'
+									value={maskCNPJ(store.cnpj)}
+								/>
+							</Column>
+							<Column>
+								<Label>Razão Social</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="razaoSocial"
+									placeholder='Insira a razão social...'
+									value={store.razaoSocial}
+								/>
+							</Column>
+							<Column>
+								<Label>Nome Fantasia</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="nomeFantasia"
+									placeholder='Insira o nome fantasia...'
+									value={store.nomeFantasia}
+								/>
+							</Column>
 						</Row>
 						<Row>
-							<Label>E-mail</Label>
-							<Input
-								required
-								type="email"
-								onChange={handleChange}
-								name="email"
-								value={store.email}
-							/>
-							<Label>Telefone</Label>
-							<Input
-								type="text"
-								onChange={handleChange}
-								name="telefone"
-								minLength={14}
-								maxLength={14}
-								value={maskPhone(store.telefone)}
-							/>
-							<Label>Celular</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="celular"
-								minLength={15}
-								maxLength={15}
-								value={maskPhone(store.celular)}
-							/>
+							<Column>
+								<Label>E-mail</Label>
+								<Input
+									required
+									type="email"
+									onChange={handleChange}
+									name="email"
+									placeholder='E-mail de contato...'
+									value={store.email}
+								/>
+							</Column>
+							<ColumnSmall>
+								<Label>Telefone</Label>
+								<Input
+									type="text"
+									onChange={handleChange}
+									name="telefone"
+									minLength={14}
+									maxLength={14}
+									placeholder='(99) 9999-9999'
+									value={maskPhone(store.telefone)}
+									/>
+							</ColumnSmall>
+							<ColumnSmall>
+								<Label>Celular</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="celular"
+									minLength={15}
+									maxLength={15}
+									placeholder='(99) 99999-9999'
+									value={maskPhone(store.celular)}
+									/>
+							</ColumnSmall>
 						</Row>
 
 						<Row>
-							<Label>CEP</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="cep"
-								value={maskCEP(store.cep)}
-								onBlur={findAddress}
-							/>
-							<Label>Endereço</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="endereco"
-								value={store.endereco}
-							/>
-							<Label>Número</Label>
-							<Input
-								required
-								type="number"
-								onChange={handleChange}
-								name="numero"
-								value={store.numero}
-							/>
+							<ColumnSmall>
+								<Label>CEP</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="cep"
+									value={maskCEP(store.cep)}
+									placeholder='88.888-888'
+									onBlur={findAddress}
+									/>
+							</ColumnSmall>
+							<Column>
+								<Label>Endereço</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="endereco"
+									placeholder='Busca automática pelo CEP...'
+									value={store.endereco}
+									/>
+							</Column>
+							<ColumnSmall>
+								<Label>Número</Label>
+								<Input
+									required
+									type="number"
+									onChange={handleChange}
+									name="numero"
+									placeholder='Insira o número...'
+									value={store.numero}
+								/>
+							</ColumnSmall>
 						</Row>
 						<Row>
-							<Label>Bairro</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="bairro"
-								value={store.bairro}
-							/>
-							<Label>Cidade</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="cidade"
-								value={store.cidade}
-							/>
-							<Label>Estado</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="uf"
-								value={store.uf}
-							/>
+							<Column>
+								<Label>Bairro</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="bairro"
+									placeholder='Insira o bairro...'
+									value={store.bairro}
+									/>
+							</Column>
+							<Column>
+								<Label>Cidade</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="cidade"
+									placeholder='Insira a cidade...'
+									value={store.cidade}
+									/>
+							</Column>
+							<Column>
+								<Label>Estado</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="uf"
+									placeholder='Insira o estado...'
+									value={store.uf}
+									/>
+							</Column>
 						</Row>
 						<Row>
-							<Label>Complemento</Label>
-							<Input
-								type="text"
-								onChange={handleChange}
-								name="complemento"
-								value={store.complemento}
-							/>
-							<Label>Latitude</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="latitude"
-								value={store.latitude}
-							/>
-							<Label>Longitude</Label>
-							<Input
-								required
-								type="text"
-								onChange={handleChange}
-								name="longitude"
-								value={store.longitude}
-							/>
+							<Column>
+								<Label>Complemento</Label>
+								<Input
+									type="text"
+									onChange={handleChange}
+									name="complemento"
+									placeholder='Insira o complemento...'
+									value={store.complemento}
+									/>
+							</Column>
+							<ColumnSmall>
+								<Label>Latitude</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="latitude"
+									placeholder='-99.9999'
+									value={store.latitude}
+									/>
+							</ColumnSmall>
+							<ColumnSmall>
+								<Label>Longitude</Label>
+								<Input
+									required
+									type="text"
+									onChange={handleChange}
+									name="longitude"
+									placeholder='-99.9999'
+									value={store.longitude}
+								/>
+							</ColumnSmall>
 						</Row>
 						<Buttons>
 							<Button Text="Salvar" Type="Submit"></Button>
