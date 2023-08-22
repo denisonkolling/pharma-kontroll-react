@@ -10,22 +10,21 @@ const Map = ({ positions, center }) => {
 					href="https://www.openstreetmap.org/copyright">&nbsp;OpenStreetMap&nbsp;</a> contributors'
 			/>
 
-			{positions.map(({ endereco, cidade, uf, numero, bairro, cep, latitude, longitude }, index) => {
+			{positions.map((store, index) => {
 				return (
-					<MarkerStyled position={[latitude, longitude]} key={index}>
+					<MarkerStyled position={[store.latitude, store.longitude]} key={index}>
 						<PopupStyled>
 							<p>
-								{endereco}, {numero}
-								<br />
-								Bairro {bairro}
-								<br />
-								{cidade},&nbsp;{uf}
-								<br />
-								CEP {cep}
+								<strong>Razão Social:</strong> {store.razaoSocial}<br />
+								<strong>CNPJ:</strong> {store.cnpj}<br />
+								<strong>Nome Fantasia:</strong> {store.cnpj}<br />
+								<strong>Email:</strong> {store.email}<br />
+								<strong>Telefone:</strong> {store.telefone}<br />
+								<strong>WhatsApp:</strong> <a href={`https://wa.me/55${store.celular.replace(/\D/g,'')}`} target='blank'>{store.celular}</a><br />
 							</p>
 						</PopupStyled>
 					</MarkerStyled>
-				);
+				)
 			})}
 		</MapContainerStyled>
 	);
