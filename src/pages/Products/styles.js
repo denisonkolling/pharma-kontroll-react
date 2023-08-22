@@ -19,24 +19,7 @@ export const Content = styled.div`
 	padding: 20px;
 `;
 
-export const Label = styled.label`
-	line-height: 18px;
-	font-size: 18px;
-	font-weight: 400;
-	color: black;
-	width: 50%;
-	padding: 15px;
-`;
-
 export const Form = styled.form``;
-
-export const Row = styled.div`
-	display: flex;
-	margin-top: 10px;
-	@media (max-width: 768px) {
-		flex-direction: column;
-	}
-`;
 
 export const Select = styled.div`
 	margin: 25px 0px;
@@ -46,16 +29,6 @@ export const Buttons = styled.div`
 	display: flex;
 	margin-top: 25px;
 	justify-content: end;
-`;
-
-export const Input = styled.input`
-	padding: 16px 20px;
-	width: 100%;
-	border-radius: 5px;
-	font-size: 16px;
-
-	background-color: #f0f2f5;
-	border: 1px solid darkgrey;
 `;
 
 export const TextArea = styled.textarea`
@@ -71,4 +44,35 @@ export const Container = styled.div`
 	justify-content: center;
 	flex-direction: column;
 	width: 100%;
+`;
+
+export const Label = styled.label`
+	line-height: 28px;
+	font-size: 18px;
+	font-weight: 400;
+	color: black;
+	width: 100%;
+	margin-right: 15px;
+`;
+export const Input = styled.input`
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 16px;
+	background-color: #f0f2f5;
+	border: 1px solid darkgrey;
+`;
+export const Row = styled.div`
+	display: flex;
+	margin-top: 10px;
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
+`;
+
+export const Column = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0px 15px;
 `;
