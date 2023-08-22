@@ -19,10 +19,6 @@ export const Gallery = styled.div`
 	margin: 50px 0;
 `;
 
-export const Title = styled.h1`
-	color: black;
-	margin: 15px;
-`;
 
 export const InputWrapper = styled.div`
 	position: relative;

@@ -1,6 +1,6 @@
-import { Wrapper, Sidebar, Button, Modal, LabelMessage } from '../../components';
+import { Wrapper, Sidebar, Button, Modal, LabelMessage,Title } from '../../components';
 import { Column, Container, Input, Select, TextArea } from './styles';
-import { Form, Title, Label, Content, Row, Buttons } from './styles';
+import { Form, Label, Content, Row, Buttons } from './styles';
 import { useState } from 'react';
 import useProduct from '../../hooks/useProduct';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';

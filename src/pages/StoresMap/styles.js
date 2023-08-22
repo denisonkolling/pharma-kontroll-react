@@ -14,7 +14,3 @@ export const Content = styled.div`
 	padding: 20px;
 `;
 
-export const Title = styled.h1`
-	color: black;
-	margin: 15px;
-`;

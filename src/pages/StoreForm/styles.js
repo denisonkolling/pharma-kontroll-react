@@ -1,10 +1,5 @@
 import { styled } from 'styled-components';
 
-export const Title = styled.h1`
-	color: black;
-	margin: 15px;
-`;
-
 export const Container = styled.div`
 	display: flex;
 	align-items: center;

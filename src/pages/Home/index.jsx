@@ -1,5 +1,5 @@
-import { Container, Title, Content } from './styles';
-import { Wrapper, Sidebar } from '../../components';
+import { Container, Content } from './styles';
+import { Wrapper, Sidebar, Title } from '../../components';
 
 const Home = () => {
 	return (
