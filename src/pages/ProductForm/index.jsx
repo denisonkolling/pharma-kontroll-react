@@ -1,5 +1,5 @@
-import { Wrapper, Sidebar, Button, Modal, LabelMessage,Title, HrLine } from '../../components';
-import { Column, Container, Input, Select, TextArea } from './styles';
+import { Wrapper, Sidebar, Button, Modal, LabelMessage,Title, HrLine, Container } from '../../components';
+import { Column, Input, Select, TextArea } from './styles';
 import { Form, Label, Content, Row, Buttons } from './styles';
 import { useState } from 'react';
 import useProduct from '../../hooks/useProduct';

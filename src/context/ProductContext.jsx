@@ -3,9 +3,7 @@ import { createContext, useState } from 'react';
 export const ProductContext = createContext();
 
 export const ProductContextProvider = ({ children }) => {
-	const [listProducts, setListProducts] = useState(
-		JSON.parse(localStorage.getItem('products_db')) || []
-	);
+	const [listProducts, setListProducts] = useState(JSON.parse(localStorage.getItem('products_db')) || [] );
 
 	const AddProduct = (nome, laboratorio, dosagem, descricao, preco, tipo) => {
 		const newProduct = {

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import {	Header,	InputWrapper,	StyledFontAwesomeIcon,	Gallery,	Container,	ProductInfo, Content} from './styles';
+import {	Header,	InputWrapper,	StyledFontAwesomeIcon,	Gallery,	ProductInfo, Content} from './styles';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import useProduct from '../../hooks/useProduct';
-import { Wrapper, Sidebar, Modal, Input, ProductCard, Title, HrLine} from '../../components';
+import { Wrapper, Sidebar, Modal, Input, ProductCard, Title, HrLine, Container} from '../../components';
 
 const ProductsList = () => {
 	const { listProducts } = useProduct();

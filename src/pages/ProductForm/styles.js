@@ -1,7 +1,5 @@
 import { styled } from 'styled-components';
 
-
-
 export const Content = styled.div`
 	width: 100%;
 	height: 100vh;
@@ -29,13 +27,6 @@ export const TextArea = styled.textarea`
 	margin-top: 25px;
 	font-size: 16px;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-`;
-export const Container = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	width: 100%;
 `;
 
 export const Label = styled.label`

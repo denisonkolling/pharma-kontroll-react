@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
-import { Container, Content } from './styles';
+import { Content } from './styles';
 import Map from '../../components/Map';
 import { StoreContext } from '../../context/StoreContext';
-import {	Wrapper,	Sidebar, Title, HrLine } from '../../components';
+import {	Wrapper,	Sidebar, Title, HrLine, Container } from '../../components';
 
 const StoresMap = () => {
 	const { listStore } = useContext(StoreContext);

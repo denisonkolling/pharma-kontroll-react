@@ -4,7 +4,7 @@ import {	Container,	Label,	LabelError,	Content,	Strong,	LabelSignup,} from './st
 import { AuthContext } from '../../context/AuthContext';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button , Modal, Input} from '../../components';
+import { Button , Modal, Input, Container} from '../../components';
 
 const Signup = () => {
 	const [email, setEmail] = useState('');
