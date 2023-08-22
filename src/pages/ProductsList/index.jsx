@@ -8,7 +8,8 @@ import {
 	StyledFontAwesomeIcon,
 	Gallery,
 	Container,
-	Title
+	Title,
+	ProductInfo
 } from './styles';
 import Modal from '../../components/Modal';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -43,7 +44,7 @@ const ProductsList = () => {
 		<Wrapper>
 			<Sidebar />
 			<Container>
-			<Title>Lista de Medicamentos</Title>
+				<Title>Lista de Medicamentos</Title>
 				<Header>
 					<InputWrapper>
 						<Input
@@ -77,12 +78,17 @@ const ProductsList = () => {
 						open={modalOpened}
 						onClose={() => setModalOpened(!modalOpened)}
 						product={productId}>
-						<h3>{productId[0]?.nome}</h3>
-						<h5>{productId[0]?.laboratorio}</h5>
-						<p>{productId[0]?.descricao}</p>
-						<span>{productId[0]?.dosagem}</span>
-						<span>R$ {productId[0]?.preco}</span>
-						<span>{productId[0]?.tipo}</span>
+						<ProductInfo>
+							<h3>{productId[0]?.nome}</h3>
+							<hr />
+							<p><strong>Laboratório</strong> {productId[0]?.laboratorio}</p>
+							<p><strong>Dosagem</strong> {productId[0]?.dosagem}</p>
+							<p><strong>Preço</strong> R$ {productId[0]?.preco}</p>
+							<p><strong>Tipo</strong> {productId[0]?.tipo}</p>
+						<p>
+							<strong>Descrição:</strong> {productId[0]?.descricao}
+						</p>
+						</ProductInfo>
 					</Modal>
 				</Gallery>
 			</Container>

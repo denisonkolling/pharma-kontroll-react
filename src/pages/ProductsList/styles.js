@@ -52,3 +52,9 @@ export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 	right: 1.2rem;
 	bottom: 0.65rem;
 `;
+
+export const ProductInfo = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+`;
