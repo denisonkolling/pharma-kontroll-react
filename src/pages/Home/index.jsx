@@ -1,4 +1,4 @@
-import { Container, Content } from './styles';
+import { Container, Content, Hr } from './styles';
 import { Wrapper, Sidebar, Title } from '../../components';
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
 			<Container>
 				<Content>
 					<Title>Bem vindo ao sistema!</Title>
-					<hr />
+					<Hr />
 				</Content>
 			</Container>
 		</Wrapper>

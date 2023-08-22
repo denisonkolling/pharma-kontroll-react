@@ -1,4 +1,4 @@
-import { Wrapper, Sidebar, Button, Modal, LabelMessage,Title } from '../../components';
+import { Wrapper, Sidebar, Button, Modal, LabelMessage,Title, HrLine } from '../../components';
 import { Column, Container, Input, Select, TextArea } from './styles';
 import { Form, Label, Content, Row, Buttons } from './styles';
 import { useState } from 'react';
@@ -67,7 +67,7 @@ const ProductForm = () => {
 			<Container>
 				<Content>
 					<Title>Cadastro de Medicamento</Title>
-					<hr />
+					<HrLine />
 					<Form onSubmit={(e) => handleSubmit(e)}>
 						<Row>
 							<Column>
@@ -129,7 +129,7 @@ const ProductForm = () => {
 								</select>
 							</Select>
 						</Column>
-						<hr />
+						<HrLine />
 						<Column>
 							<Label>Descrição</Label>
 							<Row>

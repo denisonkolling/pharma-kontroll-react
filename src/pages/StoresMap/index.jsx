@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Container, Content } from './styles';
 import Map from '../../components/Map';
 import { StoreContext } from '../../context/StoreContext';
-import {	Wrapper,	Sidebar, Title } from '../../components';
+import {	Wrapper,	Sidebar, Title, HrLine } from '../../components';
 
 const StoresMap = () => {
 	const { listStore } = useContext(StoreContext);
@@ -27,8 +27,9 @@ const StoresMap = () => {
 		<Wrapper>
 			<Sidebar />
 			<Container>
-					<Title>Nossas Lojas</Title>
 				<Content>
+					<Title>Nossas Lojas</Title>
+					<HrLine />
 					<Map
 						positions={stores}
 						center={

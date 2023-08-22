@@ -5,7 +5,7 @@ import useStore from '../../hooks/useStore';
 import { api } from '../../services/api';
 import { faCheck, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {	Wrapper,	Sidebar, Title,	Modal,	Button,	LabelMessage,} from '../../components';
+import {	Wrapper,	Sidebar, Title,	Modal,	Button,	LabelMessage, HrLine} from '../../components';
 
 const StoreForm = () => {
 	const { AddStore } = useStore();
@@ -138,7 +138,7 @@ const StoreForm = () => {
 			<Container>
 				<Content>
 					<Title>Cadastro de Farmácia</Title>
-					<hr />
+					<HrLine />
 					<Form onSubmit={(e) => handleSubmit(e)}>
 						<Row>
 							<Column>

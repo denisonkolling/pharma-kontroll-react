@@ -19,17 +19,20 @@ export const Gallery = styled.div`
 	margin: 50px 0;
 `;
 
-
 export const InputWrapper = styled.div`
 	position: relative;
+	width: 50%;
+	margin-inline: 25%;
+	@media (max-width: 768px) {
+		margin-inline: 0px;
+		width: 80%;
+	}
 `;
 
 export const Header = styled.header`
-	text-align: center;
 	color: white;
-	padding: 2rem;
+	padding: 1.5rem;
 	width: 100%;
-	max-width: 800px;
 `;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
@@ -44,4 +47,10 @@ export const ProductInfo = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
+`;
+
+export const Content = styled.div`
+	width: 100%;
+	height: 100vh;
+	padding: 20px;
 `;
