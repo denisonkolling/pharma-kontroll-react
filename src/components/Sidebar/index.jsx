@@ -26,19 +26,19 @@ const Sidebar = () => {
 				<StyledFontAwesomeIcon icon={faHouse} />
 				<Span>Home</Span>
 			</NavbarLink>
-			<NavbarLink to="/farmacias">
+			<NavbarLink to="/cadastro-farmacia">
 				<StyledFontAwesomeIcon icon={faStore} />
 				<Span>Nova Farmácia</Span>
 			</NavbarLink>
-			<NavbarLink to="/produtos">
+			<NavbarLink to="/cadastro-medicamento">
 				<StyledFontAwesomeIcon icon={faPrescriptionBottleMedical} />
 				<Span>Novo Medicamento</Span>
 			</NavbarLink>
-			<NavbarLink to="/listaDeProdutos">
+			<NavbarLink to="/lista-medicamentos">
 				<StyledFontAwesomeIcon icon={faList} />
 				<Span>Lista Medicamentos</Span>
 			</NavbarLink>
-			<NavbarLink to="/mapaFarmacias">
+			<NavbarLink to="/mapa-farmacias">
 				<StyledFontAwesomeIcon icon={faMap} />
 				<Span>Mapa Farmácias</Span>
 			</NavbarLink>

@@ -9,7 +9,7 @@ import Modal from '../../components/Modal';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Products = () => {
+const ProductForm = () => {
 	const { AddProduct } = useContext(ProductContext);
 
 	const [modalOpened, setModalOpened] = useState(false);
@@ -166,4 +166,4 @@ const Products = () => {
 	);
 };
 
-export default Products;
+export default ProductForm;

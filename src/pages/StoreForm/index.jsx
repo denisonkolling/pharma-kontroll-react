@@ -4,7 +4,6 @@ import { Form, Title, Wrapper, Label, Content, Row, Buttons, ColumnSmall} from '
 import { useState, useContext } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 import { api } from '../../services/api';
-import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
 import { maskCNPJ } from '../../functions/maskCnpj';
 import { maskPhone } from '../../functions/maskPhone';
@@ -13,7 +12,7 @@ import Modal from '../../components/Modal';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Stores = () => {
+const StoreForm = () => {
 	const { AddStore } = useContext(StoreContext);
 
 	const [modalOpened, setModalOpened] = useState(false);
@@ -317,4 +316,4 @@ const Stores = () => {
 	);
 };
 
-export default Stores;
+export default StoreForm;

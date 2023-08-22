@@ -14,7 +14,6 @@ import {
 import Modal from '../../components/Modal';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Input from '../../components/Input';
-import Navbar from '../../components/Navbar';
 import Sidebar from '../../components/Sidebar';
 
 const ProductsList = () => {
