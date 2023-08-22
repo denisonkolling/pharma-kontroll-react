@@ -69,3 +69,13 @@ flex-direction: column;
 width: 100%;
 padding: 0px 15px; 
 `;
+
+export const ColumnSmall = styled.div`
+display: flex;
+flex-direction: column;
+width: 25%;
+padding: 0px 15px; 
+@media (max-width: 768px) {
+	width: 100%;
+	}
+`;

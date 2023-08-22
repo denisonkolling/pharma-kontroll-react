@@ -1,6 +1,6 @@
 import Button from '../../components/Button';
 import { Column, Container, Input } from './styles';
-import { Form, Title, Wrapper, Label, Content, Row, Buttons } from './styles';
+import { Form, Title, Wrapper, Label, Content, Row, Buttons, ColumnSmall} from './styles';
 import { useState, useContext } from 'react';
 import { StoreContext } from '../../context/StoreContext';
 import { api } from '../../services/api';
@@ -167,7 +167,7 @@ const Stores = () => {
 									value={store.email}
 								/>
 							</Column>
-							<Column>
+							<ColumnSmall>
 								<Label>Telefone</Label>
 								<Input
 									type="text"
@@ -178,8 +178,8 @@ const Stores = () => {
 									placeholder='(99) 9999-9999'
 									value={maskPhone(store.telefone)}
 									/>
-							</Column>
-							<Column>
+							</ColumnSmall>
+							<ColumnSmall>
 								<Label>Celular</Label>
 								<Input
 									required
@@ -191,11 +191,11 @@ const Stores = () => {
 									placeholder='(99) 99999-9999'
 									value={maskPhone(store.celular)}
 									/>
-							</Column>
+							</ColumnSmall>
 						</Row>
 
 						<Row>
-							<Column>
+							<ColumnSmall>
 								<Label>CEP</Label>
 								<Input
 									required
@@ -206,7 +206,7 @@ const Stores = () => {
 									placeholder='88.888-888'
 									onBlur={findAddress}
 									/>
-							</Column>
+							</ColumnSmall>
 							<Column>
 								<Label>Endereço</Label>
 								<Input
@@ -218,7 +218,7 @@ const Stores = () => {
 									value={store.endereco}
 									/>
 							</Column>
-							<Column>
+							<ColumnSmall>
 								<Label>Número</Label>
 								<Input
 									required
@@ -228,7 +228,7 @@ const Stores = () => {
 									placeholder='Insira o número...'
 									value={store.numero}
 								/>
-							</Column>
+							</ColumnSmall>
 						</Row>
 						<Row>
 							<Column>
@@ -276,7 +276,7 @@ const Stores = () => {
 									value={store.complemento}
 									/>
 							</Column>
-							<Column>
+							<ColumnSmall>
 								<Label>Latitude</Label>
 								<Input
 									required
@@ -286,8 +286,8 @@ const Stores = () => {
 									placeholder='-99.9999'
 									value={store.latitude}
 									/>
-							</Column>
-							<Column>
+							</ColumnSmall>
+							<ColumnSmall>
 								<Label>Longitude</Label>
 								<Input
 									required
@@ -297,7 +297,7 @@ const Stores = () => {
 									placeholder='-99.9999'
 									value={store.longitude}
 								/>
-							</Column>
+							</ColumnSmall>
 						</Row>
 						<Buttons>
 							<Button Text="Salvar" Type="Submit"></Button>
