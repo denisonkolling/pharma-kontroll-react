@@ -2,7 +2,7 @@ import Button from '../../components/Button';
 import { Column, Container, Input } from './styles';
 import { Form, Title, Wrapper, Label, Content, Row, Buttons, ColumnSmall} from './styles';
 import { useState, useContext } from 'react';
-import { StoreContext } from '../../context/StoreContext';
+import useStore from '../../hooks/useStore';
 import { api } from '../../services/api';
 import Sidebar from '../../components/Sidebar';
 import { maskCNPJ } from '../../functions/maskCnpj';
@@ -13,7 +13,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const StoreForm = () => {
-	const { AddStore } = useContext(StoreContext);
+	const { AddStore } = useStore();
 
 	const [modalOpened, setModalOpened] = useState(false);
 	const [message, setMessage] = useState('');

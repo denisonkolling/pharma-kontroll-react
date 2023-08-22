@@ -1,9 +1,9 @@
 import Button from '../../components/Button';
 import Input from '../../components/Input';
-import { useState,useContext } from 'react';
+import { useState } from 'react';
 import { Container, Content, Label, LabelError, LabelSignin, Strong } from './styles';
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import useAuth from '../../hooks/useAuth';
 import { checkEmail } from '../../functions/email';
 import { checkPassword } from '../../functions/password';
 
@@ -13,7 +13,7 @@ const Login = () => {
 	const [error, setError] = useState('');
 	const navigate = useNavigate();
 
-	const { login } = useContext(AuthContext)
+	const { login } = useAuth()
 
 	const handleLogin = () => {
 		if (!checkEmail(email)) {
