@@ -128,6 +128,7 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="cnpj"
+									placeholder='00.000.000/0000-00'
 									value={maskCNPJ(store.cnpj)}
 								/>
 							</Column>
@@ -138,6 +139,7 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="razaoSocial"
+									placeholder='Insira a razão social...'
 									value={store.razaoSocial}
 								/>
 							</Column>
@@ -148,6 +150,7 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="nomeFantasia"
+									placeholder='Insira o nome fantasia...'
 									value={store.nomeFantasia}
 								/>
 							</Column>
@@ -160,6 +163,7 @@ const Stores = () => {
 									type="email"
 									onChange={handleChange}
 									name="email"
+									placeholder='E-mail de contato...'
 									value={store.email}
 								/>
 							</Column>
@@ -171,8 +175,9 @@ const Stores = () => {
 									name="telefone"
 									minLength={14}
 									maxLength={14}
+									placeholder='(99) 9999-9999'
 									value={maskPhone(store.telefone)}
-								/>
+									/>
 							</Column>
 							<Column>
 								<Label>Celular</Label>
@@ -183,8 +188,9 @@ const Stores = () => {
 									name="celular"
 									minLength={15}
 									maxLength={15}
+									placeholder='(99) 99999-9999'
 									value={maskPhone(store.celular)}
-								/>
+									/>
 							</Column>
 						</Row>
 
@@ -197,8 +203,9 @@ const Stores = () => {
 									onChange={handleChange}
 									name="cep"
 									value={maskCEP(store.cep)}
+									placeholder='88.888-888'
 									onBlur={findAddress}
-								/>
+									/>
 							</Column>
 							<Column>
 								<Label>Endereço</Label>
@@ -207,8 +214,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="endereco"
+									placeholder='Busca automática pelo CEP...'
 									value={store.endereco}
-								/>
+									/>
 							</Column>
 							<Column>
 								<Label>Número</Label>
@@ -217,6 +225,7 @@ const Stores = () => {
 									type="number"
 									onChange={handleChange}
 									name="numero"
+									placeholder='Insira o número...'
 									value={store.numero}
 								/>
 							</Column>
@@ -229,8 +238,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="bairro"
+									placeholder='Insira o bairro...'
 									value={store.bairro}
-								/>
+									/>
 							</Column>
 							<Column>
 								<Label>Cidade</Label>
@@ -239,8 +249,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="cidade"
+									placeholder='Insira a cidade...'
 									value={store.cidade}
-								/>
+									/>
 							</Column>
 							<Column>
 								<Label>Estado</Label>
@@ -249,8 +260,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="uf"
+									placeholder='Insira o estado...'
 									value={store.uf}
-								/>
+									/>
 							</Column>
 						</Row>
 						<Row>
@@ -260,8 +272,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="complemento"
+									placeholder='Insira o complemento...'
 									value={store.complemento}
-								/>
+									/>
 							</Column>
 							<Column>
 								<Label>Latitude</Label>
@@ -270,8 +283,9 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="latitude"
+									placeholder='-99.9999'
 									value={store.latitude}
-								/>
+									/>
 							</Column>
 							<Column>
 								<Label>Longitude</Label>
@@ -280,6 +294,7 @@ const Stores = () => {
 									type="text"
 									onChange={handleChange}
 									name="longitude"
+									placeholder='-99.9999'
 									value={store.longitude}
 								/>
 							</Column>

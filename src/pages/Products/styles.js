@@ -19,7 +19,9 @@ export const Content = styled.div`
 	padding: 20px;
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+	padding: 10px;
+`;
 
 export const Select = styled.div`
 	margin: 25px 0px;
@@ -37,6 +39,7 @@ export const TextArea = styled.textarea`
 	padding: 10px;
 	margin-top: 25px;
 	font-size: 16px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 `;
 export const Container = styled.div`
 	display: flex;
