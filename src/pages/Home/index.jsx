@@ -1,6 +1,5 @@
-import { Container, Title, Wrapper, Content } from './styles';
-import Navbar from '../../components/Navbar';
-import Sidebar from '../../components/Sidebar';
+import { Container, Content, Hr } from './styles';
+import { Wrapper, Sidebar, Title } from '../../components';
 
 const Home = () => {
 	return (
@@ -9,7 +8,7 @@ const Home = () => {
 			<Container>
 				<Content>
 					<Title>Bem vindo ao sistema!</Title>
-					<hr />
+					<Hr />
 				</Content>
 			</Container>
 		</Wrapper>

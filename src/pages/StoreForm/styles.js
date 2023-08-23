@@ -1,24 +1,6 @@
 import { styled } from 'styled-components';
 
-export const Wrapper = styled.div`
-	display: flex;
-	@media (max-width: 480px) {
-		flex-direction: column;
-	}
-`;
 
-export const Title = styled.h1`
-	color: black;
-	margin: 15px;
-`;
-
-export const Container = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	width: 100%;
-`;
 
 export const Content = styled.div`
 	width: 100%;
