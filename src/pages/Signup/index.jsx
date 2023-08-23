@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Link} from 'react-router-dom';
-import {	Container,	Label,	LabelError,	Content,	Strong,	LabelSignup,} from './styles';
+import { Label,	LabelError,	Content,	Strong,	LabelSignup,} from './styles';
 import { AuthContext } from '../../context/AuthContext';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
