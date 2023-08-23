@@ -1,11 +1,28 @@
 import { useState } from 'react';
-import {	Header,	InputWrapper,	StyledFontAwesomeIcon,	Gallery,	ProductInfo,	Content, ButtonSmall,} from './styles';
+import {
+	Header,
+	InputWrapper,
+	StyledFontAwesomeIcon,
+	Gallery,
+	ProductInfo,
+	Content,
+	ButtonSmall,
+} from './styles';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import useProduct from '../../hooks/useProduct';
-import { 	Wrapper,	Sidebar,	Modal,	Input,	ProductCard,	Title,	HrLine,	Container, Button,} from '../../components';
+import {
+	Wrapper,
+	Sidebar,
+	Modal,
+	Input,
+	ProductCard,
+	Title,
+	HrLine,
+	Container,
+	Button,
+} from '../../components';
 
 const ProductsList = () => {
-
 	const { listProducts } = useProduct();
 	const [modalOpened, setModalOpened] = useState(false);
 	const [productId, setProductId] = useState('');
@@ -41,11 +58,18 @@ const ProductsList = () => {
 							/>
 							<StyledFontAwesomeIcon icon={faMagnifyingGlass} />
 						</InputWrapper>
-						<Container
-							style={{ marginTop: '15px', flexDirection: 'row',	}}>
-							<ButtonSmall onClick={() => setType('Comum')} Text='Comum'>Comum</ButtonSmall>
-							<ButtonSmall onClick={() => setType('Controlado')} Text='Controlado'>Controlado</ButtonSmall>
-							<ButtonSmall onClick={() => setType('')} Text='Todos'>Todos</ButtonSmall>
+						<Container style={{ marginTop: '15px', flexDirection: 'row' }}>
+							<ButtonSmall onClick={() => setType('Comum')} Text="Comum">
+								Comum
+							</ButtonSmall>
+							<ButtonSmall
+								onClick={() => setType('Controlado')}
+								Text="Controlado">
+								Controlado
+							</ButtonSmall>
+							<ButtonSmall onClick={() => setType('')} Text="Todos">
+								Todos
+							</ButtonSmall>
 						</Container>
 					</Header>
 
@@ -84,10 +108,12 @@ const ProductsList = () => {
 								<p>
 									<strong>Tipo</strong> {productId[0]?.tipo}
 								</p>
-								<p>
-									<strong>Descrição</strong>
-									<br /> {productId[0]?.descricao}
-								</p>
+								{productId[0]?.descricao ? (
+									<p>
+										<strong>Descrição</strong>
+										<br /> {productId[0]?.descricao}
+									</p>
+								) : null}
 							</ProductInfo>
 						</Modal>
 					</Gallery>
