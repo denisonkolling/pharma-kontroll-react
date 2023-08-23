@@ -5,7 +5,7 @@ export const ButtonStyled = styled.button`
   outline: none;
   border: none;
   border-radius: 5px;
-  width: 100%;
+  width: ${props => props.height || '100%'};
   cursor: pointer;
   background-color: #368BEA;
   color: white;
