@@ -140,9 +140,9 @@ const ProductForm = () => {
 									name="tipo"
 									onChange={handleChange}
 									onBlur={handleChange}>
-									<option value="Selecione"> -- Selecione -- </option>
-									<option value="Controlado">Controlado</option>
-									<option value="Comum">Comum</option>
+									<option value="Selecione">&nbsp;&nbsp;&nbsp;-----&nbsp;&nbsp;Selecione&nbsp;&nbsp;-----</option>
+									<option value="Controlado">Medicamento Controlado</option>
+									<option value="Comum">Medicamento Comum</option>
 								</select>
 							</Select>
 						</Column>
