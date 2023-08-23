@@ -12,7 +12,7 @@ import { Column, Input, Select, TextArea } from './styles';
 import { Form, Label, Content, Row, Buttons } from './styles';
 import { useState } from 'react';
 import useProduct from '../../hooks/useProduct';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ProductForm = () => {
@@ -36,6 +36,12 @@ const ProductForm = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
+		if (product.tipo == 0 || product.tipo == 'Selecione') {
+			setModalOpened(true);
+			setMessage('Selecione o tipo de medicamento!');
+			return;
+		}
 
 		AddProduct(
 			product.nome,
@@ -67,9 +73,8 @@ const ProductForm = () => {
 			.replace(/\D/g, '')
 			.replace(/(\d{1,2})$/, ',$1')
 			.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-		};
-		
-		
+	};
+
 	return (
 		<Wrapper>
 			<Sidebar />
@@ -131,7 +136,10 @@ const ProductForm = () => {
 						<Column>
 							<Select>
 								<Label htmlFor="tipo">Tipo</Label>
-								<select name="tipo" onChange={handleChange}>
+								<select
+									name="tipo"
+									onChange={handleChange}
+									onBlur={handleChange}>
 									<option value="Selecione"> -- Selecione -- </option>
 									<option value="Controlado">Controlado</option>
 									<option value="Comum">Comum</option>
@@ -160,7 +168,11 @@ const ProductForm = () => {
 						open={modalOpened}
 						onClose={() => setModalOpened(!modalOpened)}>
 						<LabelMessage>
-							<FontAwesomeIcon icon={faCheck} style={{ color: '#4daf23' }} />
+							{message.includes('Selecione') ? (
+								<FontAwesomeIcon icon={faX} style={{ color: '#c31d1d' }} />
+							) : (
+								<FontAwesomeIcon icon={faCheck} style={{ color: '#4daf23' }} />
+							)}
 							&nbsp;&nbsp;&nbsp;&nbsp;{message}
 						</LabelMessage>
 					</Modal>
