@@ -22,13 +22,13 @@ export const AuthProvider = ({ children }) => {
 		const usersStorage = JSON.parse(localStorage.getItem('user_db'));
 
 		if (!usersStorage) {
-			return 'Email não cadastrado!';
+			return 'E-mail não cadastrado';
 		}
 		if (usersStorage.email === email && usersStorage.password === password) {
 			setSigned({ email, password });
 			return;
 		} else {
-			return 'Email e senha incorretos';
+			return 'E-mail e senha incorretos';
 		}
 	};
 
