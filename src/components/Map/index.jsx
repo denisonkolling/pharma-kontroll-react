@@ -21,6 +21,13 @@ const Map = ({ positions, center }) => {
 								<strong>Email:</strong> {store.email}<br />
 								<strong>Telefone:</strong> {store.telefone}<br />
 								<strong>WhatsApp:</strong> <a href={`https://wa.me/55${store.celular.replace(/\D/g,'')}`} target='blank'>{store.celular}</a><br />
+								<strong>Endereco:</strong> {store.endereco},{store.numero}<br />
+								<strong>Bairro:</strong> {store.bairro}<br />
+								<strong>Cidade: </strong>{store.cidade} - {store.uf}<br />
+								<strong>CEP:</strong> {store.cep}<br />
+								{store.complemento ? <><strong>Complemento:</strong> {store.complemento}</> : null}
+
+												
 							</p>
 						</PopupStyled>
 					</MarkerStyled>
