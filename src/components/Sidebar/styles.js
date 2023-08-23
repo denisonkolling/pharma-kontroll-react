@@ -13,7 +13,7 @@ export const Body = styled.body`
 `;
 
 export const Container = styled.aside`
-	background-color: #fff;
+	background-color: #c6b2f3;
 	width: 350px;
 	height: 100vh;
 
@@ -33,7 +33,7 @@ export const SidebarComponent = styled.div`
 	width: 300px;
 	left: 0px;
 	height: 100%;
-	background-color: #fff;
+	background-color: #c6b2f3;
 	transition: all 0.5s ease;
 	@media (max-width: 480px) {
 		width: 100vw;
@@ -47,11 +47,11 @@ export const SidebarHeader = styled.header`
 	color: #353535;
 	line-height: 70px;
 	text-align: center;
-	background-color: #fff;
+	background-color: #c6b2f3;
 	user-select: none;
 	font-family: 'Lato', sans-serif;
-	@media (max-width: 480px) {
-		display: none;
+	@media (max-width: 1160px) {
+		font-size: 0;
 	}
 `;
 

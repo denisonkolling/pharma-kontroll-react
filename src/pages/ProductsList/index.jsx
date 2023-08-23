@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import {	Header,	InputWrapper,	StyledFontAwesomeIcon,	Gallery,	Container,	Title,	ProductInfo} from './styles';
+import {	Header,	InputWrapper,	StyledFontAwesomeIcon,	Gallery,	ProductInfo, Content} from './styles';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import useProduct from '../../hooks/useProduct';
-import { Wrapper, Sidebar, Modal, Input, ProductCard} from '../../components';
+import { Wrapper, Sidebar, Modal, Input, ProductCard, Title, HrLine, Container} from '../../components';
 
 const ProductsList = () => {
 	const { listProducts } = useProduct();
@@ -31,7 +31,9 @@ const ProductsList = () => {
 		<Wrapper>
 			<Sidebar />
 			<Container>
+				<Content>
 				<Title>Lista de Medicamentos</Title>
+				<HrLine />
 				<Header>
 					<InputWrapper>
 						<Input
@@ -73,11 +75,12 @@ const ProductsList = () => {
 							<p><strong>Preço</strong> R$ {productId[0]?.preco}</p>
 							<p><strong>Tipo</strong> {productId[0]?.tipo}</p>
 						<p>
-							<strong>Descrição:</strong> {productId[0]?.descricao}
+							<strong>Descrição</strong><br /> {productId[0]?.descricao}
 						</p>
 						</ProductInfo>
 					</Modal>
 				</Gallery>
+				</Content>
 			</Container>
 		</Wrapper>
 	);

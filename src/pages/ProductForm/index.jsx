@@ -1,11 +1,19 @@
-import { Wrapper, Sidebar, Button, Modal, LabelMessage } from '../../components';
-import { Column, Container, Input, Select, TextArea } from './styles';
-import { Form, Title, Label, Content, Row, Buttons } from './styles';
+import {
+	Wrapper,
+	Sidebar,
+	Button,
+	Modal,
+	LabelMessage,
+	Title,
+	HrLine,
+	Container,
+} from '../../components';
+import { Column, Input, Select, TextArea } from './styles';
+import { Form, Label, Content, Row, Buttons } from './styles';
 import { useState } from 'react';
 import useProduct from '../../hooks/useProduct';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 
 const ProductForm = () => {
 	const { AddProduct } = useProduct();
@@ -59,15 +67,16 @@ const ProductForm = () => {
 			.replace(/\D/g, '')
 			.replace(/(\d{1,2})$/, ',$1')
 			.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-	};
-
+		};
+		
+		
 	return (
 		<Wrapper>
 			<Sidebar />
 			<Container>
 				<Content>
 					<Title>Cadastro de Medicamento</Title>
-					<hr />
+					<HrLine />
 					<Form onSubmit={(e) => handleSubmit(e)}>
 						<Row>
 							<Column>
@@ -113,9 +122,9 @@ const ProductForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="preco"
-									minLength={4}
 									placeholder="9,99"
 									value={maskPrice(product.preco)}
+									onBlur={handleChange}
 								/>
 							</Column>
 						</Row>
@@ -129,7 +138,7 @@ const ProductForm = () => {
 								</select>
 							</Select>
 						</Column>
-						<hr />
+						<HrLine />
 						<Column>
 							<Label>Descrição</Label>
 							<Row>
@@ -151,7 +160,7 @@ const ProductForm = () => {
 						open={modalOpened}
 						onClose={() => setModalOpened(!modalOpened)}>
 						<LabelMessage>
-							<FontAwesomeIcon icon={faCheck} style={{color: "#4daf23"}}/>
+							<FontAwesomeIcon icon={faCheck} style={{ color: '#4daf23' }} />
 							&nbsp;&nbsp;&nbsp;&nbsp;{message}
 						</LabelMessage>
 					</Modal>

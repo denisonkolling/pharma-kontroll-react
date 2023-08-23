@@ -1,11 +1,11 @@
-import { Column, Container, Input } from './styles';
-import { 	Form,	Title,	Label,	Content,	Row,	Buttons,	ColumnSmall,} from './styles';
+import { Column, Input } from './styles';
+import { 	Form,	Label,	Content,	Row,	Buttons,	ColumnSmall,} from './styles';
 import { useState } from 'react';
 import useStore from '../../hooks/useStore';
 import { api } from '../../services/api';
 import { faCheck, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {	Wrapper,	Sidebar,	Modal,	Button,	LabelMessage,} from '../../components';
+import {	Wrapper,	Sidebar, Title,	Modal,	Button,	LabelMessage, HrLine, Container} from '../../components';
 
 const StoreForm = () => {
 	const { AddStore } = useStore();
@@ -138,7 +138,7 @@ const StoreForm = () => {
 			<Container>
 				<Content>
 					<Title>Cadastro de Farmácia</Title>
-					<hr />
+					<HrLine />
 					<Form onSubmit={(e) => handleSubmit(e)}>
 						<Row>
 							<Column>

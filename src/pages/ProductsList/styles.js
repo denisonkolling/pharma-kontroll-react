@@ -1,39 +1,29 @@
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const Container = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	width: 100%;
-	height: 100%;
-`;
-
 export const Gallery = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
 	justify-content: center;
 	align-items: center;
-	margin: 50px 0;
-`;
-
-export const Title = styled.h1`
-	color: black;
-	margin: 15px;
+	margin: 25px 0px;
 `;
 
 export const InputWrapper = styled.div`
 	position: relative;
+	width: 50%;
+	margin-inline: 25%;
+	@media (max-width: 768px) {
+		margin-inline: 0px;
+		width: 80%;
+	}
 `;
 
 export const Header = styled.header`
-	text-align: center;
 	color: white;
-	padding: 2rem;
+	padding: 1.5rem;
 	width: 100%;
-	max-width: 800px;
 `;
 
 export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
@@ -48,4 +38,10 @@ export const ProductInfo = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
+`;
+
+export const Content = styled.div`
+	width: 100%;
+	height: 100vh;
+	padding: 20px;
 `;
