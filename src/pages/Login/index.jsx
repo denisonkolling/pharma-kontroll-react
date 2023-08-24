@@ -44,9 +44,9 @@ const Login = () => {
 
 	return (
 		<Container height="100vh">
-			<Label>Pharma Kontroll</Label>
-			<LabelSignin>Realize o login para acessar sua conta</LabelSignin>
 			<Content>
+			<Label>Pharma Kontroll</Label>
+			<LabelSignin>Para acessar sua conta realize o login</LabelSignin>
 				<Input
 					type="email"
 					value={email}

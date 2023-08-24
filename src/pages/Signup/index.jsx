@@ -61,9 +61,9 @@ const Signup = () => {
 
 	return (
 		<Container height="100vh">
-			<Label>Registro de Usuário</Label>
-			<LabelSignup> Preencha seus dados para registrar-se</LabelSignup>
 			<Content>
+			<Label>Conta de Usuário</Label>
+			<LabelSignup> Preencha seus dados para registrar-se</LabelSignup>
 				<Input
 					type="email"
 					placeholder="Digite com seu email..."
@@ -83,7 +83,7 @@ const Signup = () => {
 					onChange={(e) => [setPassword(e.target.value), setMessage('')]}
 				/>
 				<LabelError>{message}</LabelError>
-				<Button Text="Inscrever-se" onClick={handleSignup} />
+				<Button Text="Criar Conta" onClick={handleSignup} />
 				<LabelSignup>
 					Já tem uma conta?
 					<Strong>
