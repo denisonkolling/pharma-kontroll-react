@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {	Wrapper,	Sidebar, Title,	Modal,	Button,	LabelMessage, HrLine, Container} from '../../components';
 
 const StoreForm = () => {
-	const { AddStore } = useStore();
+	const { addStore } = useStore();
 
 	const [modalOpened, setModalOpened] = useState(false);
 	const [message, setMessage] = useState('');
@@ -37,7 +37,7 @@ const StoreForm = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		AddStore(
+		addStore(
 			store.cnpj,
 			store.razaoSocial,
 			store.nomeFantasia,
@@ -107,7 +107,7 @@ const StoreForm = () => {
 		});
 	}
 
-	const maskCNPJ = (cnpj) => {
+	const maskCnpj = (cnpj) => {
 		return cnpj
 			.replace(/\D+/g, '')
 			.replace(/(\d{2})(\d)/, '$1.$2')
@@ -117,7 +117,7 @@ const StoreForm = () => {
 			.replace(/(-\d{2})\d+?$/, '$1');
 	};
 
-	const maskCEP = (cep) => {
+	const maskCep = (cep) => {
 		return cep
 			.replace(/\D/g, '')
 			.replace(/(\d{2})(\d)/, '$1.$2')
@@ -150,7 +150,7 @@ const StoreForm = () => {
 									onChange={handleChange}
 									name="cnpj"
 									placeholder="00.000.000/0000-00"
-									value={maskCNPJ(store.cnpj)}
+									value={maskCnpj(store.cnpj)}
 								/>
 							</Column>
 							<Column>
@@ -223,7 +223,7 @@ const StoreForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="cep"
-									value={maskCEP(store.cep)}
+									value={maskCep(store.cep)}
 									placeholder="88.888-888"
 									onBlur={findAddress}
 								/>

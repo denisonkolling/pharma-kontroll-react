@@ -16,7 +16,7 @@ import { faCheck, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ProductForm = () => {
-	const { AddProduct } = useProduct();
+	const { addProduct } = useProduct();
 
 	const [modalOpened, setModalOpened] = useState(false);
 	const [message, setMessage] = useState('');
@@ -43,7 +43,7 @@ const ProductForm = () => {
 			return;
 		}
 
-		AddProduct(
+		addProduct(
 			product.nome,
 			product.laboratorio,
 			product.dosagem,

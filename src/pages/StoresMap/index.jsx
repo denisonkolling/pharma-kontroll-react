@@ -20,7 +20,7 @@ const StoresMap = () => {
 	}, []);
 
 	if (loading || !stores) {
-		return <p>Carregando...</p>;
+		return <p>Carregando mapa...</p>;
 	}
 
 	return (

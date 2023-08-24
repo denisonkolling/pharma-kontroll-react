@@ -7,7 +7,7 @@ export const StoreContextProvider = ({ children }) => {
 		JSON.parse(localStorage.getItem('stores_db')) || []
 	);
 
-	const AddStore = (
+	const addStore = (
 		cnpj,
 		razaoSocial,
 		nomeFantasia,
@@ -48,7 +48,7 @@ export const StoreContextProvider = ({ children }) => {
 	};
 
 	return (
-		<StoreContext.Provider value={{ listStore, AddStore }}>
+		<StoreContext.Provider value={{ listStore, addStore }}>
 			{children}
 		</StoreContext.Provider>
 	);

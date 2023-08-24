@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 	);
 	const [isLogged, setIsLogged] = useState(false);
 
-	const AddUser = (email, password) => {
+	const addUser = (email, password) => {
 		const newUser = {
 			id: usersList.length + 1,
 			email,
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	const login = (email, password) => {
-		const user = usersList?.filter((usuario) => usuario.email === email);
+		const user = usersList?.filter((user) => user.email === email);
 
 		if (!usersList) {
 			return 'E-mail não cadastrado';
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
 
 	return (
 		<AuthContext.Provider
-			value={{ usersList, AddUser, login, logout, isLogged }}>
+			value={{ usersList, addUser, login, logout, isLogged }}>
 			{children}
 		</AuthContext.Provider>
 	);
