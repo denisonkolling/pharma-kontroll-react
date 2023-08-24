@@ -1,21 +1,21 @@
-import { useContext, useState } from 'react';
-import { Link} from 'react-router-dom';
-import { Label,	LabelError,	Content,	Strong,	LabelSignup,} from './styles';
+import { useContext, useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Label, LabelError, Content, Strong, LabelSignup } from './styles';
 import { AuthContext } from '../../context/AuthContext';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button , Modal, Input, Container} from '../../components';
+import { Button, Modal, Input, Container } from '../../components';
 
 const Signup = () => {
+	const { setValue } = useContext(AuthContext);
 	const [email, setEmail] = useState('');
 	const [emailConf, setEmailConf] = useState('');
 	const [password, setPassword] = useState('');
 	const [message, setMessage] = useState('');
 	const [success, setSuccess] = useState('');
 	const [modalOpened, setModalOpened] = useState(false);
+	const navigate = useNavigate();
 
-
-	const { setValue } = useContext(AuthContext);
 
 	const handleSignup = () => {
 		if (!email | !emailConf | !password) {
@@ -35,7 +35,10 @@ const Signup = () => {
 		setSuccess('Usuário cadastrado com sucesso!');
 		setModalOpened(true);
 		cleanForm();
-		
+
+		setTimeout(() => {
+			navigate('/login');
+		}, 1000);
 		
 	};
 
@@ -56,9 +59,8 @@ const Signup = () => {
 		return regex.test(password);
 	};
 
-
 	return (
-		<Container height='100vh'>
+		<Container height="100vh">
 			<Label>Registro de Usuário</Label>
 			<LabelSignup> Preencha seus dados para registrar-se</LabelSignup>
 			<Content>

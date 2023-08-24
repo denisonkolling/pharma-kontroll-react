@@ -1,16 +1,15 @@
 import { Button, Input, Container } from '../../components';
 import { useState } from 'react';
 import { Content, Label, LabelError, LabelSignin, Strong } from './styles';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
+	const { login } = useAuth();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [message, setMessage] = useState('');
 	const navigate = useNavigate();
-
-	const { login } = useAuth()
 
 	const handleLogin = () => {
 		if (!checkEmail(email)) {
@@ -26,10 +25,10 @@ const Login = () => {
 
 		if (response) {
 			setMessage(response);
-			console.log(error)
+			console.log(error);
 			return;
 		}
-		
+
 		navigate('/home');
 	};
 
@@ -45,7 +44,7 @@ const Login = () => {
 	};
 
 	return (
-		<Container height='100vh'>
+		<Container height="100vh">
 			<Label>Pharma Kontroll</Label>
 			<LabelSignin>Realize o login para acessar sua conta</LabelSignin>
 			<Content>
@@ -63,7 +62,7 @@ const Login = () => {
 				/>
 				<LabelError>{message}</LabelError>
 				<Button Text="Entrar" onClick={handleLogin}></Button>
-			<LabelSignin>
+				<LabelSignin>
 					Não tem uma conta?
 					<Strong>
 						<Link to="/signup">&nbsp;Registre-se</Link>
@@ -72,6 +71,6 @@ const Login = () => {
 			</Content>
 		</Container>
 	);
-}
+};
 
 export default Login;
