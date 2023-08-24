@@ -25,7 +25,6 @@ const Login = () => {
 
 		if (response) {
 			setMessage(response);
-			console.log(error);
 			return;
 		}
 

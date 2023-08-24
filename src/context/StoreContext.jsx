@@ -3,7 +3,9 @@ import { createContext, useState } from 'react';
 export const StoreContext = createContext();
 
 export const StoreContextProvider = ({ children }) => {
-	const [listStore, setListStore] = useState(JSON.parse(localStorage.getItem('stores_db')) || []);
+	const [listStore, setListStore] = useState(
+		JSON.parse(localStorage.getItem('stores_db')) || []
+	);
 
 	const AddStore = (
 		cnpj,

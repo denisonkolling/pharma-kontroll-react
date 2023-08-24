@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Modal, Input, Container } from '../../components';
 
 const Signup = () => {
-	const { setValue } = useContext(AuthContext);
+	const { AddUser } = useContext(AuthContext);
 	const [email, setEmail] = useState('');
 	const [emailConf, setEmailConf] = useState('');
 	const [password, setPassword] = useState('');
@@ -31,7 +31,7 @@ const Signup = () => {
 			setMessage('Senha deve conter 8 números e letras');
 			return;
 		}
-		setValue({ email, password });
+		AddUser(email, password );
 		setSuccess('Usuário cadastrado com sucesso!');
 		setModalOpened(true);
 		cleanForm();

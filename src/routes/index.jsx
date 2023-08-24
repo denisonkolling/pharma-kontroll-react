@@ -11,8 +11,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 const Private = ({ Page }) => {
-	const { signed } = useAuth();
-	return !!signed ? <Page /> : <Login />;
+	const { isLogged } = useAuth();
+	return !!isLogged ? <Page /> : <Login />;
 };
 
 const RoutesApp = () => {
