@@ -45,3 +45,7 @@ export const Content = styled.div`
 	height: 100vh;
 	padding: 20px;
 `;
+
+export const ButtonSmall = styled.button`
+padding: 5px;
+`

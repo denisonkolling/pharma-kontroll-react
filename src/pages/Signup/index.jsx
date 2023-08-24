@@ -10,7 +10,7 @@ const Signup = () => {
 	const [email, setEmail] = useState('');
 	const [emailConf, setEmailConf] = useState('');
 	const [password, setPassword] = useState('');
-	const [error, setError] = useState('');
+	const [message, setMessage] = useState('');
 	const [success, setSuccess] = useState('');
 	const [modalOpened, setModalOpened] = useState(false);
 
@@ -19,25 +19,30 @@ const Signup = () => {
 
 	const handleSignup = () => {
 		if (!email | !emailConf | !password) {
-			setError('Preencha todos os campos');
+			setMessage('Preencha todos os campos');
 			return;
 		} else if (email !== emailConf) {
-			setError('Os e-mails não são iguais');
+			setMessage('Os e-mails não são iguais');
 			return;
 		} else if (!checkEmail(email)) {
-			setError('Preencha email corretamente');
+			setMessage('Preencha email corretamente');
 			return;
 		} else if (!checkPassword(password)) {
-			setError('Senha deve conter 8 números e letras');
+			setMessage('Senha deve conter 8 números e letras');
 			return;
 		}
 		setValue({ email, password });
 		setSuccess('Usuário cadastrado com sucesso!');
 		setModalOpened(true);
+		cleanForm();
+		
+		
+	};
+
+	const cleanForm = () => {
 		setEmail('');
 		setEmailConf('');
 		setPassword('');
-		
 	};
 
 	const checkEmail = (email) => {
@@ -53,7 +58,7 @@ const Signup = () => {
 
 
 	return (
-		<Container>
+		<Container height='100vh'>
 			<Label>Registro de Usuário</Label>
 			<LabelSignup> Preencha seus dados para registrar-se</LabelSignup>
 			<Content>
@@ -61,21 +66,21 @@ const Signup = () => {
 					type="email"
 					placeholder="Digite com seu email..."
 					value={email}
-					onChange={(e) => [setEmail(e.target.value), setError('')]}
+					onChange={(e) => [setEmail(e.target.value), setMessage('')]}
 				/>
 				<Input
 					type="email"
 					placeholder="Confirme seu email..."
 					value={emailConf}
-					onChange={(e) => [setEmailConf(e.target.value), setError('')]}
+					onChange={(e) => [setEmailConf(e.target.value), setMessage('')]}
 				/>
 				<Input
 					type="password"
 					placeholder="Escolha sua senha..."
 					value={password}
-					onChange={(e) => [setPassword(e.target.value), setError('')]}
+					onChange={(e) => [setPassword(e.target.value), setMessage('')]}
 				/>
-				<LabelError>{error}</LabelError>
+				<LabelError>{message}</LabelError>
 				<Button Text="Inscrever-se" onClick={handleSignup} />
 				<LabelSignup>
 					Já tem uma conta?
