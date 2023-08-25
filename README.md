@@ -14,7 +14,7 @@
 <br>
 
 <p align="center">
-  <img alt="pharma-kontroll" src="./src/assets/screen-shot.png" width="45%">
+  <img alt="pharma-kontroll" src="./screen-shots/logo.PNG" width="45%">
 </p>
 
 ## 🚀 Tecnologias
@@ -28,7 +28,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Uma aplicação web para cadastro de medicamentos e farmácias. Oferece também funcionalidade de cadastro e autenticação de usuários por meio de e-mail e senha. É possível cadastrar medicamentos, consultar os medicamentos já registrados e obter detalhes de cada medicamento de maneira fácil e intuitiva, por meio de um painel que exibe todos os registros inseridos na aplicação.
+**Uma aplicação web para cadastro de medicamentos e farmácias.** Oferece também funcionalidade de cadastro e autenticação de usuários por meio de e-mail e senha. É possível cadastrar medicamentos, consultar os medicamentos já registrados e obter detalhes de cada medicamento de maneira fácil e intuitiva, por meio de um painel que exibe todos os registros inseridos na aplicação.
 
 Além disso, a aplicação permite o cadastro de farmácias, incluindo informações de contato e sua localização geográfica. As farmácias cadastradas são automaticamente inseridas em um mapa que exibe marcadores com a localização exata de cada estabelecimento. Os usuários têm a capacidade de entrar em contato diretamente com as farmácias, seja via WhatsApp Web ou o aplicativo WhatsApp, por meio de um link que contém o número de celular cadastrado na aplicação.
 
@@ -38,18 +38,45 @@ Para implementação das funcionalidades foram desenvolvidas as seguintes págin
 
 ### 1. Login de Usuário
 Permite realizar autenticação de usuário através de email e senha para acesso a aplicação.
+<p align="center">
+  <img alt="pharma-kontroll" src="./screen-shots/screen-shot-1.PNG" width="35%">
+</p>
+
 ### 2. Cadastro de Usuário
-Utilizado para registrar emaile senha escolhida pelo usuário.
+Utilizado para registrar email e senha escolhida pelo usuário.
+<p align="center">
+  <img alt="pharma-kontroll" src="./screen-shots/screen-shot-2.PNG" width="35%">
+</p>
+
 ### 3. Home da Aplicação
 Tela de boas vindas a aplicação.
-### 4. Cadastro de Medicmaneto
+<p align="center">
+  <img alt="pharma-kontroll" src="./screen-shots/screen-shot-3.PNG" width="35%">
+</p>
+
+### 4. Cadastro de Medicamento
 Página de formulário para realizar registro de um novo medicamento. 
+<p align="center">
+  <img alt="pharma-kontroll" src="./screen-shots/screen-shot-4.PNG" width="35%">
+</p>
+
 ### 5. Cadastro de Farmácia
 Página para cadastro de uma nova farmácia, realiza consulta do CEP inserido e preenchimento automático do endereço através do serviço [Via CEP](https://viacep.com.br/).
+<p align="center">
+  <img alt="pharma-kontroll" src="./screen-shots/screen-shot-5.PNG" width="35%">
+</p>
+
 ### 6. Lista de Medicamento
-Exibe todos os medicamentos cadastrados. Permite acessar todas as cadastradas do medicamento com click em sua imagem ou nome. Também é possível relizar busca por nome do medicamento e filtrar por tipo de medicamento.
+Exibe todos os medicamentos cadastrados. Permite acessar todas as cadastradas do medicamento com click em sua imagem ou nome. Também é possível realizar busca por nome do medicamento e filtrar por tipo de medicamento.
+<p align="center">
+  <img alt="pharma-kontroll" src="./screen-shots/screen-shot-6.PNG" width="35%">
+</p>
+
 ### 7. Mapa de Farmácias
-Exibe mapa com marcadores de todas as farmácias cadastradas. No marcador de localização e possível ter acesso a todas as informações da farmácia cadastrada e também com um clink no link de número de celular abrir automaticamente o aplicativo WhatsApp para iniciar uma conversa.
+Exibe mapa com marcadores de todas as farmácias cadastradas. No marcador de localização e possível ter acesso a todas as informações da farmácia cadastrada e também com um click no link de número de celular abrir automaticamente o aplicativo WhatsApp para iniciar uma conversa.
+<p align="center">
+  <img alt="pharma-kontroll" src="./screen-shots/screen-shot-7.PNG" width="35%">
+</p>
 
 ## 🏃 Iniciando o Projeto
 Primeiro clone este repositório remoto em sua máquina local:
@@ -76,7 +103,7 @@ Acesse [http://localhost:5173/](http://localhost:5173/) com seu navegador para a
 ## 💹 Possíveis Melhorias
 
 Como a aplicação está atualmente em estágio de protótipo funcional podem ser aplicadas diversas melhorias ou criação de novas funcionalidades:
-- Opção de editar ou remorer registro de medicamento ou farmácia.
+- Opção de editar ou remover registro de medicamento ou farmácia.
 - Integração com Backend e Banco de Dados para armazenamento dos registros da aplicação.
 
 ## 📝 Licença
