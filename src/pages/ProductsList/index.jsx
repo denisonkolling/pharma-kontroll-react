@@ -106,7 +106,7 @@ const ProductsList = () => {
 									<strong>Preço</strong> R$ {productId[0]?.preco}
 								</p>
 								<p>
-									<strong>Tipo</strong> {productId[0]?.tipo}
+									<strong>Tipo Medicamento</strong> {productId[0]?.tipo}
 								</p>
 								{productId[0]?.descricao ? (
 									<p>

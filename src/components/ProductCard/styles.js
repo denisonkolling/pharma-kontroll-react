@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 export const CardTitle = styled.h4`
 	text-align: center;
 	padding-top: 10px;
+	font-family: Roboto, sans-serif;
 `;
 
 export const Product = styled.div`
@@ -11,7 +12,7 @@ export const Product = styled.div`
 	box-sizing: border-box;
 	float: left;
 	text-align: center;
-	border-radius: 20px;
+	border-radius: 12px;
 	cursor: pointer;
 	padding-top: 10px;
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -29,7 +30,7 @@ export const Img = styled.img`
 	text-align: center;
 	margin: 0 auto;
 	display: block;
-	border-radius: 20px;
+	border-radius: 12px;
 `;
 
 export const CardText = styled.p`

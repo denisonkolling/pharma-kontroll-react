@@ -26,7 +26,8 @@ export const TextArea = styled.textarea`
 	padding: 10px;
 	margin-top: 25px;
 	font-size: 16px;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: Roboto, sans-serif;
+	outline-color: #A883FF;
 `;
 
 export const Label = styled.label`
@@ -44,6 +45,7 @@ export const Input = styled.input`
 	font-size: 16px;
 	background-color: #f0f2f5;
 	border: 1px solid darkgrey;
+	outline-color: #A883FF;
 `;
 export const Row = styled.div`
 	display: flex;

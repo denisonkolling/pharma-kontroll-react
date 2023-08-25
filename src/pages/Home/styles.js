@@ -17,3 +17,16 @@ export const Hr = styled.hr`
 	color: #fafafa60;
 	margin: 20px 0;
 `;
+
+export const SmallCard = styled.div`
+	border: solid 1px darkgrey;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 8px;
+	background: #f2f2f2;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+`;
+
+export const Paragraph = styled.p`
+margin-top: 5px;
+`

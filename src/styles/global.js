@@ -12,7 +12,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 `;

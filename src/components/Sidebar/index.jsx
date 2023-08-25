@@ -42,7 +42,7 @@ const Sidebar = () => {
 				<StyledFontAwesomeIcon icon={faMap} />
 				<Span>Mapa Farmácias</Span>
 			</NavbarLink>
-			<NavbarLink to="/login">
+			<NavbarLink to="/login" style={{marginTop: '165%'}} onClick={logout}>
 				<StyledFontAwesomeIcon icon={faRightFromBracket} />
 				<Span>Logout</Span>
 			</NavbarLink>
