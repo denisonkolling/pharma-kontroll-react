@@ -1,6 +1,6 @@
-import { Button, Input, Container } from '../../components';
+import { Button, Input } from '../../components';
 import { useState } from 'react';
-import { Content, Label, LabelError, LabelSignin, Strong } from './styles';
+import { Content, Label, LabelError, LabelSignin, Strong, Container} from './styles';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { faPrescriptionBottleMedical } from '@fortawesome/free-solid-svg-icons';

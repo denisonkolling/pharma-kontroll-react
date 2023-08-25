@@ -38,3 +38,13 @@ export const LabelError = styled.label`
 	font-size: 14px;
 	color: red;
 `;
+
+export const Container = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 10px;
+	width: 100%;
+	height: ${props => props.height};
+`;

@@ -14,9 +14,12 @@ export const Body = styled.body`
 
 export const Container = styled.aside`
 	background-color: #c6b2f3;
-	width: 350px;
+	width: 300px;
 	height: 100vh;
-
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
 	@media (min-width: 480px) and (max-width: 1160px) {
 		width: 12%;
 		width: 95px;

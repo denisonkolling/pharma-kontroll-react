@@ -1,10 +1,10 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Label, LabelError, Content, Strong, LabelSignup } from './styles';
+import { Label, LabelError, Content, Strong, LabelSignup, Container } from './styles';
 import { AuthContext } from '../../context/AuthContext';
 import { faCheck, faUser  } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Modal, Input, Container } from '../../components';
+import { Button, Modal, Input} from '../../components';
 
 const Signup = () => {
 	const { addUser, checkEmail, checkPassword } = useContext(AuthContext);
@@ -32,13 +32,13 @@ const Signup = () => {
 			return;
 		}
 		addUser(email, password );
-		setSuccess('Usuário cadastrado com sucesso!');
+		setSuccess('Conta de usuário criada com sucesso!');
 		setModalOpened(true);
 		cleanForm();
 
 		setTimeout(() => {
 			navigate('/login');
-		}, 1000);
+		}, 1300);
 		
 	};
 
@@ -81,8 +81,8 @@ const Signup = () => {
 				</LabelSignup>
 				<Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
 					<LabelSignup>
-						<FontAwesomeIcon icon={faCheck} />
-						&nbsp; {success} &nbsp;Seja bem vindo(a)!
+						<FontAwesomeIcon icon={faCheck} style={{ color: '#4daf23' }} />
+						&nbsp; {success} &nbsp;
 					</LabelSignup>
 				</Modal>
 			</Content>

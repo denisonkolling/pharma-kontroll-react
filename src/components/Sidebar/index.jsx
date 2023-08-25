@@ -13,7 +13,8 @@ import {
 	faPrescriptionBottleMedical,
 	faMap,
 	faList,
-	faRightFromBracket
+	faRightFromBracket,
+	faHouseMedical
 } from '@fortawesome/free-solid-svg-icons';
 
 const Sidebar = () => {
@@ -27,7 +28,7 @@ const Sidebar = () => {
 				<Span>Home</Span>
 			</NavbarLink>
 			<NavbarLink to="/cadastro-farmacia">
-				<StyledFontAwesomeIcon icon={faStore} />
+				<StyledFontAwesomeIcon icon={faHouseMedical} />
 				<Span>Nova Farmácia</Span>
 			</NavbarLink>
 			<NavbarLink to="/cadastro-medicamento">

@@ -59,7 +59,8 @@ const ProductsList = () => {
 							/>
 							<StyledFontAwesomeIcon icon={faMagnifyingGlass} />
 						</InputWrapper>
-						<Container style={{ marginTop: '15px', flexDirection: 'row' }}>
+					</Header>
+						<div style={{ display: 'flex', marginTop: '25px', flexDirection: 'row', justifyContent: 'center', gap: '10px'}}>
 							<ButtonSmall onClick={() => setType('Comum')} Text="Comum">
 								Comum
 							</ButtonSmall>
@@ -71,8 +72,7 @@ const ProductsList = () => {
 							<ButtonSmall onClick={() => setType('')} Text="Todos">
 								Todos
 							</ButtonSmall>
-						</Container>
-					</Header>
+						</div>
 
 					<Gallery>
 						<>

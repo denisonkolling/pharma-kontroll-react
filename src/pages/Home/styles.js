@@ -29,4 +29,5 @@ export const SmallCard = styled.div`
 
 export const Paragraph = styled.p`
 margin-top: 5px;
+color: #676767;
 `

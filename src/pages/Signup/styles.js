@@ -38,3 +38,13 @@ export const Strong = styled.strong`
     color: #676767;
   }
 `;
+
+export const Container = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 10px;
+	width: 100%;
+	height: ${props => props.height};
+`;
