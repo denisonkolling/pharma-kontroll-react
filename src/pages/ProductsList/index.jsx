@@ -20,6 +20,7 @@ import {
 	HrLine,
 	Container,
 	Button,
+	LabelMessage,
 } from '../../components';
 
 const ProductsList = () => {
@@ -75,17 +76,23 @@ const ProductsList = () => {
 
 					<Gallery>
 						<>
-							{filteredProducts.length === 0 ? (
-								<p>Medicamento não encontrado...</p>
+							{listProducts.length === 0 ? (
+								<LabelMessage>Não existem medicamentos cadastrados!</LabelMessage>
 							) : (
 								<>
-									{filteredProducts.map((product, index) => (
-										<ProductCard
-											key={index}
-											product={product}
-											onClick={() => handleOpenModal(product.id)}
-										/>
-									))}
+									{filteredProducts.length === 0 ? (
+										<LabelMessage>Medicamento não encontrado...</LabelMessage>
+									) : (
+										<>
+											{filteredProducts.map((product, index) => (
+												<ProductCard
+													key={index}
+													product={product}
+													onClick={() => handleOpenModal(product.id)}
+												/>
+											))}
+										</>
+									)}
 								</>
 							)}
 						</>
@@ -106,7 +113,7 @@ const ProductsList = () => {
 									<strong>Preço</strong> R$ {productId[0]?.preco}
 								</p>
 								<p>
-									<strong>Tipo Medicamento</strong> {productId[0]?.tipo}
+									<strong>Tipo de Medicamento</strong> {productId[0]?.tipo}
 								</p>
 								{productId[0]?.descricao ? (
 									<p>

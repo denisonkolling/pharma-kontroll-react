@@ -47,5 +47,14 @@ export const Content = styled.div`
 `;
 
 export const ButtonSmall = styled.button`
-padding: 5px;
+padding: 8px;
+font-family: Roboto, sans-serif;
+color: white;
+background-color: #A883FF;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+&:hover{
+    opacity: 0.75;
+  }
 `
