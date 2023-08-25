@@ -35,6 +35,7 @@ export const Input = styled.input`
 	font-size: 16px;
 	background-color: #f0f2f5;
 	border: 1px solid darkgrey;
+	outline-color: #A883FF;
 `;
 export const Row = styled.div`
 	display: flex;

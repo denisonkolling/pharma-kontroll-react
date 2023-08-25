@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Content, Label, LabelError, LabelSignin, Strong } from './styles';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import { faPrescriptionBottleMedical } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Login = () => {
 	const { login } = useAuth();
@@ -45,7 +47,7 @@ const Login = () => {
 	return (
 		<Container height="100vh">
 			<Content>
-			<Label>Pharma Kontroll</Label>
+			<Label><FontAwesomeIcon icon={faPrescriptionBottleMedical} /> Pharma Kontroll</Label>
 			<LabelSignin>Para acessar sua conta realize o login</LabelSignin>
 				<Input
 					type="email"

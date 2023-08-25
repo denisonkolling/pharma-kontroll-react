@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Label, LabelError, Content, Strong, LabelSignup } from './styles';
 import { AuthContext } from '../../context/AuthContext';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faUser  } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Modal, Input, Container } from '../../components';
 
@@ -62,7 +62,7 @@ const Signup = () => {
 	return (
 		<Container height="100vh">
 			<Content>
-			<Label>Conta de Usuário</Label>
+			<Label><FontAwesomeIcon icon={faUser} /> Conta de Usuário</Label>
 			<LabelSignup> Preencha seus dados para registrar-se</LabelSignup>
 				<Input
 					type="email"
