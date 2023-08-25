@@ -22,7 +22,7 @@ const Sidebar = () => {
 
 	return (
 		<Container>
-			<SidebarHeader>Menu</SidebarHeader>
+			<SidebarHeader>Pharma Kontroll</SidebarHeader>
 			<NavbarLink to="/home">
 				<StyledFontAwesomeIcon icon={faHouse} />
 				<Span>Home</Span>
@@ -43,7 +43,7 @@ const Sidebar = () => {
 				<StyledFontAwesomeIcon icon={faMap} />
 				<Span>Mapa Farmácias</Span>
 			</NavbarLink>
-			<NavbarLink to="/login" style={{marginTop: '165%'}} onClick={logout}>
+			<NavbarLink to="/login" onClick={logout}>
 				<StyledFontAwesomeIcon icon={faRightFromBracket} />
 				<Span>Logout</Span>
 			</NavbarLink>

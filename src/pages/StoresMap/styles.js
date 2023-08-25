@@ -7,12 +7,12 @@ export const Content = styled.div`
 `;
 
 export const Loader = styled.span`
-margin-top: 25%;
-margin-left: 45%;
+	margin-top: 25%;
+	margin-left: 45%;
 	width: 48px;
 	height: 48px;
 	border: 5px solid #fff;
-	border-bottom-color: #A883FF;
+	border-bottom-color: #a883ff;
 	border-radius: 50%;
 	display: inline-block;
 	box-sizing: border-box;

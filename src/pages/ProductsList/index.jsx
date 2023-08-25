@@ -52,6 +52,7 @@ const ProductsList = () => {
 					<Header>
 						<InputWrapper>
 							<Input
+								style={{ backgroundColor: 'white' }}
 								type="text"
 								value={search}
 								placeholder="Encontre um medicamento..."
@@ -60,24 +61,33 @@ const ProductsList = () => {
 							<StyledFontAwesomeIcon icon={faMagnifyingGlass} />
 						</InputWrapper>
 					</Header>
-						<div style={{ display: 'flex', marginTop: '25px', flexDirection: 'row', justifyContent: 'center', gap: '10px'}}>
-							<ButtonSmall onClick={() => setType('Comum')} Text="Comum">
-								Comum
-							</ButtonSmall>
-							<ButtonSmall
-								onClick={() => setType('Controlado')}
-								Text="Controlado">
-								Controlado
-							</ButtonSmall>
-							<ButtonSmall onClick={() => setType('')} Text="Todos">
-								Todos
-							</ButtonSmall>
-						</div>
+					<div
+						style={{
+							display: 'flex',
+							marginTop: '25px',
+							flexDirection: 'row',
+							justifyContent: 'center',
+							gap: '10px',
+						}}>
+						<ButtonSmall onClick={() => setType('Comum')} Text="Comum">
+							Comum
+						</ButtonSmall>
+						<ButtonSmall
+							onClick={() => setType('Controlado')}
+							Text="Controlado">
+							Controlado
+						</ButtonSmall>
+						<ButtonSmall onClick={() => setType('')} Text="Todos">
+							Todos
+						</ButtonSmall>
+					</div>
 
 					<Gallery>
 						<>
 							{listProducts.length === 0 ? (
-								<LabelMessage>Não existem medicamentos cadastrados!</LabelMessage>
+								<LabelMessage>
+									Não existem medicamentos cadastrados!
+								</LabelMessage>
 							) : (
 								<>
 									{filteredProducts.length === 0 ? (

@@ -14,8 +14,9 @@ export const Buttons = styled.div`
 	display: flex;
 	margin-top: 25px;
 	justify-content: end;
-
-	
+	@media (max-width: 770px) {
+		justify-content: center;
+	}
 `;
 
 export const TextArea = styled.textarea`

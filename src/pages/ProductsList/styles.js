@@ -22,7 +22,7 @@ export const InputWrapper = styled.div`
 
 export const Header = styled.header`
 	color: white;
-	padding: 1.5rem;
+	padding: 0.5rem;
 	width: 100%;
 `;
 
@@ -32,6 +32,9 @@ export const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 	position: absolute;
 	right: 1.2rem;
 	bottom: 0.65rem;
+	@media (max-width: 768px) {
+		right: 0.6rem;
+	}
 `;
 
 export const ProductInfo = styled.div`
@@ -47,14 +50,14 @@ export const Content = styled.div`
 `;
 
 export const ButtonSmall = styled.button`
-padding: 8px;
-font-family: Roboto, sans-serif;
-color: white;
-background-color: #A883FF;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-&:hover{
-    opacity: 0.75;
-  }
-`
+	padding: 8px;
+	font-family: Roboto, sans-serif;
+	color: white;
+	background-color: #a883ff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	&:hover {
+		opacity: 0.75;
+	}
+`;

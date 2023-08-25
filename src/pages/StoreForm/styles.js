@@ -1,7 +1,5 @@
 import { styled } from 'styled-components';
 
-
-
 export const Content = styled.div`
 	width: 100%;
 	height: 100vh;
@@ -35,7 +33,7 @@ export const Input = styled.input`
 	font-size: 16px;
 	background-color: #fff;
 	border: 1px solid #ccc;
-	outline-color: #A883FF;
+	outline-color: #a883ff;
 `;
 export const Row = styled.div`
 	display: flex;
@@ -47,18 +45,18 @@ export const Row = styled.div`
 	}
 `;
 export const Column = styled.div`
-display: flex;
-flex-direction: column;
-width: 100%;
-padding: 0px 15px; 
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0px 15px;
 `;
 
 export const ColumnSmall = styled.div`
-display: flex;
-flex-direction: column;
-width: 25%;
-padding: 0px 15px; 
-@media (max-width: 768px) {
-	width: 100%;
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+	padding: 0px 15px;
+	@media (max-width: 768px) {
+		width: 100%;
 	}
 `;

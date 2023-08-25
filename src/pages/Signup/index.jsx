@@ -1,10 +1,17 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Label, LabelError, Content, Strong, LabelSignup, Container } from './styles';
+import {
+	Label,
+	LabelError,
+	Content,
+	Strong,
+	LabelSignup,
+	Container,
+} from './styles';
 import { AuthContext } from '../../context/AuthContext';
-import { faCheck, faUser  } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Modal, Input} from '../../components';
+import { Button, Modal, Input } from '../../components';
 
 const Signup = () => {
 	const { addUser, checkEmail, checkPassword } = useContext(AuthContext);
@@ -15,7 +22,6 @@ const Signup = () => {
 	const [success, setSuccess] = useState('');
 	const [modalOpened, setModalOpened] = useState(false);
 	const navigate = useNavigate();
-
 
 	const handleSignup = () => {
 		if (!email | !emailConf | !password) {
@@ -31,7 +37,7 @@ const Signup = () => {
 			setMessage('Senha deve conter no mínimo 8 números e letras!');
 			return;
 		}
-		addUser(email, password );
+		addUser(email, password);
 		setSuccess('Conta de usuário criada com sucesso!');
 		setModalOpened(true);
 		cleanForm();
@@ -39,7 +45,6 @@ const Signup = () => {
 		setTimeout(() => {
 			navigate('/login');
 		}, 1300);
-		
 	};
 
 	const cleanForm = () => {
@@ -51,8 +56,11 @@ const Signup = () => {
 	return (
 		<Container height="100vh">
 			<Content>
-			<Label><FontAwesomeIcon icon={faUser} /> Conta de Usuário</Label>
-			<LabelSignup> Preencha seus dados para registrar-se</LabelSignup>
+				<Label style={{ fontSize: '30px' }}>
+					<FontAwesomeIcon icon={faUser} style={{ color: '#9775e5' }} /> Conta
+					de Usuário
+				</Label>
+				<LabelSignup> Preencha seus dados para registrar-se</LabelSignup>
 				<Input
 					type="email"
 					placeholder="Digite com seu email..."

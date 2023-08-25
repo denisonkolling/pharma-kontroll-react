@@ -46,5 +46,5 @@ export const Container = styled.div`
 	flex-direction: column;
 	gap: 10px;
 	width: 100%;
-	height: ${props => props.height};
+	height: ${(props) => props.height};
 `;

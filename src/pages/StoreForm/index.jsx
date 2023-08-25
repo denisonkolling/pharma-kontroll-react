@@ -1,11 +1,20 @@
 import { Column, Input } from './styles';
-import { 	Form,	Label,	Content,	Row,	Buttons,	ColumnSmall,} from './styles';
+import { Form, Label, Content, Row, Buttons, ColumnSmall } from './styles';
 import { useState } from 'react';
 import useStore from '../../hooks/useStore';
 import { api } from '../../services/api';
 import { faCheck, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {	Wrapper,	Sidebar, Title,	Modal,	Button,	LabelMessage, HrLine, Container} from '../../components';
+import {
+	Wrapper,
+	Sidebar,
+	Title,
+	Modal,
+	Button,
+	LabelMessage,
+	HrLine,
+	Container,
+} from '../../components';
 
 const StoreForm = () => {
 	const { addStore } = useStore();
@@ -178,13 +187,13 @@ const StoreForm = () => {
 						</Row>
 						<Row>
 							<Column>
-								<Label>E-mail</Label>
+								<Label>Email</Label>
 								<Input
 									required
 									type="email"
 									onChange={handleChange}
 									name="email"
-									placeholder="E-mail de contato..."
+									placeholder="Email de contato..."
 									value={store.email}
 								/>
 							</Column>
@@ -214,7 +223,7 @@ const StoreForm = () => {
 								/>
 							</ColumnSmall>
 						</Row>
-
+						<HrLine />
 						<Row>
 							<ColumnSmall>
 								<Label>CEP</Label>
@@ -321,7 +330,10 @@ const StoreForm = () => {
 							</ColumnSmall>
 						</Row>
 						<Buttons>
-							<Button Text="Salvar" Type="Submit" style={{width: '200px'}}></Button>
+							<Button
+								Text="Salvar"
+								Type="Submit"
+								style={{ width: '200px', backgroundColor: '#A883FF' }}></Button>
 						</Buttons>
 					</Form>
 					<Modal
@@ -329,9 +341,9 @@ const StoreForm = () => {
 						onClose={() => setModalOpened(!modalOpened)}>
 						<LabelMessage>
 							{message.includes('CEP') ? (
-								<FontAwesomeIcon icon={faX} style={{color: "#c31d1d"}}/>
+								<FontAwesomeIcon icon={faX} style={{ color: '#c31d1d' }} />
 							) : (
-								<FontAwesomeIcon icon={faCheck} style={{color: "#4daf23"}}/>
+								<FontAwesomeIcon icon={faCheck} style={{ color: '#4daf23' }} />
 							)}
 							&nbsp;&nbsp;&nbsp;&nbsp;{message}
 						</LabelMessage>
