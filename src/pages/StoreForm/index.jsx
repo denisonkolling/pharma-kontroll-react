@@ -66,7 +66,7 @@ const StoreForm = () => {
 
 		cleanForm();
 		setModalOpened(true);
-		setMessage('Farmácia adicionado com sucesso!');
+		setMessage('Farmácia adicionada com sucesso!');
 	};
 
 	async function findAddress(e) {
@@ -89,9 +89,7 @@ const StoreForm = () => {
 			}
 		} catch (error) {
 			setModalOpened(true);
-			setMessage(
-				'Estamos com problemas na consulta de CEP! Tente novamente!' + error
-			);
+			setMessage('Estamos com problemas na consulta de CEP! Tente novamente!');
 		}
 		return;
 	}
@@ -136,10 +134,10 @@ const StoreForm = () => {
 
 	const maskPhone = (phone) => {
 		return phone
-			.replace(/\D/g, '')
-			.replace(/(\d{2})(\d)/, '($1) $2')
-			.replace(/(\d)(\d{4})$/, '$1-$2');
-	};
+		.replace(/\D/g, '')
+		.replace(/(\d{2})(\d)/, '($1) $2')
+		.replace(/(\d)(\d{4})$/, '$1-$2');
+	}
 
 	return (
 		<Wrapper>
@@ -202,6 +200,7 @@ const StoreForm = () => {
 								<Input
 									type="text"
 									onChange={handleChange}
+									onBlur={handleChange}
 									name="telefone"
 									minLength={14}
 									maxLength={14}
