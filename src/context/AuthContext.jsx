@@ -21,17 +21,28 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	const login = (email, password) => {
-		const user = usersList?.filter((user) => user.email === email);
+		const user = usersList?.find((user) => user.email === email);
 
-		if (!usersList) {
+		if (!user) {
 			return 'E-mail não cadastrado';
 		}
-		if (user[0].email == email && user[0].password == password) {
+
+		if (user.password === password) {
 			setIsLogged(true);
-			return;
 		} else {
-			return 'E-mail e senha incorretos';
+			return 'Senha incorreta';
 		}
+	};
+
+	const checkEmail = (email) => {
+		const regex =
+			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return regex.test(email);
+	};
+
+	const checkPassword = (password) => {
+		const regex = /^(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]{8,20}$/;
+		return regex.test(password);
 	};
 
 	const logout = () => {
@@ -40,7 +51,15 @@ export const AuthProvider = ({ children }) => {
 
 	return (
 		<AuthContext.Provider
-			value={{ usersList, addUser, login, logout, isLogged }}>
+			value={{
+				usersList,
+				addUser,
+				login,
+				logout,
+				isLogged,
+				checkEmail,
+				checkPassword,
+			}}>
 			{children}
 		</AuthContext.Provider>
 	);

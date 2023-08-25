@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Modal, Input, Container } from '../../components';
 
 const Signup = () => {
-	const { addUser } = useContext(AuthContext);
+	const { addUser, checkEmail, checkPassword } = useContext(AuthContext);
 	const [email, setEmail] = useState('');
 	const [emailConf, setEmailConf] = useState('');
 	const [password, setPassword] = useState('');
@@ -46,17 +46,6 @@ const Signup = () => {
 		setEmail('');
 		setEmailConf('');
 		setPassword('');
-	};
-
-	const checkEmail = (email) => {
-		const regex =
-			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return regex.test(email);
-	};
-
-	const checkPassword = (password) => {
-		const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8}$/;
-		return regex.test(password);
 	};
 
 	return (

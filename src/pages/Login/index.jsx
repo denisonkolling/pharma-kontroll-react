@@ -7,7 +7,7 @@ import { faPrescriptionBottleMedical } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Login = () => {
-	const { login } = useAuth();
+	const { login, checkEmail, checkPassword } = useAuth();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [message, setMessage] = useState('');
@@ -16,10 +16,6 @@ const Login = () => {
 	const handleLogin = () => {
 		if (!checkEmail(email)) {
 			setMessage('Preencha email corretamente');
-			return;
-		}
-		if (!checkPassword(password)) {
-			setMessage('Senha deve conter 8 números e letras');
 			return;
 		}
 
@@ -33,22 +29,13 @@ const Login = () => {
 		navigate('/home');
 	};
 
-	const checkEmail = (email) => {
-		const regex =
-			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return regex.test(email);
-	};
-
-	const checkPassword = (password) => {
-		const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8}$/;
-		return regex.test(password);
-	};
-
 	return (
 		<Container height="100vh">
 			<Content>
-			<Label><FontAwesomeIcon icon={faPrescriptionBottleMedical} /> Pharma Kontroll</Label>
-			<LabelSignin>Para acessar sua conta realize o login</LabelSignin>
+				<Label>
+					<FontAwesomeIcon icon={faPrescriptionBottleMedical} /> Pharma Kontroll
+				</Label>
+				<LabelSignin>Para acessar sua conta realize o login</LabelSignin>
 				<Input
 					type="email"
 					value={email}

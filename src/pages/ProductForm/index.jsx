@@ -26,7 +26,7 @@ const ProductForm = () => {
 		dosagem: '',
 		descricao: '',
 		preco: '',
-		tipo: '',
+		tipo: 'Selecione',
 	});
 
 	const handleChange = (e) => {
@@ -37,7 +37,7 @@ const ProductForm = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		if (product.tipo == 0 || product.tipo == 'Selecione') {
+		if (product.tipo == 'Selecione') {
 			setModalOpened(true);
 			setMessage('Selecione o tipo de medicamento!');
 			return;
