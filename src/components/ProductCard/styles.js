@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 export const CardTitle = styled.h4`
 	text-align: center;
 	padding-top: 10px;
+	font-family: Roboto, sans-serif;
 `;
 
 export const Product = styled.div`
