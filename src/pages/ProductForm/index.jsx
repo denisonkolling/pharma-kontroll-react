@@ -132,20 +132,20 @@ const ProductForm = () => {
 									onBlur={handleChange}
 								/>
 							</Column>
-						</Row>
 						<Column>
-							<Select>
+							
 								<Label htmlFor="tipo">Tipo</Label>
-								<select
+								<Select
 									name="tipo"
 									onChange={handleChange}
 									onBlur={handleChange}>
 									<option value="Selecione">&nbsp;&nbsp;&nbsp;-----&nbsp;&nbsp;Selecione&nbsp;&nbsp;-----</option>
 									<option value="Controlado">Medicamento Controlado</option>
 									<option value="Comum">Medicamento Comum</option>
-								</select>
-							</Select>
+								</Select>
+							
 						</Column>
+						</Row>
 						<HrLine />
 						<Column>
 							<Label>Descrição</Label>
@@ -160,7 +160,7 @@ const ProductForm = () => {
 							</Row>
 
 							<Buttons>
-								<Button Text="Salvar" Type="Submit"></Button>
+								<Button Text="Salvar" Type="Submit" style={{width: '200px'}}></Button>
 							</Buttons>
 						</Column>
 					</Form>

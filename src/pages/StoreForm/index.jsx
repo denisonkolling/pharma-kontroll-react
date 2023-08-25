@@ -321,7 +321,7 @@ const StoreForm = () => {
 							</ColumnSmall>
 						</Row>
 						<Buttons>
-							<Button Text="Salvar" Type="Submit"></Button>
+							<Button Text="Salvar" Type="Submit" style={{width: '200px'}}></Button>
 						</Buttons>
 					</Form>
 					<Modal
