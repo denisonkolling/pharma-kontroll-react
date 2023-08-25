@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
-import { Content } from './styles';
+import { Content, Loader } from './styles';
 import Map from '../../components/Map';
 import { StoreContext } from '../../context/StoreContext';
-import {	Wrapper,	Sidebar, Title, HrLine, Container } from '../../components';
+import { Wrapper, Sidebar, Title, HrLine, Container } from '../../components';
 
 const StoresMap = () => {
 	const { listStore } = useContext(StoreContext);
@@ -19,10 +19,6 @@ const StoresMap = () => {
 		load();
 	}, []);
 
-	if (loading || !stores) {
-		return <p>Carregando mapa...</p>;
-	}
-
 	return (
 		<Wrapper>
 			<Sidebar />
@@ -30,14 +26,20 @@ const StoresMap = () => {
 				<Content>
 					<Title>Nossas Lojas</Title>
 					<HrLine />
-					<Map
-						positions={stores}
-						center={
-							stores[0]
-								? [stores[0].latitude, stores[0].longitude]
-								: [-27.5961, -48.5651]
-						}
-					/>
+					{loading || !stores ? (
+						<Loader></Loader>
+					) : (
+						<>
+							<Map
+								positions={stores}
+								center={
+									stores[0]
+										? [stores[0].latitude, stores[0].longitude]
+										: [-27.5961, -48.5651]
+								}
+							/>
+						</>
+					)}
 				</Content>
 			</Container>
 		</Wrapper>

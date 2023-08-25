@@ -28,7 +28,7 @@ const Signup = () => {
 			setMessage('Preencha email corretamente');
 			return;
 		} else if (!checkPassword(password)) {
-			setMessage('Senha deve conter 8 números e letras');
+			setMessage('Senha deve conter no mínimo 8 números e letras!');
 			return;
 		}
 		addUser(email, password );
