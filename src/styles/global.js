@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -9,8 +9,6 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
   background-image: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);
   font-family: Roboto, sans-serif;
 }

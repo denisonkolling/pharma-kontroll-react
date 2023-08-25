@@ -1,13 +1,20 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Label, LabelError, Content, Strong, LabelSignup } from './styles';
+import {
+	Label,
+	LabelError,
+	Content,
+	Strong,
+	LabelSignup,
+	Container,
+} from './styles';
 import { AuthContext } from '../../context/AuthContext';
-import { faCheck, faUser  } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Modal, Input, Container } from '../../components';
+import { Button, Modal, Input } from '../../components';
 
 const Signup = () => {
-	const { addUser } = useContext(AuthContext);
+	const { addUser, checkEmail, checkPassword } = useContext(AuthContext);
 	const [email, setEmail] = useState('');
 	const [emailConf, setEmailConf] = useState('');
 	const [password, setPassword] = useState('');
@@ -15,7 +22,6 @@ const Signup = () => {
 	const [success, setSuccess] = useState('');
 	const [modalOpened, setModalOpened] = useState(false);
 	const navigate = useNavigate();
-
 
 	const handleSignup = () => {
 		if (!email | !emailConf | !password) {
@@ -28,18 +34,17 @@ const Signup = () => {
 			setMessage('Preencha email corretamente');
 			return;
 		} else if (!checkPassword(password)) {
-			setMessage('Senha deve conter 8 números e letras');
+			setMessage('Senha deve conter no mínimo 8 números e letras!');
 			return;
 		}
-		addUser(email, password );
-		setSuccess('Usuário cadastrado com sucesso!');
+		addUser(email, password);
+		setSuccess('Conta de usuário criada com sucesso!');
 		setModalOpened(true);
 		cleanForm();
 
 		setTimeout(() => {
 			navigate('/login');
-		}, 1000);
-		
+		}, 1300);
 	};
 
 	const cleanForm = () => {
@@ -48,22 +53,14 @@ const Signup = () => {
 		setPassword('');
 	};
 
-	const checkEmail = (email) => {
-		const regex =
-			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return regex.test(email);
-	};
-
-	const checkPassword = (password) => {
-		const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8}$/;
-		return regex.test(password);
-	};
-
 	return (
 		<Container height="100vh">
 			<Content>
-			<Label><FontAwesomeIcon icon={faUser} /> Conta de Usuário</Label>
-			<LabelSignup> Preencha seus dados para registrar-se</LabelSignup>
+				<Label style={{ fontSize: '30px' }}>
+					<FontAwesomeIcon icon={faUser} style={{ color: '#9775e5' }} /> Conta
+					de Usuário
+				</Label>
+				<LabelSignup> Preencha seus dados para registrar-se</LabelSignup>
 				<Input
 					type="email"
 					placeholder="Digite com seu email..."
@@ -92,8 +89,8 @@ const Signup = () => {
 				</LabelSignup>
 				<Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
 					<LabelSignup>
-						<FontAwesomeIcon icon={faCheck} />
-						&nbsp; {success} &nbsp;Seja bem vindo(a)!
+						<FontAwesomeIcon icon={faCheck} style={{ color: '#4daf23' }} />
+						&nbsp; {success} &nbsp;
 					</LabelSignup>
 				</Modal>
 			</Content>

@@ -7,7 +7,7 @@ export const ButtonStyled = styled.button`
   border-radius: 5px;
   width: ${props => props.height || '100%'};
   cursor: pointer;
-  background-color: #368BEA;
+  background-color: #A883FF;
   color: white;
   font-weight: 600;
   font-size: 16px;

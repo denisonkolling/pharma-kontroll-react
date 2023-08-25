@@ -14,9 +14,12 @@ export const Body = styled.body`
 
 export const Container = styled.aside`
 	background-color: #c6b2f3;
-	width: 350px;
+	width: 300px;
 	height: 100vh;
-
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
 	@media (min-width: 480px) and (max-width: 1160px) {
 		width: 12%;
 		width: 95px;
@@ -49,7 +52,8 @@ export const SidebarHeader = styled.header`
 	text-align: center;
 	background-color: #c6b2f3;
 	user-select: none;
-	font-family: 'Lato', sans-serif;
+	font-family: Roboto, sans-serif;
+	font-weight: 500;
 	@media (max-width: 1160px) {
 		font-size: 0;
 	}
@@ -64,7 +68,7 @@ export const NavbarLink = styled(Link)`
 	padding-left: 30px;
 	box-sizing: border-box;
 	border-left: 5px solid transparent;
-	font-family: 'Lato', sans-serif;
+	font-family: Roboto, sans-serif;
 	transition: all 0.5s ease;
 	text-decoration: none;
 

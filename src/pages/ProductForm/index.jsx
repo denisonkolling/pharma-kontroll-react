@@ -26,7 +26,7 @@ const ProductForm = () => {
 		dosagem: '',
 		descricao: '',
 		preco: '',
-		tipo: '',
+		tipo: 'Selecione',
 	});
 
 	const handleChange = (e) => {
@@ -37,7 +37,7 @@ const ProductForm = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		if (product.tipo == 0 || product.tipo == 'Selecione') {
+		if (product.tipo == 'Selecione') {
 			setModalOpened(true);
 			setMessage('Selecione o tipo de medicamento!');
 			return;
@@ -91,7 +91,7 @@ const ProductForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="nome"
-									placeholder="Insira o nome do medicamento..."
+									placeholder="Insira nome do medicamento..."
 									value={product.nome}
 								/>
 							</Column>
@@ -102,7 +102,7 @@ const ProductForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="laboratorio"
-									placeholder="Insira o laboratório fabricante..."
+									placeholder="Insira laboratório fabricante..."
 									value={product.laboratorio}
 								/>
 							</Column>
@@ -127,25 +127,25 @@ const ProductForm = () => {
 									type="text"
 									onChange={handleChange}
 									name="preco"
-									placeholder="9,99"
+									placeholder="10,99"
 									value={maskPrice(product.preco)}
 									onBlur={handleChange}
 								/>
 							</Column>
-						</Row>
-						<Column>
-							<Select>
+							<Column>
 								<Label htmlFor="tipo">Tipo</Label>
-								<select
+								<Select
 									name="tipo"
 									onChange={handleChange}
 									onBlur={handleChange}>
-									<option value="Selecione">&nbsp;&nbsp;&nbsp;-----&nbsp;&nbsp;Selecione&nbsp;&nbsp;-----</option>
+									<option value="Selecione">
+										&nbsp;&nbsp;&nbsp;-----&nbsp;&nbsp;Selecione&nbsp;&nbsp;-----
+									</option>
 									<option value="Controlado">Medicamento Controlado</option>
 									<option value="Comum">Medicamento Comum</option>
-								</select>
-							</Select>
-						</Column>
+								</Select>
+							</Column>
+						</Row>
 						<HrLine />
 						<Column>
 							<Label>Descrição</Label>
@@ -160,7 +160,13 @@ const ProductForm = () => {
 							</Row>
 
 							<Buttons>
-								<Button Text="Salvar" Type="Submit"></Button>
+								<Button
+									Text="Salvar"
+									Type="Submit"
+									style={{
+										width: '200px',
+										backgroundColor: '#A883FF',
+									}}></Button>
 							</Buttons>
 						</Column>
 					</Form>

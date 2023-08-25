@@ -20,6 +20,7 @@ import {
 	HrLine,
 	Container,
 	Button,
+	LabelMessage,
 } from '../../components';
 
 const ProductsList = () => {
@@ -51,6 +52,7 @@ const ProductsList = () => {
 					<Header>
 						<InputWrapper>
 							<Input
+								style={{ backgroundColor: 'white' }}
 								type="text"
 								value={search}
 								placeholder="Encontre um medicamento..."
@@ -58,34 +60,49 @@ const ProductsList = () => {
 							/>
 							<StyledFontAwesomeIcon icon={faMagnifyingGlass} />
 						</InputWrapper>
-						<Container style={{ marginTop: '15px', flexDirection: 'row' }}>
-							<ButtonSmall onClick={() => setType('Comum')} Text="Comum">
-								Comum
-							</ButtonSmall>
-							<ButtonSmall
-								onClick={() => setType('Controlado')}
-								Text="Controlado">
-								Controlado
-							</ButtonSmall>
-							<ButtonSmall onClick={() => setType('')} Text="Todos">
-								Todos
-							</ButtonSmall>
-						</Container>
 					</Header>
+					<div
+						style={{
+							display: 'flex',
+							marginTop: '25px',
+							flexDirection: 'row',
+							justifyContent: 'center',
+							gap: '10px',
+						}}>
+						<ButtonSmall onClick={() => setType('Comum')} Text="Comum">
+							Comum
+						</ButtonSmall>
+						<ButtonSmall
+							onClick={() => setType('Controlado')}
+							Text="Controlado">
+							Controlado
+						</ButtonSmall>
+						<ButtonSmall onClick={() => setType('')} Text="Todos">
+							Todos
+						</ButtonSmall>
+					</div>
 
 					<Gallery>
 						<>
-							{filteredProducts.length === 0 ? (
-								<p>Medicamento não encontrado...</p>
+							{listProducts.length === 0 ? (
+								<LabelMessage>
+									Não existem medicamentos cadastrados!
+								</LabelMessage>
 							) : (
 								<>
-									{filteredProducts.map((product, index) => (
-										<ProductCard
-											key={index}
-											product={product}
-											onClick={() => handleOpenModal(product.id)}
-										/>
-									))}
+									{filteredProducts.length === 0 ? (
+										<LabelMessage>Medicamento não encontrado...</LabelMessage>
+									) : (
+										<>
+											{filteredProducts.map((product, index) => (
+												<ProductCard
+													key={index}
+													product={product}
+													onClick={() => handleOpenModal(product.id)}
+												/>
+											))}
+										</>
+									)}
 								</>
 							)}
 						</>
@@ -106,7 +123,7 @@ const ProductsList = () => {
 									<strong>Preço</strong> R$ {productId[0]?.preco}
 								</p>
 								<p>
-									<strong>Tipo Medicamento</strong> {productId[0]?.tipo}
+									<strong>Tipo de Medicamento</strong> {productId[0]?.tipo}
 								</p>
 								{productId[0]?.descricao ? (
 									<p>

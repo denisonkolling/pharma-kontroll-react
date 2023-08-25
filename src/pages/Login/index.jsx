@@ -1,13 +1,20 @@
-import { Button, Input, Container } from '../../components';
+import { Button, Input } from '../../components';
 import { useState } from 'react';
-import { Content, Label, LabelError, LabelSignin, Strong } from './styles';
+import {
+	Content,
+	Label,
+	LabelError,
+	LabelSignin,
+	Strong,
+	Container,
+} from './styles';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { faPrescriptionBottleMedical } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Login = () => {
-	const { login } = useAuth();
+	const { login, checkEmail, checkPassword } = useAuth();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [message, setMessage] = useState('');
@@ -16,10 +23,6 @@ const Login = () => {
 	const handleLogin = () => {
 		if (!checkEmail(email)) {
 			setMessage('Preencha email corretamente');
-			return;
-		}
-		if (!checkPassword(password)) {
-			setMessage('Senha deve conter 8 números e letras');
 			return;
 		}
 
@@ -33,22 +36,17 @@ const Login = () => {
 		navigate('/home');
 	};
 
-	const checkEmail = (email) => {
-		const regex =
-			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return regex.test(email);
-	};
-
-	const checkPassword = (password) => {
-		const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8}$/;
-		return regex.test(password);
-	};
-
 	return (
 		<Container height="100vh">
 			<Content>
-			<Label><FontAwesomeIcon icon={faPrescriptionBottleMedical} /> Pharma Kontroll</Label>
-			<LabelSignin>Para acessar sua conta realize o login</LabelSignin>
+				<Label style={{ fontSize: '30px' }}>
+					<FontAwesomeIcon
+						icon={faPrescriptionBottleMedical}
+						style={{ color: '#9775e5' }}
+					/>{' '}
+					Pharma Kontroll
+				</Label>
+				<LabelSignin>Para acessar sua conta realize o login</LabelSignin>
 				<Input
 					type="email"
 					value={email}
