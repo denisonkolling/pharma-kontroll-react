@@ -13,7 +13,8 @@ export const ContainerStyled = styled.div`
 	@media (min-width: 480px) and (max-width: 1200px) {
 		margin-left: 16%;
 	}
-	@media (max-width: 480px) {
-		margin-left: 60px;
+	@media (max-width: 510px) {
+		margin-left: 0px;
+		margin-top: 50px;
 	}
 `;

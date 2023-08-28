@@ -21,10 +21,9 @@ export const Container = styled.aside`
 	left: 0;
 	z-index: 1;
 	@media (min-width: 480px) and (max-width: 1160px) {
-		width: 12%;
 		width: 95px;
 	}
-	@media (max-width: 480px) {
+	@media (max-width: 510px) {
 		width: 100vw;
 		height: 50px;
 		display: flex;
@@ -72,7 +71,7 @@ export const NavbarLink = styled(Link)`
 	transition: all 0.5s ease;
 	text-decoration: none;
 
-	@media (max-width: 480px) {
+	@media (max-width: 510px) {
 		height: 50px;
 	}
 	@media (max-width: 1160px) {
